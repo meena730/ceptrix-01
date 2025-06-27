@@ -1,0 +1,273 @@
+body {
+  /* display: none; */
+}
+
+.cpl-001 .custom-squatch-section {
+  background: #f9f6f3;
+}
+.cpl-001 .container {
+  width: 100%;
+  max-width: 1365px;
+  margin: 0 auto;
+  padding: 45px 137px;
+}
+
+.cpl-001 .heading {
+  color: #345a40;
+  text-align: center;
+  font-family: Adrianna, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 40px;
+  width: 100%;
+}
+
+.cpl-001 .feature-list {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+  padding: 46px 0;
+}
+
+.cpl-001 .product-image {
+  max-width: 479.5px;
+  width: 100%;
+  height: 312px;
+  background: url("https://res.cloudinary.com/diwhc4afs/image/upload/v1750846975/62c7040071a006501e4460cb_DrSquatch-Website2022-Images-2_1_xqh70x.svg")
+    lightgray 50% / cover no-repeat;
+  border-radius: 8px;
+}
+
+.cpl-001 .custom-squatch-details {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  flex: 1;
+}
+
+.cpl-001 .custom-squatch-details strong {
+  color: #1a110c;
+  font-family: Adrianna;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 20px; /* 111.111% */
+}
+
+.cpl-001 .custom-squatch-details p {
+  color: #345a40;
+  font-family: Adrianna;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  display: flex;
+  flex-direction: column;
+}
+
+.cpl-001 #sub-link {
+  display: flex;
+  width: 238px;
+  height: 41px;
+  padding: var(--Padding-Properties-8px-padding, 8px);
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  border-radius: 5px;
+  border: 1px solid var(--cc-6328-squatch-orange, #cc6328);
+  background: var(--cc-6328-squatch-orange, #cc6328);
+  color: #fff;
+  text-align: center;
+  font-family: Adrianna;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px;
+  text-transform: uppercase;
+  margin: auto;
+  margin-top: 2px;
+}
+
+.cpl-001 .feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 21px;
+  margin: 2px;
+}
+
+.cpl-001 .first-icon {
+  gap: 35px;
+  margin-top: 11px;
+}
+.cpl-001 .second-icon {
+  gap: 21px;
+}
+.cpl-001 .third-icon {
+  margin-bottom: 7px;
+  gap: 10px;
+}
+.cpl-001 .first-icon img {
+  max-width: 54px;
+  margin-top: 9px;
+}
+
+.cpl-001 .second-icon img {
+  max-width: 70px;
+  margin-top: 15px;
+}
+.cpl-001 .third-icon img {
+  max-width: 78px;
+}
+.cpl-001.third-img {
+  max-width: 70px;
+}
+
+/* // table-layout: */
+
+@media (max-width: 991px) {
+  .cpl-001 .container {
+    padding: 30px 20px;
+  }
+
+  .cpl-001 .feature-list {
+    flex-direction: column;
+    gap: 40px;
+    padding: 30px 0;
+  }
+
+  .cpl-001 .product-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 49/32;
+  }
+
+  .cpl-001 .heading {
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  .cpl-001 .custom-squatch-details {
+    gap: 20px;
+    align-items: center;
+  }
+
+  .cpl-001 .feature-item {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
+    padding: 13px 48px;
+  }
+
+  .cpl-001 .feature-item img {
+    max-width: 60px;
+  }
+
+  .cpl-001 #sub-link {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* // On mobile */
+
+@media (max-width: 767px) {
+  .cpl-001 .custom-squatch-section {
+    width: 100%;
+  }
+  .cpl-001 .container {
+    padding: 16px 24px;
+    margin-top: -11px;
+  }
+  .cpl-001 .heading {
+    text-align: center;
+    font-family: Adrianna;
+    font-size: 36px;
+
+    font-weight: 800;
+    line-height: 40px; /* 111.111% */
+  }
+
+  .cpl-001 .feature-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    padding-top: 25px;
+    align-self: stretch;
+  }
+
+  .cpl-001 .product-image {
+    width: 343px;
+    height: 224px;
+    aspect-ratio: 49/32;
+  }
+
+  .cpl-001 .custom-squatch-details {
+    gap: 48px;
+  }
+
+  .cpl-001 .custom-squatch-details strong {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .cpl-001 .custom-squatch-details p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .cpl-001 #sub-link {
+    width: 239px;
+    height: auto;
+    font-size: 14px;
+    padding: 10px;
+    letter-spacing: 2px;
+  }
+
+  .cpl-001 .feature-item {
+    gap: 12px;
+    height: 78px;
+    padding: 0;
+    align-items: center;
+  }
+
+  .cpl-001 .feature-item p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+  }
+
+  .cpl-001 .feature-item p strong {
+    font-size: 18px;
+    font-style: normal;
+    line-height: 20px; /* 111.111% */
+  }
+
+  .cpl-001 .first-icon {
+    gap: 25px;
+    margin-top: 2px;
+  }
+  .cpl-001 .second-icon {
+    margin-top: -10px;
+    gap: 15px;
+  }
+  .cpl-001 .third-icon {
+    gap: 15px;
+    margin-top: 11px;
+  }
+
+  .cpl-001 .first-icon img {
+    margin-bottom: 33px;
+  }
+  .cpl-001 .second-icon img {
+    margin-bottom: 28px;
+  }
+  .cpl-001 .third-icon img {
+    margin-bottom: 39px;
+  }
+}
