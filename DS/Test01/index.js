@@ -32,7 +32,7 @@ const check = setInterval(() => {
     const target = section.closest(".page-section");
 
     if (target) {
-      // Hide 
+      // Hide existing one
       target.childNodes.forEach((child) => {
         if (child.style) child.style.display = "none";
       });
@@ -85,11 +85,16 @@ const check = setInterval(() => {
       // Prepend 
       target.prepend(wrapper);
 
-      console.log("✅ Custom section added.");
+      console.log("Custom section added.");
     }
   }
 }, 500);
 
+
+
+
+
+// ita also working---------------------------------------
 // const interval = setInterval(() => {
 //   const target = document.querySelectorAll(
 //     "#app #main > div > .w-full:nth-child(2) > .relative > .page-section"

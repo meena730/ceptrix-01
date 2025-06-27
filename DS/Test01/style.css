@@ -1,6 +1,4 @@
-body {
-  /* display: none; */
-}
+
 
 .cpl-001 .custom-squatch-section {
   background: #f9f6f3;
@@ -123,7 +121,7 @@ body {
   max-width: 70px;
 }
 
-/* // table-layout: */
+/* // tablet-layout: */
 
 @media (max-width: 991px) {
   .cpl-001 .container {
