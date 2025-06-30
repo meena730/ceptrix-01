@@ -1,0 +1,294 @@
+body.cpl-001 > * {
+  display: none !important;
+}
+body.cpl-001 > .form-demo {
+  display: block !important;
+}
+
+.cpl-001 .container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  max-width: 1815px;
+}
+.cpl-001 .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: auto; */
+  margin-top: 44px;
+  /* text-align: center; */
+}
+
+.cpl-001 .form-box {
+  background-color: white;
+  width: 50%;
+  padding: 40px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width:665px ;
+}
+
+.cpl-001 .subheading {
+  color: #4f5d6c;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px; /* 105% */
+  margin-top: 80px;
+}
+
+.cpl-001 .heading {
+  color: #000;
+  font-family: Metric;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 67px; /* 95.714% */
+  letter-spacing: -1.12px;
+  text-align: center;
+}
+
+.cpl-001 .demo-form .row {
+  display: flex;
+  gap: 10px;
+}
+.cpl-001 .demo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cpl-001 .input-group {
+  position: relative;
+  flex: 1;
+}
+
+.cpl-001 .input-group input,
+.cpl-001 .input-group select,
+.cpl-001 .input-group textarea {
+  width: 100%;
+  padding: 14px 12px 6px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: transparent;
+  outline: none;
+  /* transition: border-color 0.3s; */
+  max-width: 210px;
+  height: 40px;
+  width: 100%;
+}
+
+.cpl-001 .input-group label {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  font-size: 14px;
+  color: #777;
+  background: white;
+  /* transition: all 0.2s ease; */
+  pointer-events: none;
+  padding: 0 4px;
+}
+
+.cpl-001 .input-group input:focus,
+.cpl-001 .input-group select:focus,
+.cpl-001 .input-group textarea:focus {
+  border-color: #657484;
+}
+
+.cpl-001 .input-group input:focus + label,
+.cpl-001 .input-group input.not-empty + label,
+.cpl-001 .input-group input.filled + label,
+.cpl-001 .input-group select:focus + label,
+.cpl-001 .input-group select.filled + label,
+.cpl-001 .input-group select.not-empty + label,
+.cpl-001 .input-group textarea:focus + label,
+.cpl-001 .input-group textarea.filled + label,
+.cpl-001 .input-group textarea.not-empty + label {
+  top: -8px;
+  left: 8px;
+  font-size: 12px;
+  color: #5a5a5c;
+}
+
+.cpl-001 .input-group input,
+.cpl-001 .input-group select {
+  border: 1px solid #ccc;
+  transition: border 0.2s ease;
+}
+.input-group.is-error input:focus + label,
+.input-group.is-error input.not-empty + label,
+.input-group.is-error input.filled + label,
+.input-group.is-error select:focus + label,
+.input-group.is-error select.filled + label,
+.input-group.is-error select.not-empty + label,
+.input-group.is-error textarea:focus + label,
+.input-group.is-error textarea.filled + label,
+.input-group.is-error textarea.not-empty + label {
+  color: #ff4d4f; /* red c */
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Error */
+.input-group.is-error input,
+.input-group.is-error select {
+  border-color: #ff4d4f;
+  /* color: red; */
+}
+
+.input-group .error-message {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: -29px;
+  display: none;
+}
+
+/*  error */
+.input-group.is-error .error-message {
+  display: block;
+}
+
+.demo-form button {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  height: 55px;
+  padding: 15px 46px 16px 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  background: #ed0149;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.29);
+
+  color: #fff;
+  font-family: Metric;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 120% */
+}
+
+.footer-text {
+  margin-top: 30px;
+  color: #777;
+  font-size: 14px;
+  text-align: center;
+}
+
+.right-side {
+  width: 100%;
+  max-width: 800px;
+  background-image: url("https://res.cloudinary.com/diwhc4afs/image/upload/v1751262537/coffee-cup-laptop-keyboard-and-various-stationery-items-on-blue-office-desk-business-office_ocghod.webp");
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.right-side::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid white;
+}
+
+/* Tablet (max-width: 921px) */
+@media (max-width: 921px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .form-box,
+  .right-side {
+    width: 100%;
+    height: auto;
+  }
+
+  .form-box {
+    padding: 30px 20px;
+  }
+
+  .heading {
+    font-size: 48px;
+    line-height: 54px;
+  }
+
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    max-width: 100%;
+  }
+
+  .demo-form .row {
+    flex-direction: column;
+  }
+
+  .demo-form button {
+    max-width: 100%;
+  }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .heading {
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+  }
+
+  .subheading {
+    font-size: 16px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .logo {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .form-box {
+    padding: 20px 15px;
+  }
+
+  .demo-form {
+    gap: 16px;
+  }
+
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    font-size: 15px;
+    height: 38px;
+  }
+
+  .demo-form button {
+    font-size: 18px;
+    height: 48px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+    margin-top: 20px;
+  }
+}
