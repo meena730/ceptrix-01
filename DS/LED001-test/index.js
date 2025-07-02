@@ -12,14 +12,14 @@ if (
   const subtitle = document.querySelector(".subtitle");
   if (subtitle) {
     subtitle.classList.add("hide-title1");
-    subtitle.style.display = "none";     
+    // subtitle.style.display = "none";     
 
   }
 
   const banner = document.querySelector(".subtitle-banner");
   if (banner) {
     banner.classList.add("hide-banner1");
-    banner.style.display = "none";
+    // banner.style.display = "none";
   }
 
   const content = document.querySelector(".plan-description .content");
