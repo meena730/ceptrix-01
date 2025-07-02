@@ -13,7 +13,7 @@ if (
   if (subtitle) {
     subtitle.classList.add("hide-title1");
     subtitle.style.display = "none";     
-    
+
   }
 
   const banner = document.querySelector(".subtitle-banner");
@@ -122,4 +122,13 @@ if (
 
   const formTitle = document.querySelector(".form-title");
   if (formTitle) formTitle.style.display = "none";
+
+
+  // document.querySelector(".form-title").classList.add("hide-title");
+  // document
+  //   .querySelector("plan-layout > plan-left-column > plan-form > form-subtitle")
+  //   ?.classList.add("hide-subtitle");
+  // document
+  //   .querySelector(".plan-layout .plan-right-column .plan-content span")
+  //   ?.classList.add("hide-span");
 }

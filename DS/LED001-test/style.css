@@ -1,13 +1,25 @@
 /* body.cpl-001  {
   display: none !important;
 } */
-
+/* 
 body .cpl-001 .hide-title1 {
   display: none !important;
 }
 
 body .cpl-001 .hide-banner1 {
   display: none !important;
+} */
+
+hide-this-title {
+  display: none !important;
+}
+
+body.cpl-001 .hide-subtitle {
+  display: none;
+}
+
+body.cpl-001 .hide-span {
+  display: none;
 }
 
 .fixture-box {
@@ -46,8 +58,11 @@ body .cpl-001 .hide-banner1 {
 
 @media (min-width: 360px) and (max-width: 767px) {
   .cpl-001 .fixture-box {
-    padding: 25px 318px;
+    padding: 25px 18px;
     margin-left: 0px;
+  }
+  .fixture-box img {
+    margin-right: 0;
   }
 }
 
