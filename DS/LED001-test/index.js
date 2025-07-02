@@ -1,59 +1,125 @@
-document.body.classList.add("cpl-001");
+// Fan
+if (
+  window.location.href ===
+  "https://www.ledlightingsupply.com/ceiling-fan-layout"
+) {
+  document.body.classList.add("cpl-001");
 
-const head1 = document.querySelector(".title");
-console.log(head1);
-head1.innerHTML = "Custom Fan Plan with free Consultation";
+  const head1 = document.querySelector(".title");
+  console.log(head1);
+  head1.innerHTML = "Custom Fan Plan with free Consultation";
 
-document.querySelector(".subtitle").style.display = "none";
+  const subtitle = document.querySelector(".subtitle");
+  if (subtitle) {
+    subtitle.classList.add("hide-title1");
+    subtitle.style.display = "none";     
+    
+  }
 
-document.querySelector(".subtitle-banner").style.display = "none";
+  const banner = document.querySelector(".subtitle-banner");
+  if (banner) {
+    banner.classList.add("hide-banner1");
+    banner.style.display = "none";
+  }
 
-const planContents = document.querySelectorAll(".plan-description .content");
+  const content = document.querySelector(".plan-description .content");
 
-planContents.forEach((contentBlock) => {
-  const newHTML = `
-    <div class="variant">
-      <div>
-        <h3 class="head">Fixture Count & Recommendations</h3>
-        <p>
-          Our professionally designed lighting plan comes with recommended products
-          for improved energy efficiency and reduced maintenance.
-        </p>
-      </div>
-      <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751356625/advice_1_1_botbrx.png" alt="icon" />
-    </div>
-  `;
+  const htmlTemplate = `
+  <div class="fixture-box">
+        <div>
+          <h3>Fixture Count & Recommendations</h3>
+          <p>
+            Our Professionally designed lighting plan comes with recommended products
+            for improved energy efficiency and reduced maintenance.
+          </p>
+        </div>
+        <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751356625/advice_1_1_botbrx.png" alt="icon" />
+      </div> 
+`;
 
-  contentBlock.insertAdjacentHTML("afterend", newHTML);
-});
-
-
-
-
-// 04
-const content4 = document.querySelector(".plan-description .content");
-const span4 = content4.getElementsByTagName("span")[0];
-
-if (span4) {
-  span4.style.background = "#f0f0f0";
-  span4.style.display = "none";
+  if (content) {
+    content.insertAdjacentHTML("afterend", htmlTemplate);
+  }
 }
 
+// PhotoLighting -code
 
+// const title1 = document.querySelector(".plan-title");
+// console.log(title1);
+// title1.innerHTML = "Custom Lighting Plan with free Consultation";
 
-// 05
-//   add new id then access
-// const content5 = document.querySelector(".plan-description .content");
+// const target = document.querySelector(
+//   ".plan-layout > .plan-right-column > .plan-content"
+// );
 
-// if (content5) {
-//   content5.id = "myContentId";
+// const newHTML = `
+//   <div class="fixture-box">
+//         <div>
+//           <h3>Fixture Count & Recommendations</h3>
+//           <p>
+//             Our Professionally designed lighting plan comes with recommended products
+//             for improved energy efficiency and reduced maintenance.
+//           </p>
+//         </div>
+//         <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751356625/advice_1_1_botbrx.png" alt="icon" />
+//       </div>
+// `;
+
+// if (target) {
+//   target.insertAdjacentHTML("afterend", newHTML);
 // }
 
-// const element = document.getElementById("myContentId");
-
-// if (element && element.firstElementChild) {
-//   element.firstElementChild.style.display = "none";
+// const span = document.querySelector(
+//   ".plan-layout .plan-right-column .plan-content span"
+// );
+// if (span) {
+//   span.style.display = "none";
 // }
 
+// document.querySelector(".form-subtitle").style.display = "none";
 
+// document.querySelector(".form-title").style.display = "none";
 
+if (
+  window.location.href === "https://www.ledlightingsupply.com/photometric-plan"
+) {
+  const title1 = document.querySelector(".plan-title");
+  console.log(title1);
+  if (title1) {
+    title1.innerHTML = "Custom Lighting Plan with free Consultation";
+  }
+
+  const target = document.querySelector(
+    ".plan-layout > .plan-right-column > .plan-content"
+  );
+
+  const newHTML = `
+    <div class="fixture-box">
+        <div>
+          <h3>Fixture Count & Recommendations</h3>
+          <p>
+            Our Professionally designed lighting plan comes with recommended products
+            for improved energy efficiency and reduced maintenance.
+          </p>
+        </div>
+        <img src="https://res.cloudinary.com/diilhbcp9/image/upload/v1751356625/advice_1_1_botbrx.png" alt="icon" />
+      </div> 
+  `;
+
+  if (target) {
+    target.insertAdjacentHTML("afterend", newHTML);
+  }
+
+  const span = document.querySelector(
+    ".plan-layout .plan-right-column .plan-content span"
+  );
+  if (span) {
+    span.style.display = "none";
+  }
+
+  const subtitle = document.querySelector(".form-subtitle");
+  if (subtitle) subtitle.style.display = "none";
+
+  const formTitle = document.querySelector(".form-title");
+  if (formTitle) formTitle.style.display = "none";
+}
