@@ -11,19 +11,20 @@ body.cpl-001 .hide-banner1 {
 }
 
 /* LED-Section */
-hide-this-title {
+
+.cpl-001 .hide-span1 {
   display: none !important;
 }
 
-body.cpl-001 .hide-subtitle {
-  display: none;
+.cpl-001 .hide-subtitle1 {
+  display: none !important;
 }
 
-body.cpl-001 .hide-span {
-  display: none;
+.cpl-001 .hide-form-title1 {
+  display: none !important;
 }
 
-.fixture-box {
+.cpl-001 .fixture-box {
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   padding: 25px 38px;
@@ -37,7 +38,7 @@ body.cpl-001 .hide-span {
   max-width: 100%;
 }
 
-.fixture-box h3 {
+.cpl-001 .fixture-box h3 {
   margin: 0 0 6px;
   color: #565656;
   font-size: 22px;
@@ -45,14 +46,14 @@ body.cpl-001 .hide-span {
   line-height: 27px;
 }
 
-.fixture-box p {
+.cpl-001 .fixture-box p {
   margin: 0;
   font-size: 14px;
   color: #555;
 }
 
-.fixture-box img {
-  margin-right: 26px;
+.cpl-001 .fixture-box img {
+  margin-right: 21px;
   width: 48px;
   height: 48px;
 }
@@ -62,7 +63,7 @@ body.cpl-001 .hide-span {
     padding: 25px 18px;
     margin-left: 0px;
   }
-  .fixture-box img {
+  .cpl-001 .fixture-box img {
     margin-right: 0;
   }
 }
@@ -72,7 +73,7 @@ body.cpl-001 .hide-span {
     margin-left: 0;
     padding: 25px 18px;
   }
-  .fixture-box img {
-    margin-right: -6px;
+  .cpl-001 .fixture-box img {
+    margin-right: 56px;
   }
 }
