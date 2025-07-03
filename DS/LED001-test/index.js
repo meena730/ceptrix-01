@@ -47,11 +47,47 @@ if (
 }
 
 // Photometric Plan Page
-if (
-  window.location.href.includes(
-    "https://www.ledlightingsupply.com/photometric-plan"
-  )
-) {
+// if (
+//   window.location.href.includes(
+//     "https://www.ledlightingsupply.com/photometric-plan"
+//   )
+// ) {
+//   const title1 = document.querySelector(".plan-title");
+//   if (title1) {
+//     title1.innerHTML = "Custom Lighting Plan with free Consultation";
+//   }
+//   document.body.classList.add("cpl-001");
+
+//   const target = document.querySelector(
+//     ".plan-layout > .plan-right-column > .plan-content"
+//   );
+
+//   const photoPara = `Our Professionally designed ceiling fan layout comes with recommended products for improved energy efficiency and reduced maintenance.`;
+
+//   if (!document.querySelector(".fixture-box") && target) {
+//     target.insertAdjacentHTML("afterend", sharedHTML(photoPara));
+//   }
+
+//   const span = document.querySelector(
+//     ".plan-layout .plan-right-column .plan-content span"
+//   );
+//   if (span) {
+//     span.classList.add("hide-span1");
+//   }
+
+//   const subtitle = document.querySelector(".form-subtitle");
+//   if (subtitle) {
+//     subtitle.classList.add("hide-subtitle1");
+//   }
+
+//   const formTitle = document.querySelector(".form-title");
+//   if (formTitle) {
+//     formTitle.classList.add("hide-form-title1");
+//   }
+// }
+
+if (window.location.pathname.indexOf("/photometric-plan") !== -1) {
+  
   const title1 = document.querySelector(".plan-title");
   if (title1) {
     title1.innerHTML = "Custom Lighting Plan with free Consultation";
