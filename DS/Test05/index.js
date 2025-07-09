@@ -27,6 +27,10 @@ if (body.classList.contains("tax-product_cat")) {
   // updateButtons();
 
   //  ---------------------MutationObserver
+
+  const targetNode = document.querySelector("body");
+  // const targetNode = document.querySelector("cpl-002");
+
   const observer = new MutationObserver((mutationsList) => {
     mutationsList.forEach((mutation) => {
       if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
@@ -35,7 +39,8 @@ if (body.classList.contains("tax-product_cat")) {
     });
   });
 
-  const targetNode = document.querySelector("body");
+  
+
   if (targetNode) {
     observer.observe(targetNode, {
       childList: true,

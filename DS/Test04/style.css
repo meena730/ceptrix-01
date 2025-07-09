@@ -169,8 +169,8 @@ html {
   border-radius: 10px;
   margin-top: 0;
   position: absolute;
-  top: -70px;
-  left: 56px;
+  top: -74px;
+  left: 67px;
 }
 
 .trusted-by-logos {
@@ -187,7 +187,7 @@ html {
   padding-bottom: 71px;
   margin-top: 74px;
   gap: 40px;
-  padding: 6px 138px 0 152px;
+  padding: 6px 138px 0 59px;
 }
 .logos-wrapper img {
   max-height: 65px;
@@ -195,9 +195,10 @@ html {
   filter: brightness(0) invert(1);
 }
 .trusted-by {
-  height: 12px;
-  margin-right: 101px;
-  margin-left: -90px;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-right: 113px;
 }
 .rogers {
   margin-left: 5px;
@@ -581,10 +582,9 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
-    padding: 0px 60px;
-    margin-top: 436px;
-    gap: 38px 56px;
+    padding: 0px 0;
+    margin-top: 427px;
+    gap: 24px 52px;
   }
 
   .logos-wrapper img {
@@ -754,9 +754,9 @@ html {
   .cpl-001 .logos-wrapper {
     padding: 0px 0px;
     gap: 24px;
-    gap: 13px 33px;
-    margin-right: 28px;
-    margin-top: 30px;
+    gap: 8px 36px;
+    margin-right: 13px;
+    margin-top: 20px;
   }
   .cpl-001 .card-item-left img {
     max-width: 100%;
