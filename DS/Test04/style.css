@@ -1,102 +1,85 @@
 .cpl-001 .ribbon-two-column .region.region-main-content.container {
   display: none !important;
 }
-body {
-  overflow-x: hidden;
-}
-
-.cpl-001 .hide {
-  display: none !important;
-}
 html {
   overflow-x: hidden;
 }
 
-.cpl-001 .container1 {
-  max-width: 1440px;
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1236px;
   width: 100%;
-  margin: 0 auto;
-  /* background-image: url("https://res.cloudinary.com/diwhc4afs/image/upload/v1751866110/Background_snjqo6.png"); */
+  margin: 0px auto;
 }
 
-/* Hero background */
-.cpl-001 .hero-wrapper {
-  /* background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1751866697/Background_erhar3.png"); */
-  background: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1751866697/Background_erhar3.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* margin: 0 auto; */
+.hero-wrapper {
+  background: linear-gradient(to right, #1e0033, #3c0059);
 }
 
-/* Main wrapper block */
-.cpl-001 .custom-block-wrapper {
+.custom-block-wrapper {
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   justify-content: space-between;
   color: white;
-  padding: 40px;
   border-radius: 12px;
   gap: 30px;
+  padding: 0 114px;
+  padding-bottom: 92px;
 }
 
-/* Content section - on the left */
 .custom-block-content {
   width: 50%;
-  max-width: 600px;
-  min-width: 280px;
 }
 
 .custom-block-content h2 {
   color: #fff;
   font-family: Roboto;
-  font-size: 48px;
+  font-size: 47px;
   font-style: normal;
   font-weight: 700;
   line-height: 130%;
-
-  margin-top: -14px;
-  margin-left: 40px;
 }
 
 .highlight {
   background: linear-gradient(180deg, #ed37ce 58.06%, #4d1543 96.37%);
   background-clip: text;
-  -webkit-background-clip: text;
+  --webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Roboto;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 130%;
+  font-size: 47px;
+
   border-left: none;
   padding: 0px;
 }
 
 .custom-block-content ul {
-  padding-left: 49.9px;
-  padding-top: 10px;
+  padding-top: 13px;
   letter-spacing: -0.3px;
 }
+
 .custom-block-content li {
   margin-bottom: 17px;
   list-style: none;
   position: relative;
-  padding-left: 24px;
 }
 
 .custom-block-content li::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: -32px;
   top: 3px;
-  width: 16px;
-  height: 16px;
-  background-image: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1751625586/Frame_1000003327_ratlkz.png");
+  width: 22px;
+  height: 22px;
+  background-image: url(https://res.cloudinary.com/diilhbcp9/image/upload/v1751625586/Frame_1000003327_ratlkz.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
+.desktop {
+  display: block;
+}
 
-/* Email input + button */
 .email-signup {
   display: flex;
   align-items: center;
@@ -107,31 +90,17 @@ html {
 
   gap: 93px;
   margin-top: 43px;
-  margin-left: 44px;
 }
 
 .email-signup input {
   border: none;
-  outline: none;
   padding: 14px 20px;
-  border-radius: 999px 0 0 999px;
-  font-size: 14px;
-  color: #333;
-  width: 220px;
+
+  width: 211px;
   display: flex;
-  height: 56px;
   padding: 0px 16px;
-  align-items: center;
-  gap: 8px;
-  flex: 1 0 0;
-  color: rgba(0, 0, 0, 0.6);
-  leading-trim: both;
-  text-edge: cap;
-  font-family: Roboto;
+
   font-size: 19px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 17px;
 }
 
 .email-signup button {
@@ -140,11 +109,7 @@ html {
   color: white;
   padding: 14px 24px;
   font-size: 15px;
-  cursor: pointer;
-  border-radius: 0 999px 999px 0;
-  white-space: nowrap;
-  transition: background-color 0.3s ease;
-  display: flex;
+
   height: 56px;
   padding: 0px 40px;
   justify-content: center;
@@ -159,98 +124,90 @@ html {
 }
 
 .custom-block-image {
-  width: 55%;
+  width: 46%;
+
   position: relative;
 }
 
 .custom-block-image img {
   max-width: 924px;
-  width: 150%;
-  border-radius: 10px;
-  margin-top: 0;
-  position: absolute;
-  top: -74px;
-  left: 67px;
-}
-
-.trusted-by-logos {
-  margin-top: 40px;
-  padding: 30px 0;
-  background: transparent;
 }
 
 .logos-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  flex-wrap: wrap;
   padding-bottom: 71px;
-  margin-top: 74px;
-  gap: 40px;
-  padding: 6px 138px 0 59px;
+  margin-top: -36px;
+  gap: 109px;
+  padding: 6px 119px 0 50px;
 }
-.logos-wrapper img {
-  max-height: 65px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
+
 .trusted-by {
   color: white;
   font-size: 16px;
-  margin-top: 10px;
-  margin-right: 113px;
+  margin-top: 2px;
+  width: 188px;
+  margin-left: 64px;
 }
 .rogers {
   margin-left: 5px;
   margin-right: 12px;
 }
+.trusted-by-logos {
+  margin-top: 40px;
+  padding: 30px 0;
+  background: transparent;
+}
+
+.logos-wrapper img {
+  max-height: 65px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
 
 .card-section {
-  padding: 82px 0;
+  padding: 100px 0px;
   background-color: #f9f9f9;
 }
 
 .card-row {
   display: flex;
-  gap: 46px;
+  gap: 29px;
+
+  text-align: center;
+  max-width: 1458px;
   justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: -69px;
 }
 
 .card-item-left {
-  flex: 1 1 45%;
-  padding: 68px;
   border-radius: 12px;
-  text-align: left;
-  margin-top: 71px;
-  margin-left: -147px;
+  text-align: center;
+
+  max-width: 516px;
+  width: 100%;
+  margin: 0 61px;
+  margin-top: 43px;
 }
 
 .card-item-left:hover {
   transform: translateY(-5px);
 }
 
-.card-item-left img {
-  max-width: 107%;
-  height: auto;
-  margin-bottom: 18px;
-}
-
 .card-subtitle-left {
-  margin-left: 32px;
   color: #d81990;
-  text-align: center;
   font-family: Roboto;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%;
   letter-spacing: 0.42px;
   text-transform: uppercase;
-  margin-top: 17px;
+  margin-top: 35px;
+  max-width: 499px;
 }
-
+.card-section.card-row {
+  content: none !important;
+}
 .card-title-left {
   color: #282828;
   text-align: center;
@@ -259,9 +216,9 @@ html {
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
-  margin-top: 0px;
-  margin-right: -16px;
-  margin-left: 12px;
+  max-width: 463px;
+  width: 100%;
+  margin: 0 20px;
 }
 
 .card-desc-left {
@@ -272,9 +229,8 @@ html {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
-  margin-right: -34px;
-  margin-top: 15px;
-  margin-left: -2px;
+  margin: 14px 9px;
+  max-width: 485px;
 }
 
 .card-btn-left {
@@ -282,13 +238,12 @@ html {
   border: 2px solid #d600af;
   color: #d600af;
   text-decoration: none;
-  border-radius: 99px;
+  border-radius: 999px;
   font-weight: 600;
   padding: 12px 35px;
-  margin-left: 169px;
   border-radius: 999px;
   border: 2px solid #ff007f;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .card-btn-left:hover {
@@ -296,27 +251,18 @@ html {
   color: white;
 }
 
-/* RIGHT CARD STYLES */
 .card-item-right {
-  flex: 1 1 45%;
-  padding: 42px;
-  border-radius: 12px;
-  text-align: left;
-  margin-top: 78px;
-  margin-left: 35px;
-  margin-right: 4px;
+  background: white;
+
+  max-width: 516px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin-right: 62px;
+  margin-top: 46px;
 }
 .card-item-right:hover {
   transform: translateY(-5px);
-}
-
-.card-item-right img {
-  max-width: 104%;
-  height: auto;
-  margin-bottom: 20px;
-  position: relative;
-  top: 0px;
-  left: 60px;
 }
 
 .card-subtitle-right {
@@ -329,8 +275,8 @@ html {
   line-height: 150%;
   letter-spacing: 0.42px;
   text-transform: uppercase;
-  margin-top: 14px;
-  margin-left: 137px;
+  margin-top: 33px;
+  margin-left: 19px;
 }
 
 .card-title-right {
@@ -341,10 +287,11 @@ html {
   font-style: normal;
   font-weight: 700;
   line-height: 150%;
-  margin-top: 11px;
-  /* margin-left: 137px; */
-  width: 328px;
-  margin-left: 157px;
+
+  max-width: 311px;
+  width: 100%;
+  margin: 0 109px;
+  letter-spacing: 0px;
 }
 
 .card-desc-right {
@@ -355,14 +302,15 @@ html {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
-  margin-left: 67px;
-  margin-right: -74px;
-  margin-top: 13px;
+
+  margin: 14px 10px;
+  max-width: 644px;
+  letter-spacing: -0.1px;
+  width: 100%;
 }
 
 .card-btn-right {
   display: inline-block;
-  /* padding: 10px 24px; */
   border: 1px solid #d600af;
   color: #d600af;
   text-decoration: none;
@@ -370,8 +318,7 @@ html {
   font-weight: 600;
   transition: all 0.3s ease;
   padding: 12px 34px;
-  margin-left: 242px;
-  margin-top: 16px;
+  margin-top: 17px;
 }
 
 .card-btn-right:hover {
@@ -379,153 +326,113 @@ html {
   color: white;
 }
 
-/* tablet
- */
 @media (max-width: 1024px) {
   .custom-block-wrapper {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 30px 20px;
+    padding: 0 0;
+    flex-direction: column;
+
     gap: 40px;
+    margin-top: -22px;
   }
   .card-item-left img {
-    max-width: 100%;
-    height: auto;
     margin-bottom: 14px;
-    margin-top: 91px;
+    margin-top: -107px;
+    padding: 49px;
   }
-  .container1 {
-    padding: 60px 0;
+  .custom-block-content li {
+    margin-bottom: 17px;
+    list-style: none;
+    position: relative;
   }
   .card-subtitle-left {
-    margin-left: -13px;
-    color: #d81990;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
     line-height: 150%;
     letter-spacing: 0.42px;
-    text-transform: uppercase;
-    margin-top: 10px;
-    margin-left: 24px;
+
+    margin-top: -35px;
   }
   .custom-block-content {
     width: 100%;
-    max-width: 90%;
+    max-width: 704px;
     margin: 0 auto;
     text-align: left;
-    margin-top: -56px;
-    margin-right: 55px;
+    margin-top: 9px;
   }
 
   .custom-block-content h2 {
     font-size: 48px;
-    margin: 0 auto 20px;
     margin-left: 0;
+    max-width: 629px;
+    padding-bottom: 0px;
   }
 
   .highlight {
     font-size: 48px;
   }
-
+  .desktop {
+    display: none;
+  }
+  .tablet {
+    display: block;
+  }
   .custom-block-content ul {
-    padding-left: 10px;
     text-align: left;
     margin: 0 auto;
-
-    max-width: 690px;
-    width: 800px;
-    margin-top: -8px;
-    letter-spacing: -0.3px;
+    max-width: 686.6px;
+    letter-spacing: -0.4px;
+    top: -7px;
   }
 
   .email-signup {
     display: flex;
     align-items: center;
-    border-radius: 999px;
-    overflow: hidden;
+    border-radius: 99px;
     background: white;
     width: 100%;
     max-width: 461px;
     gap: 0;
-    margin-left: 3px;
-    margin-top: 41px;
+    margin-top: 36px;
+    left: -37px;
+    top: -8px;
   }
 
   .card-title-left {
-    color: #282828;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 135%;
-    margin-right: 10px;
-    width: 632px;
-    margin-left: -42px;
+    width: 117.4%;
+    max-width: 700px;
+    margin-top: -2px;
+    margin-left: -56px;
   }
 
   .card-desc-left {
-    width: 749px;
-    color: #585858;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    margin-left: -102px;
-    margin-top: 7px;
+    width: 100%;
+    max-width: 900px;
+    margin-left: -17px;
+    margin-top: 2px;
+  }
+  .card-btn-left {
+    margin-left: -19px;
+    margin-top: -8px;
   }
 
   .card-desc-right {
-    color: #585858;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-    margin-left: -61px;
-    margin-top: 14px;
-    width: 692px;
+    width: 665px;
+    letter-spacing: -0.5px;
+    margin-left: -43px;
   }
 
   .card-title-right {
-    color: #282828;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    margin-top: 13px;
-    margin-left: -13px;
-    /* /* margin-right: 60px; */
-    width: 596px;
+    width: 107.4%;
+    max-width: 600px;
+    margin-left: -28px;
   }
   .card-subtitle-right {
-    color: #d81990;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 150%;
-    letter-spacing: 0.42px;
-    text-transform: uppercase;
-    margin-top: 11px;
-    margin-left: 24px;
+    margin-top: 31px;
+    margin-left: -29px;
   }
   .card-item-right img {
-    max-width: 95%;
-    height: auto;
-    margin-bottom: 20px;
-    margin-top: -3px;
-    margin-left: -92px;
+    max-width: 89.6%;
+    margin-top: -28px;
+    margin-left: -33px;
   }
 
   .email-signup input {
@@ -566,287 +473,273 @@ html {
     width: 100%;
     margin: 0 auto;
     height: auto;
-    max-width: 600px;
+    max-width: 614px;
   }
 
   .custom-block-image img {
     width: 100%;
-    max-width: 100%;
-    margin-left: 3px;
-    margin-top: 105px;
-    /* overflow: none; */
+    max-width: 593px;
+
+    margin-top: 24px;
+    overflow: none;
+
+    right: -33px;
+
+    width: 100%;
+    margin: 27px 47px;
   }
 
   .logos-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 0;
-    margin-top: 427px;
-    gap: 24px 52px;
+    padding: 4px 0;
+    margin-top: 31px;
+
+    gap: 36px;
+    padding-right: 16px;
   }
 
   .logos-wrapper img {
-    max-height: 50px;
+    max-height: 58px;
     object-fit: contain;
   }
 
   .trusted-by {
-    width: 100%;
+    width: 188px;
+    margin-left: 0;
     text-align: center;
-    font-size: 16px;
-    font-weight: 500;
-    color: #ffffff;
-    margin-bottom: 10px;
-    margin-top: 38px;
-    margin-left: 118px;
+    display: flex;
+    justify-content: center;
   }
 
   .rogers {
-    margin: 0px -18px;
-    padding-left: 9px;
+    /* margin: 0 auto; */
+    position: relative;
+    right: 0px;
   }
-
   .card-row {
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    /* gap: 40px; */
   }
 
   .card-item-left {
     width: 100%;
-    max-width: 600px;
-    padding: 10px 41px;
-    margin: -73px auto;
+    max-width: 610px;
+    padding: 57px 30px;
+    /* margin: 0 auto; */
     text-align: center;
-  }
-  .card-item-left img {
-    max-width: 101%;
-    height: auto;
-    margin-bottom: 15px;
-    margin-top: 91px;
-    margin-left: 12px;
   }
   .card-item-right {
     width: 100%;
     max-width: 600px;
-    padding: 100px 27px;
-    margin: 0px auto;
+    padding: 40px 30px;
+    margin: 0 auto;
     text-align: center;
   }
-
-  .card-btn-left,
   .card-btn-right {
-    margin: 20px auto 0;
-    padding: 12px 39px;
-    margin-left: 28px;
-    margin-top: 15px;
-  }
-  .card-section {
-    padding: -4px 0;
+    margin-right: 30px;
   }
 }
 
 @media (max-width: 767px) {
-  .cpl-001 .custom-block-wrapper {
+  .custom-block-wrapper {
     flex-direction: column;
     align-items: center;
-    padding: 0px 30px;
+    padding: 20px 15px;
+    gap: 30px;
     text-align: center;
-    margin-top: -38px;
   }
 
-  .cpl-001 .custom-block-content {
+  .custom-block-content {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
+    padding: 24px 16px;
   }
 
-  .cpl-001 .custom-block-content h2 {
+  .custom-block-content h2 {
     font-size: 36px;
     margin: 24px -11px;
-    color: #ffffff;
-    font-weight: 700;
     line-height: 120%;
     text-align: left;
   }
-
-  .cpl-001 .custom-block-content .highlight {
+  .hero-wrapper.container {
+    content: none !important;
+  }
+  .custom-block-content .highlight {
     font-size: 36px;
-    background: linear-gradient(180deg, #ed37ce 58.06%, #4d1543 96.37%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
     font-weight: 700;
     display: block;
     margin-top: 8px;
   }
 
-  .cpl-001 .custom-block-content ul {
-    padding-left: 2px;
-    text-align: left;
-    margin: 0 auto;
-    max-width: 327.5px;
-    margin-left: 1px;
-    margin-top: -41px;
-    letter-spacing: 0.6px;
+  .custom-block-content ul {
+    padding-left: 26px;
+    margin-top: -40px;
+    letter-spacing: 0.3px;
   }
 
-  .cpl-001 .custom-block-content li {
+  .custom-block-content li {
     margin-bottom: 14px;
     font-size: 15px;
   }
-  .cpl-001 .card-item-right img {
-    max-width: 102.8%;
-
-    position: relative;
-    top: -52.2px;
-    left: 38.9px;
+  .card-item-right img {
+    max-width: 108.8%;
+    margin-top: -35px;
+    margin-left: -11px;
   }
-  .cpl-001 .email-signup {
+  .email-signup {
+  
     display: contents;
   }
 
-  .cpl-001 .email-signup input {
+  .email-signup input {
     border-radius: 99px;
-    width: 101.4%;
+    width: 106.6%;
     font-size: 18px;
     padding: 19px;
     height: auto;
 
-    margin-top: 52px;
-    margin-left: -9px;
+    margin-top: 25px;
+    margin-left: -10px;
   }
 
-  .cpl-001 .email-signup button {
-    border-radius: 99px;
-    width: 100%;
-    font-size: 16px;
+  .email-signup button {
+    width: 107%;
     padding: 15px;
-    height: auto;
 
-    margin-top: 15px;
-    margin-left: -9px;
+    margin-top: 14px;
+    margin-left: -11px;
   }
 
-  .cpl-001 .email-signup button:hover {
+  .email-signup button:hover {
     background-color: #b30097;
   }
 
-  .cpl-001 .custom-block-image {
+  .custom-block-image {
     width: 100%;
     max-width: 100%;
     height: auto;
     margin: 0 auto;
   }
+  .card-section{
+    margin-top: 66px;
+  }
 
-  .cpl-001 .custom-block-image img {
+  .custom-block-image img {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
     position: relative;
-    top: 13px;
-    left: -8px;
+    top: -17px;
+    left: 0px;
   }
 
-  .cpl-001 .logos-wrapper {
-    padding: 0px 0px;
+  .logos-wrapper {
+    padding: 11px 0px;
     gap: 24px;
-    gap: 8px 36px;
-    margin-right: 13px;
-    margin-top: 20px;
+    gap: 0 0;
+    margin-right: -3px;
   }
-  .cpl-001 .card-item-left img {
-    max-width: 100%;
-
-    margin-bottom: 14px;
-
-    position: relative;
-    top: -117px;
-    right: 5px;
+  .card-item-left img {
+    width: 122.6%;
+        max-width: 713px;
+        padding: 0 30px;
+        text-align: center;
+        margin-left: -32px;
   }
-  .cpl-001 .logos-wrapper img {
-    max-height: 40px;
+  .logos-wrapper img {
+    max-height: 89px;
   }
 
-  .cpl-001 .trusted-by {
+  .trusted-by {
     text-align: center;
-    margin-top: 29px;
-    margin-right: 106px;
+    margin-top: -63px;
+    margin-right: 6px;
   }
 
-  .cpl-001 .card-row {
+  .card-row {
     flex-direction: column;
     gap: 30px;
   }
 
   .card-item-left {
     width: 100%;
-    padding: 30px 20px;
+    padding: 1px 9px;
     margin: 0 auto;
     text-align: center;
   }
 
   .card-item-right {
     width: 100%;
-    padding: 30px 20px;
+    padding: 51px 20px;
     margin: 0 auto;
-    text-align: center;
   }
 
   .card-title-left {
     font-size: 26px;
-    margin: 9px 0;
     width: 103%;
-    margin-left: -11px;
+    margin-left: -5px;
     letter-spacing: 0.3px;
   }
 
   .card-title-right {
     font-size: 26px;
     margin: 17px 0;
-    width: 101.4%;
-    margin-left: -8px;
-    margin-top: -3px;
+    width: 102.4%;
+    margin-top: -2px;
+    letter-spacing: 0.1px;
   }
 
   .card-desc-left {
     font-size: 16px;
     width: 103.3%;
     margin: 0 auto;
-    margin-left: -13px;
-    margin-top: 13px;
+    margin-top: 4px;
   }
 
   .card-desc-right {
-    font-size: 16px;
-    width: 106%;
+    width: 112.8%;
     margin: 0 auto;
-    margin-left: -12px;
-    margin-top: -4px;
+    margin-left: -18px;
+    letter-spacing: 0.3px;
+    margin-top: -8.7px;
   }
 
   .card-subtitle-left {
     font-size: 14px;
-    /* margin: 16px 0; */
-    margin-top: -99px;
-    margin-left: -16px;
+    margin-top: 14px;
   }
 
   .card-subtitle-right {
     font-size: 14px;
     margin: 10px 0;
-    margin-top: -33px;
-    margin-left: -17px;
+    margin-top: 30px;
+    margin-left: -4px;
   }
 
-  .card-btn-left,
+  /* Separate button styles */
+  .card-btn-left {
+   margin-left: 3px;
+    margin-top: 31px;
+  }
+
+  .card-btn-left:hover {
+    background-color: #d600af;
+    color: #fff;
+  }
+
   .card-btn-right {
-    margin: 20px auto 0;
-    padding: 12px 39px;
-    margin-left: -13px;
-    margin-top: 34px;
+    margin-top: 31px;
+    margin-left: 25px;
+    
+  }
+
+  .card-btn-right:hover {
+    background-color: #d600af;
+    color: #fff;
   }
 }
