@@ -9,17 +9,18 @@ body {
   overflow-x: hidden;
 }
 
-.container {
+.cpl-001 .container {
   max-width: 1236px;
   width: 100%;
   margin: 0px auto;
 }
 
-.hero-wrapper {
-  background: linear-gradient(to right, #1e0033, #3c0059);
+.cpl-001 .hero-wrapper {
+  background: url("https://res.cloudinary.com/diilhbcp9/image/upload/v1751866697/Background_erhar3.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
-.custom-block-wrapper {
+.cpl-001 .custom-block-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,11 +31,11 @@ body {
   padding-bottom: 92px;
 }
 
-.custom-block-content {
+.cpl-001 .custom-block-content {
   width: 50%;
 }
 
-.custom-block-content h2 {
+.cpl-001 .custom-block-content h2 {
   color: #fff;
   font-family: Roboto;
   font-size: 47px;
@@ -43,7 +44,7 @@ body {
   line-height: 130%;
 }
 
-.highlight {
+.cpl-001 .highlight {
   background: linear-gradient(180deg, #ed37ce 58.06%, #4d1543 96.37%);
   background-clip: text;
   --webkit-background-clip: text;
@@ -54,18 +55,18 @@ body {
   padding: 0px;
 }
 
-.custom-block-content ul {
+.cpl-001 .custom-block-content ul {
   padding-top: 13px;
   letter-spacing: -0.3px;
 }
 
-.custom-block-content li {
+.cpl-001 .custom-block-content li {
   margin-bottom: 17px;
   list-style: none;
   position: relative;
 }
 
-.custom-block-content li::before {
+.cpl-001 .custom-block-content li::before {
   content: "";
   position: absolute;
   left: -32px;
@@ -76,11 +77,11 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.desktop {
+.cpl-001 .desktop {
   display: block;
 }
 
-.email-signup {
+.cpl-001 .email-signup {
   display: flex;
   align-items: center;
   border-radius: 999px;
@@ -92,7 +93,7 @@ body {
   margin-top: 43px;
 }
 
-.email-signup input {
+.cpl-001 .email-signup input {
   border: none;
   padding: 14px 20px;
 
@@ -103,7 +104,7 @@ body {
   font-size: 19px;
 }
 
-.email-signup button {
+.cpl-001 .email-signup button {
   border: none;
   background-color: #d600af;
   color: white;
@@ -119,59 +120,59 @@ body {
   background: #c0069d;
 }
 
-.email-signup button:hover {
+.cpl-001 .email-signup button:hover {
   background-color: #b30097;
 }
 
-.custom-block-image {
-  width: 46%;
+.cpl-001 .custom-block-image {
+  width: 49.5%;
 
   position: relative;
 }
 
-.custom-block-image img {
-  max-width: 924px;
+.cpl-001 .custom-block-image img {
+  max-width: 931px;
 }
 
-.logos-wrapper {
+.cpl-001 .logos-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding-bottom: 71px;
   margin-top: -36px;
   gap: 109px;
-  padding: 6px 119px 0 50px;
+  padding: 0px 186px 0 49px;
 }
 
-.trusted-by {
+.cpl-001 .trusted-by {
   color: white;
   font-size: 16px;
   margin-top: 2px;
   width: 188px;
   margin-left: 64px;
 }
-.rogers {
+.cpl-001 .rogers {
   margin-left: 5px;
   margin-right: 12px;
 }
-.trusted-by-logos {
+.cpl-001 .trusted-by-logos {
   margin-top: 40px;
   padding: 30px 0;
   background: transparent;
 }
 
-.logos-wrapper img {
+.cpl-001 .logos-wrapper img {
   max-height: 65px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
 
-.card-section {
+.cpl-001 .card-section {
   padding: 100px 0px;
   background-color: #f9f9f9;
 }
 
-.card-row {
+.cpl-001 .card-row {
   display: flex;
   gap: 29px;
 
@@ -180,21 +181,21 @@ body {
   justify-content: space-between;
 }
 
-.card-item-left {
+.cpl-001 .card-item-left {
   border-radius: 12px;
   text-align: center;
 
   max-width: 516px;
   width: 100%;
-  margin: 0 61px;
-  margin-top: 43px;
+  margin: 0 30px;
+  margin-top: 46px;
 }
 
-.card-item-left:hover {
+.cpl-001 .card-item-left:hover {
   transform: translateY(-5px);
 }
 
-.card-subtitle-left {
+.cpl-001 .card-subtitle-left {
   color: #d81990;
   font-family: Roboto;
   font-size: 14px;
@@ -205,10 +206,10 @@ body {
   margin-top: 35px;
   max-width: 499px;
 }
-.card-section.card-row {
+.cpl-001 .card-section.card-row {
   content: none !important;
 }
-.card-title-left {
+.cpl-001 .card-title-left {
   color: #282828;
   text-align: center;
   font-family: Roboto;
@@ -221,7 +222,7 @@ body {
   margin: 0 20px;
 }
 
-.card-desc-left {
+.cpl-001 .card-desc-left {
   color: #585858;
   text-align: center;
   font-family: Roboto;
@@ -233,7 +234,7 @@ body {
   max-width: 485px;
 }
 
-.card-btn-left {
+.cpl-001 .card-btn-left {
   display: inline-block;
   border: 2px solid #d600af;
   color: #d600af;
@@ -246,26 +247,26 @@ body {
   margin-top: 16px;
 }
 
-.card-btn-left:hover {
+.cpl-001 .card-btn-left:hover {
   background-color: #d600af;
   color: white;
 }
 
-.card-item-right {
+.cpl-001 .card-item-right {
   background: white;
 
   max-width: 516px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  margin-right: 62px;
+  margin-right: 113px;
   margin-top: 46px;
 }
-.card-item-right:hover {
+.cpl-001 .card-item-right:hover {
   transform: translateY(-5px);
 }
 
-.card-subtitle-right {
+.cpl-001 .card-subtitle-right {
   color: #d81990;
   text-align: center;
   font-family: Roboto;
@@ -279,7 +280,7 @@ body {
   margin-left: 19px;
 }
 
-.card-title-right {
+.cpl-001 .card-title-right {
   color: #282828;
   text-align: center;
   font-family: Roboto;
@@ -294,7 +295,7 @@ body {
   letter-spacing: 0px;
 }
 
-.card-desc-right {
+.cpl-001 .card-desc-right {
   color: #585858;
   text-align: center;
   font-family: Roboto;
@@ -309,7 +310,7 @@ body {
   width: 100%;
 }
 
-.card-btn-right {
+.cpl-001 .card-btn-right {
   display: inline-block;
   border: 1px solid #d600af;
   color: #d600af;
@@ -321,13 +322,13 @@ body {
   margin-top: 17px;
 }
 
-.card-btn-right:hover {
+.cpl-001 .card-btn-right:hover {
   background-color: #d600af;
   color: white;
 }
 
 @media (max-width: 1024px) {
-  .custom-block-wrapper {
+  .cpl-001 .custom-block-wrapper {
     flex-direction: column;
     padding: 0 0;
     flex-direction: column;
@@ -335,23 +336,23 @@ body {
     gap: 40px;
     margin-top: -22px;
   }
-  .card-item-left img {
+  .cpl-001 .card-item-left img {
     margin-bottom: 14px;
     margin-top: -107px;
     padding: 49px;
   }
-  .custom-block-content li {
+  .cpl-001 .custom-block-content li {
     margin-bottom: 17px;
     list-style: none;
     position: relative;
   }
-  .card-subtitle-left {
+  .cpl-001 .card-subtitle-left {
     line-height: 150%;
     letter-spacing: 0.42px;
 
     margin-top: -35px;
   }
-  .custom-block-content {
+  .cpl-001 .custom-block-content {
     width: 100%;
     max-width: 704px;
     margin: 0 auto;
@@ -359,23 +360,23 @@ body {
     margin-top: 9px;
   }
 
-  .custom-block-content h2 {
+  .cpl-001 .custom-block-content h2 {
     font-size: 48px;
     margin-left: 0;
     max-width: 629px;
     padding-bottom: 0px;
   }
 
-  .highlight {
+  .cpl-001 .highlight {
     font-size: 48px;
   }
-  .desktop {
+  .cpl-001 .desktop {
     display: none;
   }
-  .tablet {
+  .cpl-001 .tablet {
     display: block;
   }
-  .custom-block-content ul {
+  .cpl-001 .custom-block-content ul {
     text-align: left;
     margin: 0 auto;
     max-width: 686.6px;
@@ -383,7 +384,7 @@ body {
     top: -7px;
   }
 
-  .email-signup {
+  .cpl-001 .email-signup {
     display: flex;
     align-items: center;
     border-radius: 99px;
@@ -396,46 +397,46 @@ body {
     top: -8px;
   }
 
-  .card-title-left {
+  .cpl-001 .card-title-left {
     width: 117.4%;
     max-width: 700px;
     margin-top: -2px;
     margin-left: -56px;
   }
 
-  .card-desc-left {
+  .cpl-001 .card-desc-left {
     width: 100%;
     max-width: 900px;
     margin-left: -17px;
     margin-top: 2px;
   }
-  .card-btn-left {
+  .cpl-001 .card-btn-left {
     margin-left: -19px;
     margin-top: -8px;
   }
 
-  .card-desc-right {
+  .cpl-001 .card-desc-right {
     width: 665px;
     letter-spacing: -0.5px;
     margin-left: -43px;
   }
 
-  .card-title-right {
+  .cpl-001 .card-title-right {
     width: 107.4%;
     max-width: 600px;
     margin-left: -28px;
   }
-  .card-subtitle-right {
+  .cpl-001 .card-subtitle-right {
     margin-top: 31px;
     margin-left: -29px;
   }
-  .card-item-right img {
+  .cpl-001 .card-item-right img {
     max-width: 89.6%;
     margin-top: -28px;
     margin-left: -33px;
   }
 
-  .email-signup input {
+  .cpl-001 .email-signup input {
     border: none;
     outline: none;
     padding: 0 16px;
@@ -448,7 +449,7 @@ body {
     font-weight: 500;
   }
 
-  .email-signup button {
+  .cpl-001 .email-signup button {
     border: none;
     background-color: #c0069d;
     color: white;
@@ -465,18 +466,18 @@ body {
     padding: 0px 40px;
   }
 
-  .email-signup button:hover {
+  .cpl-001 .email-signup button:hover {
     background-color: #b30097;
   }
 
-  .custom-block-image {
+  .cpl-001 .custom-block-image {
     width: 100%;
     margin: 0 auto;
     height: auto;
     max-width: 614px;
   }
 
-  .custom-block-image img {
+  .cpl-001 .custom-block-image img {
     width: 100%;
     max-width: 593px;
 
@@ -489,7 +490,7 @@ body {
     margin: 27px 47px;
   }
 
-  .logos-wrapper {
+  .cpl-001 .logos-wrapper {
     display: flex;
     flex-wrap: wrap;
     padding: 4px 0;
@@ -499,12 +500,12 @@ body {
     padding-right: 16px;
   }
 
-  .logos-wrapper img {
+  .cpl-001 .logos-wrapper img {
     max-height: 58px;
     object-fit: contain;
   }
 
-  .trusted-by {
+  .cpl-001 .trusted-by {
     width: 188px;
     margin-left: 0;
     text-align: center;
@@ -512,38 +513,38 @@ body {
     justify-content: center;
   }
 
-  .rogers {
+  .cpl-001 .rogers {
     /* margin: 0 auto; */
     position: relative;
     right: 0px;
   }
-  .card-row {
+  .cpl-001 .card-row {
     flex-direction: column;
     align-items: center;
     /* gap: 40px; */
   }
 
-  .card-item-left {
+  .cpl-001 .card-item-left {
     width: 100%;
     max-width: 610px;
     padding: 57px 30px;
     /* margin: 0 auto; */
     text-align: center;
   }
-  .card-item-right {
+  .cpl-001 .card-item-right {
     width: 100%;
     max-width: 600px;
     padding: 40px 30px;
     margin: 0 auto;
     text-align: center;
   }
-  .card-btn-right {
+  .cpl-001 .card-btn-right {
     margin-right: 30px;
   }
 }
 
 @media (max-width: 767px) {
-  .custom-block-wrapper {
+  .cpl-001 .custom-block-wrapper {
     flex-direction: column;
     align-items: center;
     padding: 20px 15px;
@@ -551,7 +552,7 @@ body {
     text-align: center;
   }
 
-  .custom-block-content {
+  .cpl-001 .custom-block-content {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -559,16 +560,16 @@ body {
     padding: 24px 16px;
   }
 
-  .custom-block-content h2 {
+  .cpl-001 .custom-block-content h2 {
     font-size: 36px;
     margin: 24px -11px;
     line-height: 120%;
     text-align: left;
   }
-  .hero-wrapper.container {
+  .cpl-001 .hero-wrapper.container {
     content: none !important;
   }
-  .custom-block-content .highlight {
+  .cpl-001 .custom-block-content .highlight {
     font-size: 36px;
 
     font-weight: 700;
@@ -576,27 +577,26 @@ body {
     margin-top: 8px;
   }
 
-  .custom-block-content ul {
+  .cpl-001 .custom-block-content ul {
     padding-left: 26px;
     margin-top: -40px;
     letter-spacing: 0.3px;
   }
 
-  .custom-block-content li {
+  .cpl-001 .custom-block-content li {
     margin-bottom: 14px;
     font-size: 15px;
   }
-  .card-item-right img {
+  .cpl-001 .card-item-right img {
     max-width: 108.8%;
     margin-top: -35px;
     margin-left: -11px;
   }
-  .email-signup {
-  
+  .cpl-001 .email-signup {
     display: contents;
   }
 
-  .email-signup input {
+  .cpl-001 .email-signup input {
     border-radius: 99px;
     width: 106.6%;
     font-size: 18px;
@@ -607,7 +607,7 @@ body {
     margin-left: -10px;
   }
 
-  .email-signup button {
+  .cpl-001 .email-signup button {
     width: 107%;
     padding: 15px;
 
@@ -615,21 +615,21 @@ body {
     margin-left: -11px;
   }
 
-  .email-signup button:hover {
+  .cpl-001 .email-signup button:hover {
     background-color: #b30097;
   }
 
-  .custom-block-image {
+  .cpl-001 .custom-block-image {
     width: 100%;
     max-width: 100%;
     height: auto;
     margin: 0 auto;
   }
-  .card-section{
+  .cpl-001 .card-section {
     margin-top: 66px;
   }
 
-  .custom-block-image img {
+  .cpl-001 .custom-block-image img {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -638,55 +638,55 @@ body {
     left: 0px;
   }
 
-  .logos-wrapper {
+  .cpl-001 .logos-wrapper {
     padding: 11px 0px;
     gap: 24px;
     gap: 0 0;
     margin-right: -3px;
   }
-  .card-item-left img {
+  .cpl-001 .card-item-left img {
     width: 122.6%;
-        max-width: 713px;
-        padding: 0 30px;
-        text-align: center;
-        margin-left: -32px;
+    max-width: 713px;
+    padding: 0 30px;
+    text-align: center;
+    margin-left: -32px;
   }
-  .logos-wrapper img {
+  .cpl-001.logos-wrapper img {
     max-height: 89px;
   }
 
-  .trusted-by {
+  .cpl-001 .trusted-by {
     text-align: center;
     margin-top: -63px;
     margin-right: 6px;
   }
 
-  .card-row {
+  .cpl-001 .card-row {
     flex-direction: column;
     gap: 30px;
   }
 
-  .card-item-left {
+  .cpl-001 .card-item-left {
     width: 100%;
     padding: 1px 9px;
     margin: 0 auto;
     text-align: center;
   }
 
-  .card-item-right {
+  .cpl-001 .card-item-right {
     width: 100%;
     padding: 51px 20px;
     margin: 0 auto;
   }
 
-  .card-title-left {
+  .cpl-001 .card-title-left {
     font-size: 26px;
     width: 103%;
     margin-left: -5px;
     letter-spacing: 0.3px;
   }
 
-  .card-title-right {
+  .cpl-001 .card-title-right {
     font-size: 26px;
     margin: 17px 0;
     width: 102.4%;
@@ -694,14 +694,14 @@ body {
     letter-spacing: 0.1px;
   }
 
-  .card-desc-left {
+  .cpl-001 .card-desc-left {
     font-size: 16px;
     width: 103.3%;
     margin: 0 auto;
     margin-top: 4px;
   }
 
-  .card-desc-right {
+  .cpl-001 .card-desc-right {
     width: 112.8%;
     margin: 0 auto;
     margin-left: -18px;
@@ -709,12 +709,12 @@ body {
     margin-top: -8.7px;
   }
 
-  .card-subtitle-left {
+  .cpl-001 .card-subtitle-left {
     font-size: 14px;
     margin-top: 14px;
   }
 
-  .card-subtitle-right {
+  .cpl-001 .card-subtitle-right {
     font-size: 14px;
     margin: 10px 0;
     margin-top: 30px;
@@ -722,23 +722,22 @@ body {
   }
 
   /* Separate button styles */
-  .card-btn-left {
-   margin-left: 3px;
+  .cpl-001 .card-btn-left {
+    margin-left: 3px;
     margin-top: 31px;
   }
 
-  .card-btn-left:hover {
+  .cpl-001.card-btn-left:hover {
     background-color: #d600af;
     color: #fff;
   }
 
-  .card-btn-right {
+  .cpl-001.card-btn-right {
     margin-top: 31px;
     margin-left: 25px;
-    
   }
 
-  .card-btn-right:hover {
+  .cpl-001 .card-btn-right:hover {
     background-color: #d600af;
     color: #fff;
   }
