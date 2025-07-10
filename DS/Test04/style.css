@@ -125,7 +125,7 @@ body {
 }
 
 .cpl-001 .custom-block-image {
-  width: 49.5%;
+  width: 46.2%;
 
   position: relative;
 }
@@ -141,7 +141,7 @@ body {
   padding-bottom: 71px;
   margin-top: -36px;
   gap: 109px;
-  padding: 0px 186px 0 49px;
+  padding: 0px 115px 0 49px;
 }
 
 .cpl-001 .trusted-by {
@@ -187,7 +187,7 @@ body {
 
   max-width: 516px;
   width: 100%;
-  margin: 0 30px;
+  margin: 0 61px;
   margin-top: 46px;
 }
 
@@ -259,7 +259,7 @@ body {
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  margin-right: 113px;
+  margin-right: 60px;
   margin-top: 46px;
 }
 .cpl-001 .card-item-right:hover {
