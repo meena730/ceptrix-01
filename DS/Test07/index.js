@@ -1,21 +1,21 @@
 document.body.classList.add("cpl-001");
-
-function replaceEuro() {
-  const allSpans = document.querySelectorAll("span");
-
-  allSpans.forEach((span) => {
-    if (span.textContent.includes("€")) {
-      span.textContent = span.textContent.replace(/€/g, "$");
+function replaceEuro(body1) {
+  body1.childNodes.forEach((child1) => {
+    if (
+      child1.nodeType === Node.TEXT_NODE &&
+      child1.textContent.includes("€")
+    ) {
+      child1.textContent = child1.textContent.replace(/€/g, "$");
+    } else if (child1.nodeType === Node.ELEMENT_NODE) {
+      replaceEuro(child1);
     }
   });
 }
 
-replaceEuro();
+replaceEuro(document.body);
 
-const observer = new MutationObserver((mutationsList) => {
-  mutationsList.forEach((mutation) => {
-    replaceEuro();
-  });
+const observer = new MutationObserver(() => {
+  replaceEuro(document.body);
 });
 
 observer.observe(document.body, {
