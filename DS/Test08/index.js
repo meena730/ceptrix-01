@@ -59,9 +59,12 @@ if (mainurl) {
       const url = `https://www.raamdecoratie.com/${mainurl}/${type}/`;
 
       fetch(url)
-        .then((res) => res.text())                      /*response sav in text*/
+        .then((res) => res.text()) /*response sav in text*/
         .then((html) => {
-          const page = new DOMParser().parseFromString(html, "text/html");                  /*  use this to convert html to real docu */
+          const page = new DOMParser().parseFromString(
+            html,
+            "text/html"
+          ); /*  use this to convert html to real docu */
           const count = page
             .querySelector(".toolbar-number")
             ?.textContent.trim();
