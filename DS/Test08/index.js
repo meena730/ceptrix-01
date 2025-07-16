@@ -11,7 +11,9 @@ if (mainurl) {
   const hide = document.querySelector(".category-description.pagebuilder");
   const toolbarbox = document.querySelector(".toolbar.toolbar-products.bottom");
   if (hide && toolbarbox) {
-    toolbarbox.insertAdjacentElement("beforebegin", hide);
+    // toolbarbox.insertAdjacentElement("beforebegin", hide);
+    toolbarbox.prepend(hide);
+
   }
 
   const html = `
@@ -130,6 +132,7 @@ if (mainurl) {
     const nowY = window.scrollY;
     const isGoingDown = nowY > lastY;
     const heroTop = heroBox?.getBoundingClientRect().top;
+    
 
     if (isGoingDown && heroTop < -100) {
       stickyBox.style.display = "flex";
