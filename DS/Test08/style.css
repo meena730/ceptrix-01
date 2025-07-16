@@ -64,6 +64,7 @@
   font-size: 12.2px;
   letter-spacing: 0.3px;
   line-height: 11.6px;
+    list-style: disc;
 }
 
 .cpl-001 .link {
@@ -88,6 +89,7 @@
   font-size: 12.2px;
   letter-spacing: 0.3px;
   line-height: 12.2px;
+    list-style: disc;
 }
 
 .cpl-001 #card {
@@ -192,3 +194,9 @@
     max-width: 150px;
   }
 }
+
+
+
+/* ul{
+      list-style: none;
+} */
