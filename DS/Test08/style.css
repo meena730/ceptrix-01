@@ -200,3 +200,40 @@
 /* ul{
       list-style: none;
 } */
+
+
+
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(203, 173, 3);
+  padding: 12px 20px;
+  justify-content: space-around;
+  z-index: 1000;
+  gap: 20px;
+  font-weight: 500;
+  display: flex;
+}
+
+.sticky-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sticky-icon {
+  height: 64px;
+}
+
+.sticky-title {
+  font-weight: bold;
+  font-size: 22px;
+  color:white
+}
+
+.sticky-count {
+  font-size: 18px;
+  color: #444;
+}
