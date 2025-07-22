@@ -5,13 +5,14 @@ if (location.pathname.includes("/product")) {
   const priceText = document.querySelector(".price")?.innerText || "";
   const priceMatches = priceText.match(/€\s?\d+,\d{2}/g);
   const price = priceMatches ? priceMatches[priceMatches.length - 1] : "";
-  
+
   const stock = document.querySelector(".stock")?.innerText;
   const img = document.querySelector(
     ".woocommerce-product-gallery__image img"
   )?.src;
   const cart = document.querySelector(".cart");
 
+  document.body.classList.add("cpl-001")
   if (!productRow || !title || !price || !stock || !img || !cart) {
     console.log("Sticky Bar Error---");
     return;
@@ -63,13 +64,19 @@ if (location.pathname.includes("/product")) {
 
     bar.style.display = isVisible ? "none" : "flex";
   });
-}
-// do
-const tagBar = document.querySelector("._1b4t9li");
 
-if (tagBar) {
-  tagBar.style.setProperty("margin-bottom", "35px", "important");
-  console.log("margin applied to _1b4t9li");
-} else {
-  console.warn(" _1b4t9li not found");
+
+
+  // do
+  const tagBar = document.querySelector("._1b4t9li");
+
+  if (tagBar) {
+    tagBar.classList.add("adjusted-bottom");
+    console.log("class applied to ._1b4t9li");
+  } else {
+    console.warn("._1b4t9li not found");
+  }
 }
+
+
+

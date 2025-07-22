@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expensify Features</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
+
+    <!-- Embedded JSON -->
+    <script type="application/json" id="features-json">
+      [
+        { "title": "Expense management", "description": "Track, manage, and reimburse expenses, on one platform, in seconds.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Receipt tracking", "description": "Scan receipts via mobile app and auto-record vendor, date, and amount.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Expensify card", "description": "Pay with an Expensify credit card and capture transactions in expense reports automatically.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Invoices", "description": "Create invoices in seconds via drag-and-drop. Auto-calculate taxes, discounts, and other fees.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Bill pay", "description": "Automate approvals and payments. Track what's paid, what's due, and what's late.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Expense reports", "description": "View all expenses submitted for reimbursement in one place. Approve with a single click.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Spend management", "description": "Manages expenses, vendors, and invoices. Analyze spending trends and forecast budgets.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Virtual cards", "description": "Make purchases without a physical card. Instantly send virtual cards to employees.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Travel management", "description": "Schedule flights and book accommodations. Easily import trip expenses.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Personal expenses", "description": "Manage personal expenses. Track receipts, request and send money, and more.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Global reimbursements", "description": "Reimburse employees in their local currency. 190+ countries.", "learn_more_link_placeholder": "Learn More" },
+        { "title": "Integrations", "description": "Integrates with Quickbooks, Microsoft, Oracle, Xero, Sage, ADP, Gusto, and 45+ more.", "learn_more_link_placeholder": "Learn More" }
+      ]
+    </script>
+  </head>
+
+  <body>
+    <div class="cpl-section">
+       <div class="cpl-hero-section">
+        <div class="cpl-container">
+          <nav class="cpl-navbar">
+            <img
+              class="cpl-nav-logo"
+              src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753092902/Component_8_rt7poe.png"
+              alt="Expensify Logo"
+            />
+            <button class="cpl-signin-btn">Sign In</button>
+          </nav>
+        </div>
+        <div class="cpl-container">
+          <div class="cpl-hero-content">
+            <div class="hero-left">
+              <h1 class="cpl-heading">
+                The expense management app that does it all.
+              </h1>
+              <div class="cpl-rating">
+                <img
+                  src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100891/hero_logo-g2_1_xocslh.png"
+                  alt="rating-logo"
+                  class="rating-logo"
+                />
+                <img
+                  src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753101414/stars-4_5.svg_d8iea3.png"
+                  alt="4.5 star rating"
+                  class="rating-stars"
+                />
+                <span>Rated 4.5 out of 5</span>
+              </div>
+
+              <ul class="feature-list">
+                <li>
+                  <img
+                    src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png"
+                    alt="Check"
+                    class="check-icon"
+                  />
+                  <strong>All inclusive.</strong> Manage expenses, track
+                  receipts, reimburse employees, create expense reports, and
+                  send invoices.
+                </li>
+                <li>
+                  <img
+                    src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png"
+                    alt="Check"
+                    class="check-icon"
+                  />
+                  <strong>Corporate card.</strong> Cash back on all purchases.
+                  Fraud protection.
+                </li>
+                <li>
+                  <img
+                    src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png"
+                    alt="Check"
+                    class="check-icon"
+                  />
+                  <strong>40+ integrations.</strong> ADP, Quickbooks, Gusto,
+                  Sage, Workday, and Oracle...
+                </li>
+              </ul>
+
+              <div class="cpl-option-image">
+                <img
+                  src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png"
+                  alt="Option Selection UI"
+                />
+              </div>
+              <h2 class="hero-bottom-heading">
+                Join 12 million+ users who trust Expensify
+              </h2>
+            </div>
+            <div class="cpl-hero-right-img">
+              <img
+                src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png"
+                alt="Expense Dashboard"
+              />
+            </div>
+          </div>
+          <div class="img-wrapper">
+            <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091031/Frame_40581_aoheqj.png" alt="" class="img-wrapper-img">
+        </div>
+        </div>
+        
+      </div>
+      <div class="cpl-feature-section">
+        <div class="cpl-container" id="features-container">
+          
+        </div>
+        <div class="show-more-container">
+          <button id="toggle-btn">Show More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script for rendering and toggling -->
+    <script>
+      const data = JSON.parse(document.getElementById('features-json').textContent);
+      const container = document.getElementById('features-container');
+      const toggleBtn = document.getElementById('toggle-btn');
+
+      const INITIAL_COUNT = 9;
+      let isExpanded = false;
+
+      function renderFeatures(limit) {
+        container.innerHTML = "";
+        const visibleItems = data.slice(0, limit);
+        visibleItems.forEach(item => {
+          const card = document.createElement('div');
+          card.className = 'feature-card';
+          card.innerHTML = `
+            <h2>${item.title}</h2>
+            <p>${item.description}</p>
+            <a href="#">${item.learn_more_link_placeholder}</a>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        renderFeatures(isExpanded ? data.length : INITIAL_COUNT);
+        toggleBtn.textContent = isExpanded ? "Show Less" : "Show More";
+      });
+
+      // Initial render
+      renderFeatures(INITIAL_COUNT);
+    </script>
+  </body>
+</html>
