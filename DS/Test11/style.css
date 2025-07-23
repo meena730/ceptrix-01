@@ -1,27 +1,27 @@
-.free-shipping-container {
+.cpl-001 .free-shipping-container {
   padding: 20px;
   background: #f9f9f9;
   font-family: "Open Sans";
 }
 
-.bar-track {
+.cpl-001 .bar-track {
   height: 4px;
   background: #ddd;
   border-radius: 6px;
   position: relative;
 }
 
-.bar-fill {
+.cpl-001 .bar-fill {
   height: 100%;
   width: 40%; 
   background: #f60;
   stroke-width: 5px;
   stroke: #f60;
   border-radius: 6px;
-  transition: width 1s ease-in-out;
+  transition: width 4s ease-in-out;
 }
 
-.bar-badge {
+.cpl-001 .bar-badge {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -33,16 +33,16 @@
   align-items: center;
   justify-content: center;
   z-index: 2;
-  transition: left 1s ease-in-out;
+  transition: left 4s ease-in-out;
   left: 40%;
 }
 
-.bar-badge img {
+.cpl-001.bar-badge img {
   width: 20px;
   height: 20px;
   object-fit: contain;
 }
-.free-shipping-message {
+.cpl-001 .free-shipping-message {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,11 +56,11 @@
   text-align: center;
   margin-bottom: 22px;
 }
-.free-shipping-icon svg {
+.cpl-001 .free-shipping-icon svg {
   vertical-align: middle;
 }
 
-.free-shipping-message span {
+.cpl-001 .free-shipping-message span {
   color: #212121;
   text-align: center;
   font-family: "Open Sans";
@@ -69,3 +69,6 @@
   font-weight: 600;
   line-height: 19.8px; /* 165% */
 }
+
+
+/*  */
