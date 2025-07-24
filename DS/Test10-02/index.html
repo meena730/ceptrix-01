@@ -3,32 +3,167 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expensify Features</title>
+    <title>Expensify</title>
     <link rel="stylesheet" href="./style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Embedded JSON -->
     <script type="application/json" id="features-json">
       [
-        { "title": "Expense management", "description": "Track, manage, and reimburse expenses, on one platform, in seconds.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Receipt tracking", "description": "Scan receipts via mobile app and auto-record vendor, date, and amount.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Expensify card", "description": "Pay with an Expensify credit card and capture transactions in expense reports automatically.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Invoices", "description": "Create invoices in seconds via drag-and-drop. Auto-calculate taxes, discounts, and other fees.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Bill pay", "description": "Automate approvals and payments. Track what's paid, what's due, and what's late.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Expense reports", "description": "View all expenses submitted for reimbursement in one place. Approve with a single click.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Spend management", "description": "Manages expenses, vendors, and invoices. Analyze spending trends and forecast budgets.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Virtual cards", "description": "Make purchases without a physical card. Instantly send virtual cards to employees.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Travel management", "description": "Schedule flights and book accommodations. Easily import trip expenses.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Personal expenses", "description": "Manage personal expenses. Track receipts, request and send money, and more.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Global reimbursements", "description": "Reimburse employees in their local currency. 190+ countries.", "learn_more_link_placeholder": "Learn More" },
-        { "title": "Integrations", "description": "Integrates with Quickbooks, Microsoft, Oracle, Xero, Sage, ADP, Gusto, and 45+ more.", "learn_more_link_placeholder": "Learn More" }
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265434/icons_i5pyx2.png",
+          "title": "Expense management",
+          "description": "Track, manage, and reimburse expenses, on one platform, in seconds.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265434/icons_1_uc1ej0.png",
+          "title": "Receipt tracking",
+          "description": "Scan receipts via mobile app and auto-record vendor, date, and amount.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265434/icons_2_g3pyyo.png",
+          "title": "Expensify card",
+          "description": "Pay with an Expensify credit card and capture transactions in expense reports automatically.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265433/icons_3_yfhyzs.png",
+          "title": "Invoices",
+          "description": "Create invoices in seconds via drag-and-drop. Auto-calculate taxes, discounts, and other fees.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265434/icons_5_ijyklr.png",
+          "title": "Bill pay",
+          "description": "Automate approvals and payments. Track what's paid, what's due, and what's late.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265433/icons_6_djef1q.png",
+          "title": "Expense reports",
+          "description": "View all expenses submitted for reimbursement in one place. Approve with a single click.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265433/icons_7_mcunuz.png",
+          "title": "Spend management",
+          "description": "Manages expenses, vendors, and invoices. Analyze spending trends and forecast budgets.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265433/icons_8_v1vlrj.png",
+          "title": "Virtual cards",
+          "description": "Make purchases without a physical card. Instantly send virtual cards to employees.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265433/icons_9_v2bekc.png",
+          "title": "Travel management",
+          "description": "Schedule flights and book accommodations. Easily import trip expenses.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265433/icons_10_ayhqu1.png",
+          "title": "Personal expenses",
+          "description": "Manage personal expenses. Track receipts, request and send money, and more.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265433/icons_11_u4lvd3.png",
+          "title": "Global reimbursements",
+          "description": "Reimburse employees in their local currency. 190+ countries.",
+          "learn_more": "Learn More"
+        },
+        {
+          "img": "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265433/Objects_us0pe9.png",
+          "title": "Integrations",
+          "description": "Integrates with Quickbooks, Microsoft, Oracle, Xero, Sage, ADP, Gusto, and 45+ more.",
+          "learn_more": "Learn More"
+        }
       ]
+    </script>
+    <script>
+      const cardData = {
+        employees: [
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753288630/icons_1_jldra3.png",
+            title: "1. Add Expense",
+            description:
+              "Upload your first receipt with the mobile app, drag-and-drop on the web, or forward it to receipts@expensify.com.",
+          },
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753288954/Icons_xhzbjf.png",
+            title: "2. Create Report",
+            description:
+              "Automatically generate expense reports for reimbursement or reconciliation. Add categories, tags, and comments, then submit.",
+          },
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753336878/icons_10_amqskv.png",
+            title: "3. Get Reimbursed",
+            description:
+              "Once approved, get reimbursed directly to your bank account in as little as one business day.",
+          },
+        ],
+        businessOwners: [
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753289233/Icons_h69a1r.png",
+            title: "1. Receive Expenses",
+            description:
+              "Review employee expense reports. Let Expensify auto-categorize and tag to reduce manual work.",
+          },
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753289070/Group_2197_cvy5ak.svg",
+            title: "2. Approve Reports",
+            description:
+              "Approve reports submitted by your employees with one click.",
+          },
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753265434/icons_1_uc1ej0.png",
+            title: "3. Reimburse",
+            description:
+              "Send employee reimbursements directly via ACH in as little as one business day.",
+          },
+        ],
+        financeAccounting: [
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753288630/icons_1_jldra3.png",
+            title: "1. Receive Expenses",
+            description:
+              "Get employee expenses coded to GL accounts and exported to accounting software.",
+          },
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753289233/Icons_h69a1r.png",
+            title: "2. Approve Reports",
+            description: "Review and approve reports before finalizing.",
+          },
+          {
+            img02:
+              "https://res.cloudinary.com/diwhc4afs/image/upload/v1753289119/Group_2196_v6tywi.svg",
+            title: "3. Import to Accounting Software",
+            description:
+              "Push data to accounting software like QuickBooks or Xero with one click.",
+          },
+        ],
+      };
     </script>
   </head>
 
   <body>
     <div class="cpl-section">
-       <div class="cpl-hero-section">
+      <!-- hero-section -->
+      <div class="cpl-hero-section">
         <div class="cpl-container">
           <nav class="cpl-navbar">
             <img
@@ -56,7 +191,7 @@
                   alt="4.5 star rating"
                   class="rating-stars"
                 />
-                <span>Rated 4.5 out of 5</span>
+                <span>4.5 (4,889 reviews)</span>
               </div>
 
               <ul class="feature-list">
@@ -90,71 +225,185 @@
                 </li>
               </ul>
 
-              <div class="cpl-option-image">
-                <img
-                  src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png"
-                  alt="Option Selection UI"
-                />
+               <div class="cpl-option-image">
+                <picture>
+                  <source
+                    media="(max-width: 600px)"
+                    srcset="
+                      https://res.cloudinary.com/diwhc4afs/image/upload/v1753343843/2023_8_49_07_CEST_lzevbp.png
+                    "
+                  />
+                  <img
+                    src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png"
+                    alt="Option Selection UI"
+                  />
+                </picture>
               </div>
               <h2 class="hero-bottom-heading">
                 Join 12 million+ users who trust Expensify
               </h2>
             </div>
-            <div class="cpl-hero-right-img">
-              <img
-                src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png"
-                alt="Expense Dashboard"
-              />
+           <div class="cpl-hero-right-img">
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    https://res.cloudinary.com/diwhc4afs/image/upload/v1753343870/Frame_5612_2_uw2fyz.png
+                  "
+                />
+                <img
+                  src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png"
+                  alt="Expense Dashboard"
+                />
+              </picture>
             </div>
           </div>
-          <div class="img-wrapper">
-            <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091031/Frame_40581_aoheqj.png" alt="" class="img-wrapper-img">
+           <div class="img-wrapper">
+            <picture>
+              <!-- Mobile -->
+              <source
+                media="(max-width: 675x)"
+                srcset="
+                  https://res.cloudinary.com/diwhc4afs/image/upload/v1753347839/Frame_40582_2_chvbya.png
+                "
+              />
+              <!-- Tablet -->
+              <source
+                media="(max-width: 1023px)"
+                srcset="
+                  https://res.cloudinary.com/diwhc4afs/image/upload/v1753347840/Frame_40582_1_ljnili.png
+                "
+              />
+              <img
+                src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091031/Frame_40581_aoheqj.png"
+                alt=""
+                class="img-wrapper-img"
+              />
+            </picture>
+          </div>
         </div>
-        </div>
-        
       </div>
+      <!-- feature-section -->
       <div class="cpl-feature-section">
-        <div class="cpl-container" id="features-container">
-          
-        </div>
+        <h2 class="features">Features</h2>
+        <div class="cpl-container" id="features-container"></div>
         <div class="show-more-container">
-          <button id="toggle-btn">Show More</button>
+          <a href="#features" id="toggle-btn" class="toggle-btn">
+            See All Features
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M1.10927 3.2101C0.562535 3.75683 0.562535 4.64326 1.10927 5.19L6.99922 11.0799L12.8892 5.19C13.4359 4.64326 13.4359 3.75683 12.8892 3.2101C12.3424 2.66337 11.456 2.66337 10.9093 3.2101L6.99922 7.12015L3.08917 3.2101C2.54243 2.66337 1.656 2.66337 1.10927 3.2101Z"
+                fill="#0164BF"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- freetrial section -->
+      <div class="cpl-freetrial-section">
+        <div class="cpl-container" id="freetrial">
+          <h2 class="trial-heading">How Expensify’s free trial works</h2>
+
+          <div class="trial-tabs">
+            <a href="#" class="tab active" data-tab="employees"
+              >For Employees</a
+            >
+            <a href="#" class="tab" data-tab="businessOwners"
+              >For Business Owners</a
+            >
+            <a href="#" class="tab" data-tab="financeAccounting"
+              >For Finance/Accounting</a
+            >
+          </div>
+
+          <div class="trial-cards" id="cardContainer"></div>
+
+          <div class="button-wrapper">
+            <button class="get-started-btn">Get Started</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Script for rendering and toggling -->
     <script>
-      const data = JSON.parse(document.getElementById('features-json').textContent);
-      const container = document.getElementById('features-container');
-      const toggleBtn = document.getElementById('toggle-btn');
+      // features -cards
+
+      const data = JSON.parse(
+        document.getElementById("features-json").textContent
+      );
+      const container = document.getElementById("features-container");
+      const toggleBtn = document.getElementById("toggle-btn");
 
       const INITIAL_COUNT = 9;
       let isExpanded = false;
 
-      function renderFeatures(limit) {
+      function Features(limit) {
         container.innerHTML = "";
         const visibleItems = data.slice(0, limit);
-        visibleItems.forEach(item => {
-          const card = document.createElement('div');
-          card.className = 'feature-card';
+
+        visibleItems.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "feature-card";
           card.innerHTML = `
-            <h2>${item.title}</h2>
-            <p>${item.description}</p>
-            <a href="#">${item.learn_more_link_placeholder}</a>
-          `;
+     
+      <h3> <img src="${item.img}" alt="${item.title} icon" class="feature-icon" />${item.title}</h3>
+      <p>${item.description}</p>
+      <a href="#">
+        ${item.learn_more}
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.21083 12.89C3.75757 13.4367 4.644 13.4367 5.19073 12.89L11.0807 7.00005L5.19073 1.1101C4.644 0.563364 3.75757 0.563364 3.21083 1.1101C2.6641 1.65683 2.6641 2.54326 3.21083 3.09L7.12088 7.00005L3.21083 10.9101C2.6641 11.4568 2.6641 12.3433 3.21083 12.89Z" fill="#0164BF"/>
+        </svg>
+      </a>
+    `;
           container.appendChild(card);
         });
       }
 
-      toggleBtn.addEventListener('click', () => {
+      toggleBtn.addEventListener("click", () => {
         isExpanded = !isExpanded;
-        renderFeatures(isExpanded ? data.length : INITIAL_COUNT);
-        toggleBtn.textContent = isExpanded ? "Show Less" : "Show More";
+        Features(isExpanded ? data.length : INITIAL_COUNT);
+        toggleBtn.textContent = isExpanded ? "Show Less" : "See All Features";
       });
 
-      // Initial render
-      renderFeatures(INITIAL_COUNT);
+      Features(INITIAL_COUNT);
+
+      // trial cards
+      const tabs = document.querySelectorAll(".tab");
+      const cardContainer = document.getElementById("cardContainer");
+
+      function renderCards(tabKey) {
+        const cards = cardData[tabKey];
+        cardContainer.innerHTML = ""; // Clear previous
+        cards.forEach((card) => {
+          const cardElement = document.createElement("div");
+          cardElement.className = "card";
+          cardElement.innerHTML = `<img src="${card.img02}" class="trial-img" /><h3>${card.title}</h3><p>${card.description}</p>`;
+          cardContainer.appendChild(cardElement);
+        });
+      }
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          const tabKey = tab.dataset.tab;
+          renderCards(tabKey);
+        });
+      });
+
+      renderCards("employees");
     </script>
   </body>
 </html>

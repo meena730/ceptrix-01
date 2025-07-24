@@ -1,7 +1,7 @@
 .cpl-001 .free-shipping-container {
   padding: 20px;
   background: #f9f9f9;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
 }
 
 .cpl-001 .bar-track {
@@ -48,7 +48,7 @@
   justify-content: center;
   gap: 8px;
   color: #212121;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -63,7 +63,7 @@
 .cpl-001 .free-shipping-message span {
   color: #212121;
   text-align: center;
-  font-family: "Open Sans";
+  /* font-family: "Open Sans"; */
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
