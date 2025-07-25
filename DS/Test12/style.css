@@ -1,0 +1,20 @@
+.cpl-001 .discount-amount {
+ color: #C03535;
+text-align: right;
+text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.00);
+font-family: Gilroy-Bold;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 21.6px; 
+}
+
+.cpl-001 .mark {
+  color: #1e2224;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+  font-family: Exo;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; 
+}
