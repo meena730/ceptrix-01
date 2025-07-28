@@ -62,19 +62,16 @@ if (window.location.pathname === "/checkout/cart/") {
         );
         const expectedValue = parseFloat(NewSubtotal.replace(",", "."));
 
-        if (subtotalPrice.dataset.updated === "true") {
-          console.log("  already updated.");
-          return;
-        }
+        // check database ,
 
-        if (Math.abs(currentValue - expectedValue) < 0.01) {
-          subtotalPrice.dataset.updated = "true";
+        if (subtotalPrice.dataset.updated === "true") {
+          console.log("already updated.");
           return;
         }
 
         subtotalPrice.innerText = `${NewSubtotal}€`;
         subtotalPrice.dataset.updated = "true";
-        console.log(NewSubtotal);
+        console.log("Subtotal updated:", NewSubtotal);
       };
 
       setTimeout(updateSubtotal, 3000);
@@ -85,7 +82,7 @@ if (window.location.pathname === "/checkout/cart/") {
       observer.observe(subtotalPrice, {
         childList: true,
         characterData: true,
-        subtree: true,
+        // subtree: true,
       });
 
       if (!document.querySelector(".totals.discount")) {
