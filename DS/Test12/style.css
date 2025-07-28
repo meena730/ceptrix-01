@@ -1,12 +1,12 @@
 .cpl-001 .discount-amount {
- color: #C03535;
-text-align: right;
-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.00);
-font-family: Gilroy-Bold;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: 21.6px; 
+  color: #c03535;
+  text-align: right;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+  font-family: Gilroy-Bold;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21.6px;
 }
 
 .cpl-001 .mark {
@@ -16,5 +16,15 @@ line-height: 21.6px;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; 
+  line-height: 18px;
+}
+.cpl-001 .item-discount-info {
+  color: #c03535;
+  text-align: right;
+  font-family: Gilroy-Bold;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+  margin-top: 12px;
 }

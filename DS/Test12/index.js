@@ -8,24 +8,20 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
   }, interval);
   setTimeout(() => clearInterval(check), timeout);
 }
-// waitForElement("tr.totals.sub", () => {
-//   const subtotalRow = document.querySelector("tr.totals.sub");
-// });
 
 if (window.location.pathname === "/checkout/cart/") {
   waitForElement("tr.totals.sub", (subtotalRow) => {
     const pricebox = document.querySelectorAll(
       ".col.subtotal .price-excluding-tax"
     );
-    // body class add
     document.body.classList.add("cpl-001");
-
     if (pricebox.length === 0) return;
 
     let totalDiscount = 0;
 
     pricebox.forEach((container) => {
       const prices = container.querySelectorAll(".cart-price");
+
       if (prices.length === 2) {
         const original = parseFloat(
           prices[0].innerText.replace(/[^\d,]/g, "").replace(",", ".")
@@ -35,37 +31,79 @@ if (window.location.pathname === "/checkout/cart/") {
         );
 
         if (!isNaN(original) && !isNaN(discounted)) {
-          totalDiscount += original - discounted;
+          const itemDiscount = original - discounted;
+          totalDiscount += itemDiscount;
+
+          if (!container.querySelector(".item-discount-info")) {
+            const discount = document.createElement("div");
+            discount.className = "item-discount-info";
+            discount.innerText = `Je bespaart €${itemDiscount
+              .toFixed(2)
+              .replace(".", ",")}`;
+            container.appendChild(discount);
+          }
         }
       }
     });
 
     if (totalDiscount > 0) {
       const subtotalPrice = subtotalRow.querySelector("td.amount span.price");
+
       const currentSubtotal = parseFloat(
         subtotalPrice.innerText.replace(/[^\d,]/g, "").replace(",", ".")
       );
-      const newSubtotal = (currentSubtotal - totalDiscount)
+      const NewSubtotal = (currentSubtotal + totalDiscount)
         .toFixed(2)
         .replace(".", ",");
 
-      subtotalPrice.innerText = `${newSubtotal}€`;
+      const updateSubtotal = () => {
+        const currentValue = parseFloat(
+          subtotalPrice.innerText.replace(/[^\d,]/g, "").replace(",", ".")
+        );
+        const expectedValue = parseFloat(NewSubtotal.replace(",", "."));
 
-      const discountRow = document.createElement("tr");
-      discountRow.className = "totals discount";
-      discountRow.innerHTML = `
-  <th class="mark">Korting</th>
-  <td class="amount">
-    <span class="discount-amount">- € ${totalDiscount
-      .toFixed(2)
-      .replace(".", ",")}</span>
-  </td>
-`;
+        if (subtotalPrice.dataset.updated === "true") {
+          console.log("  already updated.");
+          return;
+        }
 
-      subtotalRow.parentElement.insertBefore(
-        discountRow,
-        subtotalRow.nextSibling
-      );
+        if (Math.abs(currentValue - expectedValue) < 0.01) {
+          subtotalPrice.dataset.updated = "true";
+          return;
+        }
+
+        subtotalPrice.innerText = `${NewSubtotal}€`;
+        subtotalPrice.dataset.updated = "true";
+        console.log(NewSubtotal);
+      };
+
+      setTimeout(updateSubtotal, 3000);
+
+      const observer = new MutationObserver(() => {
+        updateSubtotal();
+      });
+      observer.observe(subtotalPrice, {
+        childList: true,
+        characterData: true,
+        subtree: true,
+      });
+
+      if (!document.querySelector(".totals.discount")) {
+        const discountRow = document.createElement("tr");
+        discountRow.className = "totals discount";
+        discountRow.innerHTML = `
+          <th class="mark">Korting</th>
+          <td class="amount">
+            <span class="discount-amount">- € ${totalDiscount
+              .toFixed(2)
+              .replace(".", ",")}</span>
+          </td>
+        `;
+        subtotalRow.parentNode.insertBefore(
+          discountRow,
+          subtotalRow.nextSibling
+        );
+      }
     }
   });
 }
