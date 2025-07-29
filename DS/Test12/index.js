@@ -46,56 +46,58 @@ if (window.location.pathname === "/checkout/cart/") {
       }
     });
 
+    const formatToEuro = (amount) =>
+      `€ ${new Intl.NumberFormat("de-DE", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(amount)}`;
+
     if (totalDiscount > 0) {
       const subtotalPrice = subtotalRow.querySelector("td.amount span.price");
 
       const currentSubtotal = parseFloat(
         subtotalPrice.innerText.replace(/[^\d,]/g, "").replace(",", ".")
       );
-      const NewSubtotal = (currentSubtotal + totalDiscount)
-        .toFixed(2)
-        .replace(".", ",");
+
+      const newSubtotal = currentSubtotal + totalDiscount;
 
       const updateSubtotal = () => {
-        const currentValue = parseFloat(
-          subtotalPrice.innerText.replace(/[^\d,]/g, "").replace(",", ".")
-        );
-        const expectedValue = parseFloat(NewSubtotal.replace(",", "."));
-
-        // check database ,
-
         if (subtotalPrice.dataset.updated === "true") {
           console.log("already updated.");
           return;
         }
 
-        subtotalPrice.innerText = `${NewSubtotal}€`;
+        subtotalPrice.innerText = formatToEuro(newSubtotal);
         subtotalPrice.dataset.updated = "true";
-        console.log("Subtotal updated:", NewSubtotal);
+        console.log("Subtotal updated:", formatToEuro(newSubtotal));
       };
 
-      setTimeout(updateSubtotal, 3000);
+      updateSubtotal();
 
       const observer = new MutationObserver(() => {
-        updateSubtotal();
+        const refreshSubtotal = subtotalRow.querySelector(
+          "td.amount span.price"
+        );
+        if (refreshSubtotal && refreshSubtotal.dataset.updated !== "true") {
+          updateSubtotal();
+        }
       });
-      observer.observe(subtotalPrice, {
+
+      observer.observe(document.body, {
         childList: true,
         characterData: true,
-        // subtree: true,
+        subtree: true,
       });
 
       if (!document.querySelector(".totals.discount")) {
         const discountRow = document.createElement("tr");
         discountRow.className = "totals discount";
         discountRow.innerHTML = `
-          <th class="mark">Korting</th>
-          <td class="amount">
-            <span class="discount-amount">- € ${totalDiscount
-              .toFixed(2)
-              .replace(".", ",")}</span>
-          </td>
-        `;
+      <th class="mark">Korting</th>
+      <td class="amount">
+        <span class="discount-amount">- ${formatToEuro(totalDiscount)}</span>
+      </td>
+    `;
         subtotalRow.parentNode.insertBefore(
           discountRow,
           subtotalRow.nextSibling
