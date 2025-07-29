@@ -11,24 +11,22 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
   setTimeout(() => clearInterval(check), timeout);
 }
 
-waitForElement(
-  "ul.list-unstyled.row.category-products-grid.mx-0",
-  function (ul) {
-    if (document.body.classList.contains("category-view")) {
-      document.body.classList.add("cpl-001");
+(function () {
+  if (document.body.classList.contains("category-view")) {
+    document.body.classList.add("cpl-001");
 
-      const desktopLi = ul.querySelector("li.d-none.d-md-block");
-      const mobileLi = ul.querySelector("li.d-md-none");
+    waitForElement(".category-products", (categoryWrapper) => {
+      const allAidBoxes =
+        categoryWrapper.querySelectorAll(".selection-aid-box");
 
-      if (desktopLi) desktopLi.classList.add("hide-li");
-      if (mobileLi) mobileLi.classList.add("hide-li");
-    }
+      if (allAidBoxes.length > 0) {
+        allAidBoxes.forEach((box) => {
+          box.classList.add("hide-aid-box");
+        });
+      }
+    });
   }
-);
-
-
-
-
+})();
 
 // remove add on pdp page
 function waitForElement(selector, callback, interval = 50, timeout = 10000) {
@@ -42,24 +40,18 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
   setTimeout(() => clearInterval(check), timeout);
 }
 
-waitForElement(".product-image-container.col-lg-6", function (productImg) {
+waitForElement(".product-image-container.col-lg-6", function (container) {
   if (!document.body.classList.contains("product-product")) {
     return;
   }
 
   document.body.classList.add("cpl-001");
 
-  const stickyImg = productImg.querySelector(".sticky-product-image.pb-1");
-  if (!stickyImg) {
-    return;
-  }
+  const aids = container.querySelectorAll(".product-selection-aid");
 
-  const childDivs = stickyImg.querySelectorAll(":scope > div");
-
-  if (childDivs.length >= 4) {
-    const fourthDiv = childDivs[3];
-    if (fourthDiv.classList.contains("text-white")) {
-      fourthDiv.classList.add("hide-target-div");
-    }
+  if (aids.length > 0) {
+    aids.forEach((aid) => {
+      aid.classList.add("hide-target-aid");
+    });
   }
 });

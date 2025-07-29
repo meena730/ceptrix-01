@@ -59,65 +59,54 @@
   const isProductPage = document.body.classList.contains("product-product");
   if (!isProductPage) return;
 
+  const stockmsg = /Nog maar\s*[1-9]\s*op voorraad,?/i;
+  const svgIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle opacity="0.15" cx="7.96057" cy="7.99939" r="7.45996" fill="#FFC600"/>
+      <circle cx="7.96057" cy="7.99939" r="4.53955" fill="#FFC600"/>
+    </svg>
+  `;
+
   function StockMessage() {
     const containers = document.querySelectorAll(
       ".col-lg-6.d-flex.flex-column.px-0.pl-lg-5.mt-md-5.mt-lg-0"
     );
 
     containers.forEach((container) => {
-      const productCard = container.querySelector(".product-card");
-      if (!productCard) return;
-
-      const priceContainer = productCard.querySelector(
-        ".p-2.p-md-4.price-container"
+      const stockSpan = container.querySelector(
+        ".product-card .price-container .ml-auto .d-flex.justify-content-between.align-items-center .stock-status .in-stock"
       );
-      if (!priceContainer) return;
 
-      const mlAuto = priceContainer.querySelector(".ml-auto");
-      if (!mlAuto) return;
+      const priceContainer = container.querySelector(".price-container");
+      const targetAbove = priceContainer?.querySelector(".d-flex.flex-column");
 
-      const statusWrapper = mlAuto.querySelector(
-        ".d-flex.justify-content-between.align-items-center"
-      );
-      if (!statusWrapper) return;
-
-      const stockSpan = statusWrapper.querySelector(".stock-status .in-stock");
-      if (!stockSpan) return;
+      if (
+        !stockSpan ||
+        !priceContainer ||
+        !targetAbove ||
+        priceContainer.querySelector(".custom-stock-badge")
+      )
+        return;
 
       const text = stockSpan.innerText.trim();
-      const match = text.match(/Nog maar\s*[1-9]\s*op voorraad,?/i);
+      const match = text.match(stockmsg);
       if (!match) return;
 
-      const matchedText = match[0];
-      const cleanedText = matchedText.replace(/,$/, "").trim();
+      const cleanedText = match[0].replace(/,$/, "").trim();
+      stockSpan.innerText = text.replace(match[0], "").trim();
 
-      if (priceContainer.querySelector(".custom-stock-badge")) return;
+      const badge = document.createElement("div");
+      badge.className = "in-stock custom-stock-badge";
+      badge.innerHTML = `
+        <span class="badge">${svgIcon}</span>
+        <span class="stock-badge-text">${cleanedText}</span>
+      `;
 
-      stockSpan.innerText = text.replace(matchedText, "").trim();
-
-      const targetAbove = priceContainer.querySelector(".d-flex.flex-column");
-      if (!targetAbove) return;
-
-     const newBadge = document.createElement("div");
-     newBadge.className = "in-stock custom-stock-badge";
-     newBadge.innerHTML = `
-  <span class="budge">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <circle opacity="0.15" cx="7.96057" cy="7.99939" r="7.45996" fill="#FFC600"/>
-      <circle cx="7.96057" cy="7.99939" r="4.53955" fill="#FFC600"/>
-    </svg>
-  </span>
-  <span class="stock-badge-text">${cleanedText}</span>
-`;
-
-
-      targetAbove.insertAdjacentElement("beforebegin", newBadge);
+      targetAbove.insertAdjacentElement("beforebegin", badge);
     });
   }
 
-  const observer = new MutationObserver(() => {
-    StockMessage();
-  });
+  const observer = new MutationObserver(StockMessage);
 
   observer.observe(document.body, {
     childList: true,
@@ -126,5 +115,6 @@
 
   StockMessage();
 })();
+
 
 
