@@ -8,7 +8,7 @@
 
   `;
 
-  const stockPattern = /Nog maar\s*[1-5]\s*op voorraad,?/i;
+  const stockPattern = /Nog maar\s*[1-9]\s*op voorraad,?/i;
 
   function StockTags() {
     const stockTags = document.querySelectorAll("span.in-stock");
@@ -17,7 +17,9 @@
     document.body.classList.add("cpl-001");
     stockTags.forEach((tag) => {
       const text = tag.innerText.trim();
-      const html = tag.innerHTML;
+      const html = tag.innerText;
+            // const html2 = tag.textContent;
+
 
       const matched = text.match(stockPattern);
       if (matched) {
@@ -56,39 +58,44 @@
 
 // Producttt- Page   PDP
 
-const isCorrectURL = window.location.href.startsWith(
-  "https://www.badkamerxxl.nl/"
-);
-const isProductPage = document.body.classList.contains("product-product");
+(function () {
+  const isProductPage = document.body.classList.contains("product-product");
 
-if (isProductPage) {
+  if (!isProductPage) return;
+
+  const stockPattern = /Nog maar\s*\d+\s*op voorraad,?/i;
+
   function StockMessage() {
-    const stockSpans = document.querySelectorAll(".stock-status .in-stock");
+  const stockSpans = document.querySelectorAll(".stock-status .in-stock");
 
-    stockSpans.forEach((stockSpan) => {
-      const text = stockSpan.innerText.trim();
+  stockSpans.forEach((stockSpan) => {
+    const text = stockSpan.innerText.trim();
 
-      const match = text.match(/Nog maar \d+ op voorraad,?/);
-      if (!match) return;
+    const match = text.match(/Nog maar\s*[1-9]\s*op voorraad,?/i);
+    if (!match) return; 
 
-      const matchedText = match[0];
-      const cleanedText = matchedText.replace(/,$/, "");
+    const matchedText = match[0];
+    const cleanedText = matchedText.replace(/,$/, "");
 
-      const container = stockSpan.closest(".p-2.p-md-4.price-container");
-      if (!container || container.querySelector(".custom-stock-badge")) return;
+    const container = stockSpan.closest(".p-2.p-md-4.price-container");
+    if (!container || container.querySelector(".custom-stock-badge")) return;
 
-      const priceInfoRight = container.querySelector(".ml-auto");
-      if (!priceInfoRight) return;
+    const priceInfoRight = container.querySelector(".ml-auto");
+    if (!priceInfoRight) return;
 
-      stockSpan.innerText = text.replace(matchedText, "").trim();
+    stockSpan.innerText = text.replace(matchedText, "").trim();
 
-      const newBadge = document.createElement("div");
-      newBadge.className = "in-stock custom-stock-badge";
-     newBadge.innerHTML = `<span class="stock-badge-dot"></span><span class="stock-badge-text">${cleanedText}</span>`;
+    const newBadge = document.createElement("div");
+    newBadge.className = "in-stock custom-stock-badge";
+    newBadge.innerHTML = `
+      <span class="stock-badge-dot"></span>
+      <span class="stock-badge-text">${cleanedText}</span>
+    `;
 
-      priceInfoRight.insertAdjacentElement("afterend", newBadge);
-    });
-  }
+    priceInfoRight.insertAdjacentElement("afterend", newBadge);
+  });
+}
+
 
   const observer = new MutationObserver(() => {
     StockMessage();
@@ -100,11 +107,7 @@ if (isProductPage) {
   });
 
   StockMessage();
-}
-
-
-
-
+})();
 
 // remkove ads '
 
@@ -133,7 +136,6 @@ waitForElement(
     }
   }
 );
-
 
 // remove add on pdp page
 function waitForElement(selector, callback, interval = 50, timeout = 10000) {

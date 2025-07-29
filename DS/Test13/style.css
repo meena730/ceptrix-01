@@ -5,14 +5,16 @@
   font-size: 14px;
   margin-top: 10px;
   color: #333;
+      min-width: 215px;
+
 }
 
 .stock-badge-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background-color: #ffc400;
-  box-shadow: 0 0 0 8px #fff9db;
+  box-shadow: 0 0 0 5px #fff9db;
   flex-shrink: 0;
 }
 
