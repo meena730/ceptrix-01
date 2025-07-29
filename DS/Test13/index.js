@@ -1,11 +1,17 @@
 // Cart pGE
 (function () {
-  const alertMessage = `
-    <div class="custom-stock-alert">
-      <span class="stock-alert-dot"></span>
-      Gefeliciteerd, dit is een van de laatste producten. Bestel snel, voor iemand anders je voor is!
-    </div>
-  `;
+ const alertMessage = `
+  <div class="custom-stock-alert">
+    <span class="dot" style="display: inline-flex; align-items: center; margin-right: 6px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle opacity="0.15" cx="7.96057" cy="7.99939" r="7.45996" fill="#FFC600"/>
+        <circle cx="7.96057" cy="7.99939" r="4.53955" fill="#FFC600"/>
+      </svg>
+    </span>
+    Gefeliciteerd, dit is een van de laatste producten. Bestel snel, voor iemand anders je voor is!
+  </div>
+`;
+
 
   const stockPattern = /Nog maar\s*[1-9]\s*op voorraad,?/i;
 
@@ -92,12 +98,18 @@
       const targetAbove = priceContainer.querySelector(".d-flex.flex-column");
       if (!targetAbove) return;
 
-      const newBadge = document.createElement("div");
-      newBadge.className = "in-stock custom-stock-badge";
-      newBadge.innerHTML = `
-        <span class="stock-badge-dot"></span>
-        <span class="stock-badge-text">${cleanedText}</span>
-      `;
+     const newBadge = document.createElement("div");
+     newBadge.className = "in-stock custom-stock-badge";
+     newBadge.innerHTML = `
+  <span class="budge">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle opacity="0.15" cx="7.96057" cy="7.99939" r="7.45996" fill="#FFC600"/>
+      <circle cx="7.96057" cy="7.99939" r="4.53955" fill="#FFC600"/>
+    </svg>
+  </span>
+  <span class="stock-badge-text">${cleanedText}</span>
+`;
+
 
       targetAbove.insertAdjacentElement("beforebegin", newBadge);
     });
