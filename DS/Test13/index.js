@@ -49,30 +49,48 @@
 
 // Producttt- Page   PDP
 
-(function () {  
+(function () {
   const isProductPage = document.body.classList.contains("product-product");
-
   if (!isProductPage) return;
 
   function StockMessage() {
-    const stockSpans = document.querySelectorAll(".stock-status .in-stock");
+    const containers = document.querySelectorAll(
+      ".col-lg-6.d-flex.flex-column.px-0.pl-lg-5.mt-md-5.mt-lg-0"
+    );
 
-    stockSpans.forEach((stockSpan) => {
+    containers.forEach((container) => {
+      const productCard = container.querySelector(".product-card");
+      if (!productCard) return;
+
+      const priceContainer = productCard.querySelector(
+        ".p-2.p-md-4.price-container"
+      );
+      if (!priceContainer) return;
+
+      const mlAuto = priceContainer.querySelector(".ml-auto");
+      if (!mlAuto) return;
+
+      const statusWrapper = mlAuto.querySelector(
+        ".d-flex.justify-content-between.align-items-center"
+      );
+      if (!statusWrapper) return;
+
+      const stockSpan = statusWrapper.querySelector(".stock-status .in-stock");
+      if (!stockSpan) return;
+
       const text = stockSpan.innerText.trim();
-
       const match = text.match(/Nog maar\s*[1-9]\s*op voorraad,?/i);
       if (!match) return;
 
       const matchedText = match[0];
-      const cleanedText = matchedText.replace(/,$/, "");
+      const cleanedText = matchedText.replace(/,$/, "").trim();
 
-      const container = stockSpan.closest(".p-2.p-md-4.price-container");
-      if (!container || container.querySelector(".custom-stock-badge")) return;
-
-      const priceInfoRight = container.querySelector(".d-flex.flex-column");
-      if (!priceInfoRight) return;
+      if (priceContainer.querySelector(".custom-stock-badge")) return;
 
       stockSpan.innerText = text.replace(matchedText, "").trim();
+
+      const targetAbove = priceContainer.querySelector(".d-flex.flex-column");
+      if (!targetAbove) return;
 
       const newBadge = document.createElement("div");
       newBadge.className = "in-stock custom-stock-badge";
@@ -81,7 +99,7 @@
         <span class="stock-badge-text">${cleanedText}</span>
       `;
 
-      priceInfoRight.insertAdjacentElement("beforebegin", newBadge);
+      targetAbove.insertAdjacentElement("beforebegin", newBadge);
     });
   }
 
