@@ -86,7 +86,7 @@ if (window.location.pathname === "/checkout/cart/") {
       observer.observe(document.body, {
         childList: true,
         characterData: true,
-        subtree: true,
+        // subtree: true,
       });
 
       if (!document.querySelector(".totals.discount")) {
@@ -106,3 +106,9 @@ if (window.location.pathname === "/checkout/cart/") {
     }
   });
 }
+
+
+
+// Remove add 
+
+
