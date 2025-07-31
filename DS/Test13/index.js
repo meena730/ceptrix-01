@@ -88,7 +88,7 @@
     );
   }
 
-  function handleStockElements() {
+  function handleStock() {
     if (isCartPage) {
       CartPage();
     } else if (isProductPage) {
@@ -97,9 +97,9 @@
   }
 
   if (isCartPage || isProductPage) {
-    handleStockElements();
+    handleStock();
 
-    const observer = new MutationObserver(handleStockElements);
+    const observer = new MutationObserver(handleStock);
     observer.observe(document.body, {
       childList: true,
       subtree: true,
