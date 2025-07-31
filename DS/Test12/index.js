@@ -46,58 +46,58 @@ if (window.location.pathname === "/checkout/cart/") {
       }
     });
 
-    const formatToEuro = (amount) =>
-      `€ ${new Intl.NumberFormat("de-DE", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      }).format(amount)}`;
-
     if (totalDiscount > 0) {
       const subtotalPrice = subtotalRow.querySelector("td.amount span.price");
-
       const currentSubtotal = parseFloat(
         subtotalPrice.innerText.replace(/[^\d,]/g, "").replace(",", ".")
       );
+      const NewSubtotal = (currentSubtotal + totalDiscount)
+        .toFixed(2)
+        .replace(".", ",");
 
-      const newSubtotal = currentSubtotal + totalDiscount;
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "characterData") {
+            if (subtotalPrice.dataset.updated === "true") {
+              observer.disconnect();
+              return;
+            }
 
-      const updateSubtotal = () => {
-        if (subtotalPrice.dataset.updated === "true") {
-          console.log("already updated.");
-          return;
-        }
+            const currentValue = parseFloat(
+              subtotalPrice.innerText.replace(/[^\d,]/g, "").replace(",", ".")
+            );
+            const expectedValue = parseFloat(NewSubtotal.replace(",", "."));
 
-        subtotalPrice.innerText = formatToEuro(newSubtotal);
-        subtotalPrice.dataset.updated = "true";
-        console.log("Subtotal updated:", formatToEuro(newSubtotal));
-      };
-
-      updateSubtotal();
-
-      const observer = new MutationObserver(() => {
-        const refreshSubtotal = subtotalRow.querySelector(
-          "td.amount span.price"
-        );
-        if (refreshSubtotal && refreshSubtotal.dataset.updated !== "true") {
-          updateSubtotal();
-        }
+            if (Math.abs(currentValue - expectedValue) > 0.01) {
+              subtotalPrice.innerText = `${NewSubtotal}€`;
+              subtotalPrice.dataset.updated = "true";
+              console.log(
+                "Subtotal updated via MutationObserver:",
+                NewSubtotal
+              );
+              observer.disconnect();
+            }
+          }
+        });
       });
 
-      observer.observe(document.body, {
-        childList: true,
+      observer.observe(subtotalPrice, {
         characterData: true,
-        // subtree: true,
+        childList: true,
+        subtree: true,
       });
 
       if (!document.querySelector(".totals.discount")) {
         const discountRow = document.createElement("tr");
         discountRow.className = "totals discount";
         discountRow.innerHTML = `
-      <th class="mark">Korting</th>
-      <td class="amount">
-        <span class="discount-amount">- ${formatToEuro(totalDiscount)}</span>
-      </td>
-    `;
+          <th class="mark">Korting</th>
+          <td class="amount">
+            <span class="discount-amount">- € ${totalDiscount
+              .toFixed(2)
+              .replace(".", ",")}</span>
+          </td>
+        `;
         subtotalRow.parentNode.insertBefore(
           discountRow,
           subtotalRow.nextSibling
@@ -106,9 +106,3 @@ if (window.location.pathname === "/checkout/cart/") {
     }
   });
 }
-
-
-
-// Remove add 
-
-
