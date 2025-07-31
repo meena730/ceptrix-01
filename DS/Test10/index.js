@@ -47,24 +47,27 @@ waitForElement(".content", (productSelector) => {
                 <span>4.5 (4,889 reviews)</span>
               </div>
 
-              <ul class="feature-list">
-                <li>
-                  <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png" alt="Check" class="check-icon">
-                  <strong>All inclusive.</strong> Manage expenses, track
-                  receipts, reimburse employees, create expense reports, and
-                  send invoices.
-                </li>
-                <li>
-                  <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png" alt="Check" class="check-icon">
-                  <strong>Corporate card.</strong> Cash back on all purchases.
-                  Fraud protection.
-                </li>
-                <li>
-                  <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png" alt="Check" class="check-icon">
-                  <strong>40+ integrations.</strong> ADP, Quickbooks, Gusto,
-                  Sage, Workday, and Oracle...
-                </li>
-              </ul>
+             <ul class="feature-list">
+  <li>
+    <div class="feature-item">
+      <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png" alt="Check" class="check-icon">
+      <p><strong>All inclusive.</strong> Manage expenses, track receipts, reimburse employees, create expense reports, and send invoices.</p>
+    </div>
+  </li>
+  <li>
+    <div class="feature-item">
+      <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png" alt="Check" class="check-icon">
+      <p><strong>Corporate card.</strong> Cash back on all purchases. Fraud protection.</p>
+    </div>
+  </li>
+  <li>
+    <div class="feature-item">
+      <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png" alt="Check" class="check-icon">
+      <p><strong>40+ integrations.</strong> ADP, Quickbooks, Gusto, Sage, Workday, and Oracle...</p>
+    </div>
+  </li>
+</ul>
+
 
               <div class="cpl-option-image">
                 <picture>
