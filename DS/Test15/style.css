@@ -1,0 +1,58 @@
+.gmd-001 .gmd-custom {
+  height: 130px !important;
+  margin: 0 auto;
+}
+.gmd-001 .gmd-block {
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  height: 160px !important;
+}
+
+.gmd-001 .gmd-icons {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.gmd-001 .gmd-icons li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+}
+
+.gmd-001 .gmd-icons li svg {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+}
+
+.gmd-001 .gmd-mobile {
+    color: #50b550;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13px;
+    margin: 0px 0 20px;
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .gmd-001 .gmd-mobile {
+    display: block;
+  }
+
+  .gmd-001 .gmd-block {
+    display: none !important;
+  }
+}

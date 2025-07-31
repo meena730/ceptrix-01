@@ -66,6 +66,8 @@
   }
 
   function ProductPage() {
+    document.body.classList.add("cpl-001");
+
     waitForElement(
       ".product-card .price-container .stock-status .in-stock",
       (stockSpan) => {
