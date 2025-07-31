@@ -27,7 +27,13 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
     waitForElement(selector, (container) => {
       container.querySelectorAll(`.${targetClass}`).forEach((el) => {
         el.classList.add("gmd-hide");
+        el.parentElement?.classList.add("gmd-hide"); 
       });
     });
+
+    // const hide = document.querySelectorAll(
+    //   ".col-12 text-white d-none d-md-block"
+    // );
   }
 })();
+
