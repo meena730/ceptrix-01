@@ -1,4 +1,4 @@
-.custom-stock-badge {
+.cpl-001 .custom-stock-badge {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -8,18 +8,18 @@
   min-width: 215px;
 }
 
-.stock-badge-text {
+.cpl-001 .stock-badge-text {
   color: #00793a;
   /* margin-left: 6px; */
 }
-.budge {
+.cpl-001 .budge {
   /* margin-top: 0; */
   height: 14px;
   width: 14px;
 }
 
 /* cart */
-.custom-stock-alert {
+.cpl-001 .custom-stock-alert {
   display: flex;
   border-radius: 4px;
   background: #f2faf6;
@@ -32,7 +32,7 @@
   padding: 8px;
   max-width: 645px;
 }
-.dot {
+.cpl-001 .dot {
   width: 14px;
   margin-top: 5.2px;
   height: 14px;
@@ -48,7 +48,7 @@
 }
 
 @media (max-width: 767px) {
-  .custom-stock-alert {
+  .cpl-001.custom-stock-alert {
     display: flex;
     margin-left: 0;
     margin: 20px 0;

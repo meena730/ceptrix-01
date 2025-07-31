@@ -1,6 +1,6 @@
 // Cart pGE
 (function () {
- const alertMessage = `
+  const alertMessage = `
   <div class="custom-stock-alert">
     <span class="dot" style="display: inline-flex; align-items: center; margin-right: 6px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -11,7 +11,6 @@
     Gefeliciteerd, dit is een van de laatste producten. Bestel snel, voor iemand anders je voor is!
   </div>
 `;
-
 
   const stockPattern = /Nog maar\s*[1-9]\s*op voorraad,?/i;
 
@@ -52,7 +51,6 @@
   });
 })();
 
-
 // Producttt- Page   PDP
 
 (function () {
@@ -68,42 +66,31 @@
   `;
 
   function StockMessage() {
-    const containers = document.querySelectorAll(
-      ".col-lg-6.d-flex.flex-column.px-0.pl-lg-5.mt-md-5.mt-lg-0"
+    const stockSpan = document.querySelector(
+      ".product-card .price-container .stock-status .in-stock"
     );
 
-    containers.forEach((container) => {
-      const stockSpan = container.querySelector(
-        ".product-card .price-container .ml-auto .d-flex.justify-content-between.align-items-center .stock-status .in-stock"
-      );
+    if (!stockSpan) return;
 
-      const priceContainer = container.querySelector(".price-container");
-      const targetAbove = priceContainer?.querySelector(".d-flex.flex-column");
+    const text = stockSpan.innerText.trim();
+    const match = text.match(stockmsg);
+    if (!match) return;
 
-      if (
-        !stockSpan ||
-        !priceContainer ||
-        !targetAbove ||
-        priceContainer.querySelector(".custom-stock-badge")
-      )
-        return;
+    const cleanedText = match[0].replace(/,$/, "").trim();
+    stockSpan.innerText = text.replace(match[0], "").trim();
+    const targetAbove = document.querySelector(
+      ".product-card .d-flex.flex-column"
+    );
+    if (stockSpan.parentElement.querySelector(".custom-stock-badge")) return;
 
-      const text = stockSpan.innerText.trim();
-      const match = text.match(stockmsg);
-      if (!match) return;
+    const badge = document.createElement("div");
+    badge.className = "in-stock custom-stock-badge";
+    badge.innerHTML = `
+    <span class="badge">${svgIcon}</span>
+    <span class="stock-badge-text">${cleanedText}</span>
+  `;
 
-      const cleanedText = match[0].replace(/,$/, "").trim();
-      stockSpan.innerText = text.replace(match[0], "").trim();
-
-      const badge = document.createElement("div");
-      badge.className = "in-stock custom-stock-badge";
-      badge.innerHTML = `
-        <span class="badge">${svgIcon}</span>
-        <span class="stock-badge-text">${cleanedText}</span>
-      `;
-
-      targetAbove.insertAdjacentElement("beforebegin", badge);
-    });
+    targetAbove.insertAdjacentElement("beforebegin", badge);
   }
 
   const observer = new MutationObserver(StockMessage);
@@ -115,6 +102,3 @@
 
   StockMessage();
 })();
-
-
-
