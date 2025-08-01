@@ -21,7 +21,7 @@
   flex-wrap: nowrap;
 }
 
-.gmd-001 .gmd-icons li {
+.gmd-001 .gmd-icons p {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -30,7 +30,7 @@
   white-space: nowrap;
 }
 
-.gmd-001 .gmd-icons li svg {
+.gmd-001 .gmd-icons p svg {
   height: 20px;
   width: 20px;
   object-fit: contain;
