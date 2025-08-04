@@ -1,3 +1,4 @@
+console.log("found page");
 function waitForElement(
   selector,
   callback,

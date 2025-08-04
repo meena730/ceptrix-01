@@ -311,39 +311,43 @@
 }
 
 .trial-heading {
-  color: var(--Neutrals-Primary-Text, #002e22);
-  text-align: center;
-  /* font-family: "Expensify New Kansas"; */
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 40px;
-  margin-bottom: 26px;
-  letter-spacing: -0.2px;
+    color: var(--Neutrals-Primary-Text, #002e22);
+    text-align: center;
+    /* font-family: "Expensify New Kansas"; */
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    margin-bottom: 24px;
+    letter-spacing: -0.2px;
 }
 .trial-tabs {
-  display: flex;
-  justify-content: center;
-  /* max-width: 1117px; */
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 38px;
-  flex-wrap: wrap;
-  /* padding: 0 195px; */
+    display: flex
+;
+    justify-content: center;
+    /* max-width: 1117px; */
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 37px;
+    flex-wrap: wrap;
+    /* padding: 0 195px; */
 }
 
 .tab {
-  color: var(--Neutrals-Primary-Text, #002e22);
-  /* font-family: "Expensify New Kansas"; */
-  font-size: 20px;
-  font-style: normal;
-  border: 1px solid transparent;
-  font-weight: 500;
-  line-height: 24px;
-  padding: 12px 40px;
-  max-width: 269px;
-  text-decoration: none;
-  border-radius: 97px;
+    /* color: var(--Neutrals-Primary-Text, #002e22); */
+    /* font-family: "Expensify New Kansas"; */
+    font-size: 20px;
+    text-align: center;
+    font-style: normal;
+    border: 1px solid #EBE6DF;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 12px 22px;
+    letter-spacing: 0.5px;
+    max-width: 223px;
+    width: 100%;
+    text-decoration: none;
+    border-radius: 97px;
 }
 
 .tab.active {
@@ -438,7 +442,7 @@
   .cpl-hero-section {
     /* background-color: #00875a; */
     color: white;
-    padding-bottom: 57px;
+    padding-bottom: 60px;
   }
   .cpl-container {
     max-width: 1130px;
