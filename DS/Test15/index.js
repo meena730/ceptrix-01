@@ -7,12 +7,12 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
     }
   }, interval);
   setTimeout(() => clearInterval(check), timeout);
-}
+} 
 
 if (document.body.classList.contains("catalog-category-view")) {
   document.body.classList.add("gmd-001");
 
-  function addCustom() {
+  function addCustomBlocks() {
     waitForElement(
       "#amasty-shopby-product-list ol.products.list.items.product-items.itemgrid > li.item.product.product-item",
       (productItems) => {
@@ -64,18 +64,25 @@ if (document.body.classList.contains("catalog-category-view")) {
               </div>
             </div>`;
 
-          target.insertAdjacentHTML(
-            beforeSpecial ? "beforebegin" : "afterend",
-            html
-          );
+          if (beforeSpecial) {
+            {
+              target.insertAdjacentHTML("beforebegin", html);
+            }
+          } else {
+            {
+              target.insertAdjacentHTML("afterend", html);
+            }
+          }
         }
       }
     );
   }
 
-  addCustom();
-  new MutationObserver(addCustom).observe(document.body, {
+  addCustomBlocks();
+  
+  new MutationObserver(addCustomBlocks).observe(document.body, {
     childList: true,
     subtree: true,
   });
 }
+ 
