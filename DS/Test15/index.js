@@ -98,8 +98,22 @@ if (document.body.classList.contains("catalog-category-view")) {
   }
 
   addCustomBlocks();
-  new MutationObserver(addCustomBlocks).observe(document.body, {
-    childList: true,
-    subtree: true,
+
+  const observer = new MutationObserver((mutations) => {
+    let addedGmd = false;
+
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1 && node.classList.contains("gmd-custom")) {
+          addedGmd = true;
+        }
+      });
+    });
+
+    if (!addedGmd) {
+      addCustomBlocks();
+    }
   });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 }
