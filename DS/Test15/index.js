@@ -18,15 +18,13 @@ if (document.body.classList.contains("catalog-category-view")) {
       (productItems) => {
         const products = Array.from(productItems);
         const total = products.length;
-        const itemsInOneColumn = 3;
         const twoColumns = 6;
 
-        document.querySelectorAll(".gmd-custom").forEach((box) => box.remove());
+        document.querySelectorAll(".gmd-custom").forEach((el) => el.remove());
 
         const specialElement = document.querySelector(
-          "#amasty-shopby-product-list ol.products.list.items.product-items.itemgrid > #move-keuzehulp"
+          "#amasty-shopby-product-list #move-keuzehulp"
         );
-
         let specialInserted = false;
 
         if (specialElement) {
@@ -34,94 +32,49 @@ if (document.body.classList.contains("catalog-category-view")) {
           specialInserted = true;
         }
 
-        if (total <= itemsInOneColumn) {
-          return;
-        }
+        if (total <= 3) return;
 
         products.forEach((product, idx) => {
-          const isTwoColsDone = (idx + 1) % twoColumns === 0;
-          const isLastItem = idx + 1 === total;
-
-          if (specialInserted && idx + 1 === twoColumns) {
-            return;
-          }
-
-          if (isTwoColsDone) {
-            insertBlock(product, false);
-          }
-
-          const leftover = total % twoColumns;
-          const shouldAddAtEnd = isLastItem && leftover >= twoColumns;
-
-          if (shouldAddAtEnd) {
-            insertBlock(product, false);
-          }
+          if (specialInserted && idx + 1 === twoColumns) return;
+          if ((idx + 1) % twoColumns === 0) insertBlock(product, false);
         });
 
-        function insertBlock(target, beforeSpecial) {
-          const infoItem = document.createElement("div");
-          infoItem.className = "gmd-custom";
-          infoItem.innerHTML = `
-    <div class="gmd-block">
-      <div class="gmd-icons">
-        <p>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="11" stroke="#ff9400" stroke-width="2" fill="#F5E6B4"/>
-            <path d="M7 12.5L10 15.5L17 8.5"
-              stroke="#ff9400" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <a href="https://www.raamdecoratie.com/verzenden/" target="_blank" rel="noopener noreferrer">
-            <strong>Gratis</strong> aan huis bezorgd
-          </a>
-        </p>
-        <p>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="11" stroke="#ff9400" stroke-width="2" fill="#F5E6B4"/>
-            <path d="M7 12.5L10 15.5L17 8.5"
-              stroke="#ff9400" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <a href="https://www.raamdecoratie.com/gratis-advies-en-meetservice.html" target="_blank" rel="noopener noreferrer">
-            <strong>Gratis</strong> advies en meetservice bij jou thuis
-          </a>
-        </p>
-        <p>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="11" stroke="#ff9400" stroke-width="2" fill="#F5E6B4"/>
-            <path d="M7 12.5L10 15.5L17 8.5"
-              stroke="#ff9400" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <a href="https://www.raamdecoratie.com/europese-productie/" target="_blank" rel="noopener noreferrer">
-            Op maat gemaakt in <strong>Europa</strong>
-          </a>
-        </p>
-      </div>
-    </div>
-  `;
+        const leftover = total % twoColumns;
+        if (leftover > 3) {
+          insertBlock(products[total - 1], false);
+        }
 
-          if (beforeSpecial) {
-            {
-              target.insertAdjacentElement("beforebegin", infoItem);
-            }
-          } else {
-            {
-              target.insertAdjacentElement("afterend", infoItem);
-            }
-          }
+        function insertBlock(target, beforeSpecial) {
+          const svgIcon = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="11" stroke="#ff9400" stroke-width="2" fill="#F5E6B4"/>
+              <path d="M7 12.5L10 15.5L17 8.5"
+                stroke="#ff9400" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>`;
+
+          const html = `
+            <div class="gmd-custom">
+              <div class="gmd-block">
+                <div class="gmd-icons">
+                  <p>${svgIcon}<a href="https://www.raamdecoratie.com/verzenden/" target="_blank"><strong>Gratis</strong> aan huis bezorgd</a></p>
+                  <p>${svgIcon}<a href="https://www.raamdecoratie.com/gratis-advies-en-meetservice.html" target="_blank"><strong>Gratis</strong> advies en meetservice bij jou thuis</a></p>
+                  <p>${svgIcon}<a href="https://www.raamdecoratie.com/europese-productie/" target="_blank">Op maat gemaakt in <strong>Europa</strong></a></p>
+                </div>
+              </div>
+            </div>`;
+
+          target.insertAdjacentHTML(
+            beforeSpecial ? "beforebegin" : "afterend",
+            html
+          );
         }
       }
     );
   }
 
   addCustom();
-
-  const pageObserver = new MutationObserver(() => {
-    addCustom();
-  });
-
-  pageObserver.observe(document.body, {
+  new MutationObserver(addCustom).observe(document.body, {
     childList: true,
     subtree: true,
   });
