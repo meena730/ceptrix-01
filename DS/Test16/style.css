@@ -1,0 +1,22 @@
+.gmd-001 .gmd-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.gmd-001 .gmd-total h6 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  color: #70707B;
+}
+
+.gmd-001 .gmd-total strong {
+  font-weight: 800;
+}
+
+.gmd-001 .gmd-total:last-child {
+  border-top: 1px solid #ddd;
+  padding-top: 8px;
+}
