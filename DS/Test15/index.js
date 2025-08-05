@@ -24,6 +24,9 @@ if (document.body.classList.contains("catalog-category-view")) {
 
         document.querySelectorAll(".gmd-custom").forEach((el) => el.remove());
 
+        // site----Belgian
+        const isBE = window.location.hostname.includes("www.be");
+
         const specialElement = document.querySelector(
           "#amasty-shopby-product-list #move-keuzehulp"
         );
@@ -44,7 +47,7 @@ if (document.body.classList.contains("catalog-category-view")) {
         const leftover = total % twoColumns;
 
         if (leftover !== previousLeftover) {
-          console.log(leftover, "are are");
+          console.log(leftover, "leftover items");
           previousLeftover = leftover;
         }
 
@@ -59,23 +62,37 @@ if (document.body.classList.contains("catalog-category-view")) {
 
         function insertBlock(target, beforeSpecial) {
           const svgIcon = `
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="11" stroke="#ff9400" stroke-width="2" fill="#F5E6B4"/>
-            <path d="M7 12.5L10 15.5L17 8.5"
-              stroke="#ff9400" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>`;
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="11" stroke="#ff9400" stroke-width="2" fill="#F5E6B4"/>
+              <path d="M7 12.5L10 15.5L17 8.5"
+                stroke="#ff9400" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>`;
 
           const html = `
-          <div class="gmd-custom">
-            <div class="gmd-block">
-              <div class="gmd-icons">
-                <p>${svgIcon}<a href="https://www.raamdecoratie.com/verzenden/" target="_blank"><strong>Gratis</strong> aan huis bezorgd</a></p>
-                <p>${svgIcon}<a href="https://www.raamdecoratie.com/gratis-advies-en-meetservice.html" target="_blank"><strong>Gratis</strong> advies en meetservice bij jou thuis</a></p>
-                <p>${svgIcon}<a href="https://www.raamdecoratie.com/europese-productie/" target="_blank">Op maat gemaakt in <strong>Europa</strong></a></p>
-              </div>
-            </div>
-          </div>`;
+  <div class="gmd-custom">
+    <div class="gmd-block">
+      <div class="gmd-icons">
+        <p>${svgIcon}<a href="https://www.raamdecoratie.com/verzenden/" target="_blank">
+          <strong>Gratis</strong> aan huis bezorgd
+        </a></p>
+
+        <p>${svgIcon}<a href="https://${
+            isBE ? "www.be" : "www"
+          }.raamdecoratie.com/${
+            isBE ? "kleurstalen" : "gratis-advies-en-meetservice.html"
+          }" target="_blank">
+          <strong>Gratis</strong> ${
+            isBE ? "kleurstalen" : "advies en meetservice bij jou thuis"
+          }
+        </a></p>
+
+        <p>${svgIcon}<a href="https://www.raamdecoratie.com/europese-productie/" target="_blank">
+          Op maat gemaakt in <strong>Europa</strong>
+        </a></p>
+      </div>
+    </div>
+  </div>`;
 
           if (beforeSpecial) {
             if (
@@ -102,13 +119,13 @@ if (document.body.classList.contains("catalog-category-view")) {
   const observer = new MutationObserver((mutations) => {
     let addedGmd = false;
 
-    mutations.forEach((mutation) => {
-      mutation.addedNodes.forEach((node) => {
+    for (const mutation of mutations) {
+      for (const node of mutation.addedNodes) {
         if (node.nodeType === 1 && node.classList.contains("gmd-custom")) {
           addedGmd = true;
         }
-      });
-    });
+      }
+    }
 
     if (!addedGmd) {
       addCustomBlocks();

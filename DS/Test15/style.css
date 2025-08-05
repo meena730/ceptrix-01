@@ -8,7 +8,8 @@
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
-  height: 160px !important;
+  margin-top: 35px;
+  /* height: 160px !important; */
 }
 
 .gmd-001 .gmd-icons {
