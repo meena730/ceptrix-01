@@ -7,16 +7,19 @@
 
 .gmd-001 .gmd-total h6 {
   margin: 0;
-  font-size: 16px;
-  font-weight: normal;
-  color: #70707B;
+  color: rgb(112, 112, 123);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
-.gmd-001 .gmd-total strong {
-  font-weight: 800;
-}
-
-.gmd-001 .gmd-total:last-child {
-  border-top: 1px solid #ddd;
-  padding-top: 8px;
+.gmd-001 .gmd-amount{
+  color: rgb(112, 112, 123);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }

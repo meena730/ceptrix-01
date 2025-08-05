@@ -10,7 +10,7 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
 }
 
 if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
-  document.body.classList.add("gmd-001")
+  document.body.classList.add("gmd-001");
   document.querySelectorAll(".order-total-novat").forEach((el) => {
     el.style.display = "none";
   });
@@ -18,7 +18,11 @@ if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
   const heading = document.querySelector(".cart-collaterals .order-total h6");
   if (heading) {
     heading.textContent = "Subtotaal (excl. btw)";
+    heading.style.color = "#70707b";
+    // heading.classList.add= "subtotal-exl"
   }
+ 
+  
 
   waitForElement(
     ".cart-collaterals .order-total .woocommerce-Price-amount",
@@ -39,9 +43,9 @@ if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
         const shippingRow = document.createElement("div");
         shippingRow.className = "gmd-total";
         shippingRow.innerHTML = `
-          <h6 style="font-weight: normal;">Verzendkosten</h6>
+          <h6>Verzendkosten</h6>
           <div>
-            <span class="woocommerce-Price-amount amount"><bdi>${euro(
+            <span class="gmd-amount"><bdi>${euro(
               shipping
             )}</bdi></span>
           </div>
@@ -50,10 +54,10 @@ if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
         const totalRow = document.createElement("div");
         totalRow.className = "gmd-total";
         totalRow.innerHTML = `
-          <h6 style="font-weight: normal;">Subtotaal (Incl. btw)</h6>
+          <h6>Subtotaal (Incl. btw)</h6>
           <div>
-            <span class="woocommerce-Price-amount amount"><bdi>${euro(
-              finalTotal
+            <span class="gmd-amount"><bdi>${euro(
+              total
             )}</bdi></span>
           </div>
         `;
@@ -62,20 +66,20 @@ if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
         newRow.appendChild(totalRow);
       } else {
         const shippingRow = document.createElement("div");
-        shippingRow.className = "order-total";
+        shippingRow.className = "gmd-total";
         shippingRow.innerHTML = `
-          <h6 style="font-weight: normal;">Verzendkosten</h6>
+          <h6>Verzendkosten</h6>
           <div>
-            <span class="woocommerce-Price-amount amount" style="color: green; font-weight: normal;">Gratis</span>
+            <span class="gmd-amount" style="color: green;">Gratis</span>
           </div>
         `;
 
         const totalRow = document.createElement("div");
-        totalRow.className = "order-total";
+        totalRow.className = "gmd-total";
         totalRow.innerHTML = `
-          <h6 style="font-weight: normal;">Subtotaal (Incl. btw)</h6>
+          <h6>Subtotaal (Incl. btw)</h6>
           <div>
-            <span class="woocommerce-Price-amount amount" style="font-weight: normal;"><bdi>${euro(
+            <span class="gmd-amount"><bdi>${euro(
               total
             )}</bdi></span>
           </div>
