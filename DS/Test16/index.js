@@ -40,7 +40,7 @@ if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
         shippingRow.className = "gmd-total";
         shippingRow.innerHTML = `
           <h6 style="font-weight: normal;">Verzendkosten</h6>
-          <div data-title="Verzending">
+          <div>
             <span class="woocommerce-Price-amount amount"><bdi>${euro(
               shipping
             )}</bdi></span>
@@ -51,7 +51,7 @@ if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
         totalRow.className = "gmd-total";
         totalRow.innerHTML = `
           <h6 style="font-weight: normal;">Subtotaal (Incl. btw)</h6>
-          <div data-title="Totaal incl.">
+          <div>
             <span class="woocommerce-Price-amount amount"><bdi>${euro(
               finalTotal
             )}</bdi></span>
@@ -65,7 +65,7 @@ if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
         shippingRow.className = "order-total";
         shippingRow.innerHTML = `
           <h6 style="font-weight: normal;">Verzendkosten</h6>
-          <div data-title="Verzending">
+          <div>
             <span class="woocommerce-Price-amount amount" style="color: green; font-weight: normal;">Gratis</span>
           </div>
         `;
@@ -74,7 +74,7 @@ if (window.location.href === "https://schroevendump.nl/winkelwagen/") {
         totalRow.className = "order-total";
         totalRow.innerHTML = `
           <h6 style="font-weight: normal;">Subtotaal (Incl. btw)</h6>
-          <div data-title="Totaal incl.">
+          <div>
             <span class="woocommerce-Price-amount amount" style="font-weight: normal;"><bdi>${euro(
               total
             )}</bdi></span>
