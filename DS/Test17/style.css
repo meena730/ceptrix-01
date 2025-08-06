@@ -2,14 +2,19 @@
   background: #2d2d2d;
   margin-bottom: 16px;
 }
-
+.cpl-container {
+  max-width: 1350px;
+  margin: 0 auto;
+  width: 100%;
+}
 .cpl-001 .dekstop-slides-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 20px;
+  padding: 8px 10px;
   /* gap: 16px; */
 }
+
 
 .cpl-001 .banner-content-item {
   display: flex;
@@ -64,7 +69,6 @@
     margin-top: 15px;
   }
    */
-   
 }
 
 @media (max-width: 921px) {
