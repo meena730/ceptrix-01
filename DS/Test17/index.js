@@ -5,10 +5,10 @@ document.head.appendChild(swiperCss);
 
 const swiperScript = document.createElement("script");
 swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js";
-swiperScript.onload = initBannerSwiper;
+swiperScript.onload = starSwiper;
 document.head.appendChild(swiperScript);
 
-function initBannerSwiper() {
+function starSwiper() {
   function waitForElement(selector) {
     return new Promise((resolve) => {
       function check() {
@@ -51,7 +51,7 @@ function initBannerSwiper() {
   const bannerData = [
     {
       icon: "https://res.cloudinary.com/diilhbcp9/image/upload/v1753437170/Vector_6_ss6cyv.png",
-      text: 'Voor 23.00 besteld, <strong class="cpl-date"></strong> in huis',
+      text: 'Voor 23.00 besteld, <strong class="cpl-day"></strong> in huis',
     },
     {
       icon: "https://res.cloudinary.com/diilhbcp9/image/upload/v1753437170/Vector_6_ss6cyv.png",
@@ -91,7 +91,9 @@ function initBannerSwiper() {
       bannerData.forEach((item, i) => {
         const isLastItem = i === bannerData.length - 1;
 
-        const customIconStyle = isLastItem ? 'style="width:72px; margin-top:3.5px;"' : "";
+        const customIconStyle = isLastItem
+          ? 'style="width:72px; margin-top:3.5px;"'
+          : "";
 
         // mobile-----------------------------------------
         const slideHtml = `
@@ -169,11 +171,9 @@ function initBannerSwiper() {
                 .forEach((target) => {
                   target.textContent = `${reviewCount} `;
                 });
-            } else {
-              console.warn("Review count element not found!");
             }
           } catch (err) {
-            console.error("Error parsing response:", err);
+            console.error("Error:", err);
           }
         },
         onerror: function (error) {
@@ -181,7 +181,7 @@ function initBannerSwiper() {
         },
       });
 
-      document.querySelectorAll(".cpl-date").forEach((el) => {
+      document.querySelectorAll(".cpl-day").forEach((el) => {
         el.textContent = getDeliveryDayName();
       });
     }

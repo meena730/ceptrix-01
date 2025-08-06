@@ -14,7 +14,7 @@
 .cpl-001 .banner-content-item {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   color: #fff;
   font-size: 15px;
   font-weight: 500;
@@ -23,18 +23,15 @@
 
 .cpl-001 .banner-content-item img {
   width: 12px;
-  height: 12px;
+  height: 11px;
   align-items: center;
   text-align: center;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 /* Hide swiper by default */
 .cpl-001 .swiper-mySwiper {
   display: none;
-}
-.icon {
-  width: 70px;
 }
 
 @media (max-width: 767px) {
@@ -60,6 +57,14 @@
     background: unset;
     margin-bottom: 16px;
   }
+  /* .swiper-slide .banner-content-text {
+    font-size: 14px;
+  } */
+  /* .swiper-slide .banner-content-item img {
+    margin-top: 15px;
+  }
+   */
+   
 }
 
 @media (max-width: 921px) {
