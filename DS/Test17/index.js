@@ -91,9 +91,9 @@ function initBannerSwiper() {
       bannerData.forEach((item, i) => {
         const isLastItem = i === bannerData.length - 1;
 
-        const customIconStyle = isLastItem ? 'style="width:72px;"' : "";
+        const customIconStyle = isLastItem ? 'style="width:72px; margin-top:3.5px;"' : "";
 
-        // mobile
+        // mobile-----------------------------------------
         const slideHtml = `
     <div class="swiper-slide">
       <span class="banner-content-item">
@@ -157,19 +157,17 @@ function initBannerSwiper() {
             const reviewElement = doc.querySelectorAll(
               "#__nuxt .h-screen .font-semibold .mr-1"
             )[2];
-            let reviewCount = reviewElement
+            const reviewCount = reviewElement
               ? reviewElement.textContent.trim()
               : "";
 
-            reviewCount = reviewCount.replace(/\D/g, ""); 
-
-            console.log("Extracted Review Count (Only Number):", reviewCount);
+            console.log("Extracted Review Count:", reviewCount);
 
             if (reviewCount) {
               document
                 .querySelectorAll(".dynamic-review-text")
                 .forEach((target) => {
-                  target.textContent = reviewCount; 
+                  target.textContent = `${reviewCount} `;
                 });
             } else {
               console.warn("Review count element not found!");
