@@ -92,7 +92,7 @@ function starSwiper() {
         const isLastItem = i === bannerData.length - 1;
 
         const customIconStyle = isLastItem
-          ? 'style="width:72px; margin-top:3.5px;"'
+          ? 'style="width:72px; margin-top:4.3px;"'
           : "";
 
         // mobile-----------------------------------------
@@ -143,43 +143,28 @@ function starSwiper() {
         }, 500);
       });
 
-      GM_xmlhttpRequest({
-        method: "GET",
-        url: "https://www.feedbackcompany.com/nl-nl/reviews/raamdecoratie-com/",
-        onload: function (response) {
-          try {
-            console.log("Response received from FeedbackCompany");
+      waitForElement(
+        '.inner-container .item-left a[rel="nofollow noopener noreferrer"]'
+      ).then(() => {
+        const reviewLink = document.querySelector(
+          '.inner-container .item-left a[rel="nofollow noopener noreferrer"]'
+        );
+        const reviewTextHolder = document.querySelectorAll(
+          ".dynamic-review-text"
+        );
+        if (!reviewLink || reviewTextHolder.length === 0) return;
+        const text = reviewLink.textContent?.trim() || "";
+        const match = text.match(/(\d[\d.,]*) beoordelingen/);
 
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(
-              response.responseText,
-              "text/html"
-            );
+        if (!match) return;
 
-            const reviewElement = doc.querySelectorAll(
-              "#__nuxt .h-screen .font-semibold .mr-1"
-            )[2];
-            const reviewCount = reviewElement
-              ? reviewElement.textContent.trim()
-              : "";
-
-            console.log("Extracted Review Count:", reviewCount);
-
-            if (reviewCount) {
-              document
-                .querySelectorAll(".dynamic-review-text")
-                .forEach((target) => {
-                  target.textContent = `${reviewCount} `;
-                });
-            }
-          } catch (err) {
-            console.error("Error:", err);
-          }
-        },
-        onerror: function (error) {
-          console.error("Failed to fetch reviews:", error);
-        },
+        const reviewText = match[0];
+        console.log("Review-Found:", reviewText);
+        reviewTextHolder.forEach((el) => {
+          el.textContent = reviewText;
+        });
       });
+
 
       document.querySelectorAll(".cpl-day").forEach((el) => {
         el.textContent = getDeliveryDayName();
