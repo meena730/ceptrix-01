@@ -1,20 +1,19 @@
 .cpl-001 .cpl-section {
   background: #2d2d2d;
-  margin-bottom: 16px;
 }
+
 .cpl-container {
   max-width: 1350px;
   margin: 0 auto;
   width: 100%;
 }
+
 .cpl-001 .dekstop-slides-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 10px;
-  /* gap: 16px; */
 }
-
 
 .cpl-001 .banner-content-item {
   display: flex;
@@ -29,57 +28,64 @@
 .cpl-001 .banner-content-item img {
   width: 12px;
   height: 11px;
-  align-items: center;
-  text-align: center;
   margin-top: 3px;
 }
 
-/* Hide swiper by default */
-.cpl-001 .swiper-mySwiper {
+.cpl-001 .swiper-mySwiper01 {
   display: none;
 }
 
 @media (max-width: 767px) {
+  .swiper-container-wrapper {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    background: white;
+    width: 100%;
+    /* padding: 8px 0; */
+  }
+
+  body {
+    padding-top: 40px;
+  }
+
   .cpl-001 .dekstop-slides-wrapper {
     display: none;
   }
-  .cpl-001 .swiper-mySwiper {
+
+  .cpl-001 .swiper-mySwiper01 {
     display: block;
-    height: 42px;
+    height: 40px;
     overflow: hidden;
   }
+
   .cpl-001 .banner-content-item {
     color: #000;
     font-size: 14px;
   }
+
   .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-top: 6px; */
   }
+
   .cpl-001 .cpl-section {
     background: unset;
-    margin-bottom: 16px;
   }
-  /* .swiper-slide .banner-content-text {
-    font-size: 14px;
-  } */
-  /* .swiper-slide .banner-content-item img {
-    margin-top: 15px;
-  }
-   */
 }
 
 @media (max-width: 921px) {
   .cpl-001 .banner-content-item img {
     width: 9px;
     height: 9px;
-    align-items: center;
-    text-align: center;
     margin-top: 2px;
   }
+
   .cpl-001 .banner-content-item {
     font-size: 12px;
+  }
+  .cpl-001 .dekstop-slides-wrapper {
+    padding: 10px 10px;
   }
 }

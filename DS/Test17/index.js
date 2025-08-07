@@ -1,14 +1,15 @@
 const swiperCss = document.createElement("link");
 swiperCss.rel = "stylesheet";
-swiperCss.href = "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css";
+swiperCss.href = "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css";
 document.head.appendChild(swiperCss);
 
 const swiperScript = document.createElement("script");
-swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js";
-swiperScript.onload = starSwiper;
+swiperScript.src =
+  "https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js";
+swiperScript.onload = startSwiper;
 document.head.appendChild(swiperScript);
 
-function starSwiper() {
+function startSwiper() {
   function waitForElement(selector) {
     return new Promise((resolve) => {
       function check() {
@@ -25,27 +26,15 @@ function starSwiper() {
     const day = now.getDay();
     const hour = now.getHours();
     const minute = now.getMinutes();
-
     const isAfter11PM = hour > 23 || (hour === 23 && minute >= 0);
-    let deliveryDay = "";
 
-    if (day === 0) {
-      deliveryDay = "dinsdag";
-    } else if (day === 1) {
-      deliveryDay = isAfter11PM ? "woensdag" : "dinsdag";
-    } else if (day === 2) {
-      deliveryDay = isAfter11PM ? "donderdag" : "woensdag";
-    } else if (day === 3) {
-      deliveryDay = isAfter11PM ? "vrijdag" : "donderdag";
-    } else if (day === 4) {
-      deliveryDay = isAfter11PM ? "maandag" : "vrijdag";
-    } else if (day === 5) {
-      deliveryDay = isAfter11PM ? "dinsdag" : "maandag";
-    } else if (day === 6) {
-      deliveryDay = "dinsdag";
-    }
-
-    return deliveryDay;
+    if (day === 0) return "dinsdag";
+    if (day === 1) return isAfter11PM ? "woensdag" : "dinsdag";
+    if (day === 2) return isAfter11PM ? "donderdag" : "woensdag";
+    if (day === 3) return isAfter11PM ? "vrijdag" : "donderdag";
+    if (day === 4) return isAfter11PM ? "maandag" : "vrijdag";
+    if (day === 5) return isAfter11PM ? "dinsdag" : "maandag";
+    return "dinsdag";
   }
 
   const bannerData = [
@@ -72,8 +61,10 @@ function starSwiper() {
       <div class="cpl-container">
         <div class="banner-content">
           <div class="dekstop-slides-wrapper"></div>
-          <div class="swiper-mySwiper">
-            <div class="swiper-wrapper"></div>
+          <div class="swiper-container-wrapper">
+            <div class="swiper-mySwiper01">
+              <div class="swiper-wrapper"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -86,49 +77,51 @@ function starSwiper() {
     const existingSection = document.querySelector(".cpl-section");
 
     if (container && !existingSection) {
-      container.insertAdjacentHTML("beforebegin", htmldata);
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        document.body.insertAdjacentHTML("afterbegin", htmldata);
+      } else {
+        container.insertAdjacentHTML("beforebegin", htmldata);
+      }
 
       bannerData.forEach((item, i) => {
         const isLastItem = i === bannerData.length - 1;
-
-        const customIconStyle = isLastItem
+        const iconStyle = isLastItem
           ? 'style="width:72px; margin-top:4.3px;"'
           : "";
 
-        // mobile-----------------------------------------
-        const slideHtml = `
-    <div class="swiper-slide">
-      <span class="banner-content-item">
-        <span class="banner-content">
-          <img class="content-check-icon" src="${item.icon}" alt="icon" ${customIconStyle}>
-        </span>
-        <span class="banner-content-text">${item.text}</span>
-      </span>
-    </div>`;
+        const mobileSlide = `
+          <div class="swiper-slide">
+            <span class="banner-content-item">
+              <span class="banner-content">
+                <img class="content-check-icon" src="${item.icon}" alt="icon" ${iconStyle}>
+              </span>
+              <span class="banner-content-text">${item.text}</span>
+            </span>
+          </div>`;
+
+        const desktopSlide = `
+          <div class="banner-content-item">
+            <span class="banner-content">
+              <img class="content-check-icon" src="${item.icon}" alt="icon" ${iconStyle}>
+            </span>
+            <span class="banner-content-text">${item.text}</span>
+          </div>`;
 
         document
-          .querySelector(".swiper-mySwiper .swiper-wrapper")
-          .insertAdjacentHTML("beforeend", slideHtml);
-
-        // Desktop ------------------------
-        const desktopHtml = `
-    <div class="banner-content-item">
-      <span class="banner-content">
-        <img class="content-check-icon" src="${item.icon}" alt="icon" ${customIconStyle}>
-      </span>
-      <span class="banner-content-text">${item.text}</span>
-    </div>`;
-
+          .querySelector(".swiper-wrapper")
+          ?.insertAdjacentHTML("beforeend", mobileSlide);
         document
           .querySelector(".dekstop-slides-wrapper")
-          .insertAdjacentHTML("beforeend", desktopHtml);
+          ?.insertAdjacentHTML("beforeend", desktopSlide);
       });
 
-      waitForElement(".swiper-mySwiper").then(() => {
+      waitForElement(".swiper-mySwiper01").then(() => {
         const checkSlider = setInterval(() => {
           if (typeof Swiper !== "undefined") {
             clearInterval(checkSlider);
-            new Swiper(".swiper-mySwiper", {
+            new Swiper(".swiper-mySwiper01", {
               direction: "vertical",
               slidesPerView: 1,
               spaceBetween: 10,
@@ -140,7 +133,7 @@ function starSwiper() {
               },
             });
           }
-        }, 500);
+        }, 300);
       });
 
       waitForElement(
@@ -155,16 +148,13 @@ function starSwiper() {
         if (!reviewLink || reviewTextHolder.length === 0) return;
         const text = reviewLink.textContent?.trim() || "";
         const match = text.match(/(\d[\d.,]*) beoordelingen/);
-
         if (!match) return;
-
         const reviewText = match[0];
-        console.log("Review-Found:", reviewText);
+        console.log("Review Found:", reviewText);
         reviewTextHolder.forEach((el) => {
           el.textContent = reviewText;
         });
       });
-
 
       document.querySelectorAll(".cpl-day").forEach((el) => {
         el.textContent = getDeliveryDayName();
