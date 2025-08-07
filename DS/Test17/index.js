@@ -61,6 +61,14 @@ function startSwiper() {
       <div class="cpl-container">
         <div class="banner-content">
           <div class="dekstop-slides-wrapper"></div>
+          
+        </div>
+      </div>
+    </div>`;
+  const htmldata2 = `
+    <div class="cpl-section">
+      <div class="cpl-container">
+        <div class="banner-content">
           <div class="swiper-container-wrapper">
             <div class="swiper-mySwiper01">
               <div class="swiper-wrapper"></div>
@@ -73,15 +81,16 @@ function startSwiper() {
   waitForElement(".header-container2").then(() => {
     document.body.classList.add("cpl-001");
 
-    const container = document.querySelector(".header-container2");
+    const container = document.querySelector("#header-container");
     const existingSection = document.querySelector(".cpl-section");
 
     if (container && !existingSection) {
       const isMobile = window.innerWidth <= 768;
 
-      if (isMobile) {
-        document.body.insertAdjacentHTML("afterbegin", htmldata);
-      } else {
+      document.body.insertAdjacentHTML("afterbegin", htmldata2);
+
+      const container = document.querySelector(".header-container2");
+      if (container) {
         container.insertAdjacentHTML("beforebegin", htmldata);
       }
 
