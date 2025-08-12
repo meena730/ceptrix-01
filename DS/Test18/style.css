@@ -80,7 +80,7 @@
 .wijcbf_date_container.active {
   outline: 2px solid #007bff;
 }
-.gmd-001
+/* .gmd-001
   .wijcbf_form_wrapper
   .wijcbf_flex_container
   .wijcbf_slot_container
@@ -91,9 +91,9 @@
   .wijcbf_slot_container
   .wijcbf_slot_wrapper.active,
 #wijcbf_datetime .wijcbf_slot_wrapper.selected {
-  /* background-color: #ff6200 !important; */
+  background-color: #ff6200 !important;
   color: white !important;
-}
+} */
 
 .gmd-001 .gmd-label {
   display: flex;
@@ -129,7 +129,7 @@
 #wijcbf_datetime .wijcbf_slot_wrapper.selected {
     background-color: #FF6200 !important;
     color: white !important;
-    border-color: #FF6200;
+    border-color: #FF6200 !important;
 }
 
 @media (max-width: 1024px) {
