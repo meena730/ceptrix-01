@@ -90,7 +90,7 @@
   .wijcbf_slot_container
   .wijcbf_slot_wrapper.active,
 #wijcbf_datetime .wijcbf_slot_wrapper.selected {
-  background-color: #ff6200 !important;
+  /* background-color: #ff6200 !important; */
   color: white !important;
 }
 
