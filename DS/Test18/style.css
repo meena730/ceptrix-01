@@ -117,10 +117,10 @@
   width: 100%;
 }
 
-.gmd-001 #wijcbf_datetime .wijcbf_date_container {
+/* .gmd-001 #wijcbf_datetime .wijcbf_date_container {
   width: 15%;
   margin: 0px;
-}
+} */
 
 .gmd-001 .gmd-label.section {
   margin-top: 40px;
@@ -195,7 +195,7 @@
   }
 
   .gmd-001 #wijcbf_datetime .wijcbf_slot_wrapper {
-    max-width: 152px;
+    max-width: 153px !important;
     width: 100%;
     height: 45px;
   }
