@@ -122,11 +122,12 @@
   margin-top: 40px;
   margin-bottom: 20px;
 }
-.gmd-001 .gmd-03 .gmd-time-option > div.selected p,
-.gmd-03 .gmd-time-option > div:hover p {
-  background-color: #ff6200 !important;
-  color: #fff !important;
-  border-color: #ff6200 !important;
+.gmd-001 .wijcbf_form_wrapper .wijcbf_flex_container .wijcbf_slot_container .wijcbf_slot_wrapper:hover,
+.gmd-001 .wijcbf_form_wrapper .wijcbf_flex_container .wijcbf_slot_container .wijcbf_slot_wrapper.active,
+#wijcbf_datetime .wijcbf_slot_wrapper.selected {
+    background-color: #FF6200 !important;
+    color: white !important;
+    border-color: #FF6200;
 }
 
 @media (max-width: 1024px) {
@@ -182,7 +183,7 @@
   }
 
   .gmd-001 #wijcbf_datetime .wijcbf_slot_wrapper {
-    /* max-width: 152px; */
+    max-width: 152px;
     width: 100%;
     height: 45px;
   }
