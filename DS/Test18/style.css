@@ -1,3 +1,4 @@
+
 .gmd-001 .wijcbf_form_wrapper .wijcbf_date_container .wijcbf_date.active {
   background: #ff6200 !important;
   color: #fff !important;
@@ -97,6 +98,7 @@
 .gmd-001 .gmd-label {
   display: flex;
   align-items: center;
+      margin-top: 25px;
   gap: 12px;
 }
 
