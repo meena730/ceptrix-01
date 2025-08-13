@@ -1,5 +1,6 @@
 .gmd-001 .wijcbf_form_wrapper .wijcbf_date_container .wijcbf_date.active {
   background: #ff6200 !important;
+  border: none;
   color: #fff !important;
 }
 
@@ -32,7 +33,7 @@
   width: 100%;
   /* padding: 22px 0; */
   border-radius: 10px;
-  border: 1px solid #b6b6b6;
+  border: 1px solid #b6b6b6 !important;
   color: #1a237e;
   font-weight: bold;
   font-size: 16px;
@@ -46,7 +47,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 9px;
-  border: 1px solid #ccc;
+  border: 1px solid #b6b6b6;
   max-width: 160px;
   width: 100%;
   font-size: 14px !important;
@@ -126,6 +127,20 @@
   margin-top: 40px;
   margin-bottom: 20px;
 }
+.gmd-001 .wijcbf_flex_container {
+  gap: 16px;
+  display: flex;
+}
+.gmd-001 #wijcbf_datetime .wijcbf_date_container {
+  width: 100%;
+  max-width: 160px !important;
+  margin: 0px;
+}
+.gmd-001 .wijcbf_form_wrapper .wijcbf_date_container .wijcbf_date.active {
+  background: #ff6200 !important;
+  border: none;
+  color: #fff !important;
+}
 .gmd-001
   .wijcbf_form_wrapper
   .wijcbf_flex_container
@@ -156,10 +171,10 @@
   }
 
   .gmd-001 .wijcbf_form_wrapper .wijcbf_date_container .wijcbf_date {
-    flex: 1 1 calc(50% - 8px);
-    max-width: 100%;
-    font-size: 14px;
-    padding: 8px;
+    /* flex: 1 1 calc(50% - 8px); */
+    max-width: 153px !important;
+    width: 100%;
+    height: 45px;
   }
 
   .gmd-001 .wijcbf_form_wrapper .wijcbf_flex_container {
