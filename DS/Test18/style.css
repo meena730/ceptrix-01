@@ -1,6 +1,6 @@
 .gmd-001 .wijcbf_form_wrapper .wijcbf_date_container .wijcbf_date.active {
   background: #ff6200 !important;
-  border: none;
+  border: none !important;
   color: #fff !important;
 }
 
