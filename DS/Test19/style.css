@@ -1,0 +1,68 @@
+.Tag-container {
+  position: relative;
+}
+
+.Tag {
+  position: absolute;
+  top: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  z-index: 10;
+}
+
+.Tag-value-pick {
+  top: 4px;
+  /* right: 4px; */
+  left: 7px;
+  background-color: rgb(10, 152, 10);
+}
+
+.Tag-sale {
+  right: 10px;
+  top: 4px;
+  right: 4px;
+  background-color: rgb(237, 157, 9);
+}
+
+.Tag-popular {
+  top: 4px;
+  right: 4px;
+  right: 10px;
+  background-color: rgb(226, 90, 158);
+}
+
+.Tag-premium {
+  left: 10px;
+  top: 4px;
+  background-color: rgb(148, 5, 148);
+}
+
+.price-label {
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.price-label.below {
+  background: #90d790;
+  color: rgb(10, 165, 10);
+  max-width: 210px;
+  padding: 6px 10px;
+  width: 100%;
+  margin-top: 7px;
+}
+
+.price-label.above {
+  max-width: 210px;
+  padding: 6px 10px;
+  background: #ffb3b3;
+  color: rgb(238, 29, 29);
+  margin-top: 7px;
+  width: 100%;
+}
