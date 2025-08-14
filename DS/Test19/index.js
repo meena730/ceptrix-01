@@ -9,101 +9,110 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
   setTimeout(() => clearInterval(check), timeout);
 }
 
-waitForElement('[data-test="search-results-list"]', (listEl) => {
+waitForElement('[data-test="search-results-list"]', (resultsList) => {
   document.body.classList.add("gmd-001");
 
-  function getGlobalAveragePrice() {
-    const allPriceEls = document.querySelectorAll(
-      '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]'
-    );
+  const calcAveragePrice = () => {
+  const priceNodes = document.querySelectorAll(
+    '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]'
+  );
 
-    const allPrices = Array.from(allPriceEls)
-      .map((el) => parseFloat(el.textContent.replace(/[^0-9.]/g, "")))
-      .filter((p) => !isNaN(p));
+  const prices = [...priceNodes]
+    .map((el) => parseFloat(el.textContent.replace(/[^0-9.]/g, "")))
+    .filter((val) => !isNaN(val));
 
-    if (allPrices.length === 0) return null;
+  if (!prices.length) return null;
 
-    return allPrices.reduce((sum, p) => sum + p, 0) / allPrices.length;
-  }
+  const avg = prices.reduce((total, p) => total + p, 0) / prices.length;
+  const avgRounded = parseFloat(avg.toFixed(2)); // ✅ 2 decimal places only
 
-  function addTagsToImages() {
-    const globalAvg = getGlobalAveragePrice();
-    if (!globalAvg) return;
+  console.log("Average Price (2 decimals):", avgRounded);
+  return avgRounded;
+};
 
-    listEl.querySelectorAll("img").forEach((img) => {
-      if (img.dataset.TagsAdded) return;
-      img.dataset.TagsAdded = "true";
 
-      const productCard =
-        img.closest('[data-test="product-card"]') || img.closest("li");
-      if (!productCard) return;
+  const insertTags = () => {
+    const avgPrice = calcAveragePrice();
+    if (!avgPrice) return;
 
-      const container = img.closest("div") || img.parentElement;
-      container.classList.add("Tag-container");
+    resultsList.querySelectorAll("img").forEach((image) => {
+      if (image.dataset.hasTags) return;
+      image.dataset.hasTags = "true";
 
-      const reviewCountEl = productCard.querySelector(
+      const card = image.closest('[data-test="product-card"], li');
+      if (!card) return;
+
+      const tagHolder = image.closest("div") || image.parentElement;
+      tagHolder.classList.add("Tag-container");
+
+      const reviewCountNode = card.querySelector(
         '.tiny-text [data-test="product-rating-count"]'
       );
-      const priceEl = productCard.querySelector(
+      const priceNode = card.querySelector(
         '[data-test="search-results-price"]'
       );
-      const hasSalePrice = productCard.querySelector(
+      const originalPriceNode = card.querySelector(
         '[data-test="product-card-original-price"]'
       );
 
-      let reviewCount = parseInt(
-        reviewCountEl?.textContent.replace(/\D/g, "") || "0",
+      const reviewCount = parseInt(
+        reviewCountNode?.textContent.replace(/\D/g, "") || "0",
         10
       );
-      let priceValue = parseFloat(
-        priceEl?.textContent.replace(/[^0-9.]/g, "") || "NaN"
+      const priceValue = parseFloat(
+        priceNode?.textContent.replace(/[^0-9.]/g, "") || "NaN"
       );
-      if (hasSalePrice) {
-        container.insertAdjacentHTML(
+
+      // SALE tag
+      if (originalPriceNode) {
+        tagHolder.insertAdjacentHTML(
           "beforeend",
           `<div class="Tag Tag-sale">SALE</div>`
         );
       }
 
-      if (!isNaN(priceValue) && priceValue < globalAvg) {
-        container.insertAdjacentHTML(
+      // VALUE PICK tag
+      if (!isNaN(priceValue) && priceValue < avgPrice) {
+        tagHolder.insertAdjacentHTML(
           "beforeend",
           `<div class="Tag Tag-value-pick">VALUE PICK</div>`
         );
       }
 
-      if (!isNaN(priceValue) && priceValue > globalAvg && reviewCount > 300) {
-        container.insertAdjacentHTML(
+      // PREMIUM tag
+      if (!isNaN(priceValue) && priceValue > avgPrice && reviewCount > 300) {
+        tagHolder.insertAdjacentHTML(
           "beforeend",
           `<div class="Tag Tag-premium">PREMIUM</div>`
         );
       }
 
+      // POPULAR tag
       if (reviewCount > 100) {
-        container.insertAdjacentHTML(
+        tagHolder.insertAdjacentHTML(
           "beforeend",
           `<div class="Tag Tag-popular">POPULAR</div>`
         );
       }
 
-      // ✅ Shift SALE down if POPULAR exists
-      if (
-        container.querySelector(".Tag-sale") &&
-        container.querySelector(".Tag-popular")
-      ) {
-        let saleTag = container.querySelector(".Tag-sale");
-        saleTag.style.top = "40px";
-        saleTag.style.right = "7px";
-        saleTag.style.textAlign = "center";
-        saleTag.style.width = "76px";
+      // Adjust SALE position if POPULAR is present
+      const saleEl = tagHolder.querySelector(".Tag-sale");
+      const popularEl = tagHolder.querySelector(".Tag-popular");
+      if (saleEl && popularEl) {
+        Object.assign(saleEl.style, {
+          top: "40px",
+          right: "7px",
+          textAlign: "center",
+          width: "76px",
+        });
       }
 
-      // Add click tracking on product card
-      productCard.addEventListener("click", () => {
-        const Tags = Array.from(container.querySelectorAll(".Tag"))
-          .map((b) => b.textContent.trim())
-          .map((name) => {
-            switch (name) {
+      // Click tracking
+      card.addEventListener("click", () => {
+        const activeTags = [...tagHolder.querySelectorAll(".Tag")]
+          .map((tag) => tag.textContent.trim())
+          .map((label) => {
+            switch (label) {
               case "VALUE PICK":
                 return "CONV Value Pick";
               case "SALE":
@@ -118,90 +127,85 @@ waitForElement('[data-test="search-results-list"]', (listEl) => {
           })
           .filter(Boolean);
 
-        if (!Tags.length) return;
+        if (!activeTags.length) return;
 
-        const eventName = "[CONV] " + Tags.join(" + ") + " Clicked";
+        const eventTitle = `[CONV] ${activeTags.join(" + ")} Clicked`;
+        console.log(`Event saved: ${eventTitle}`);
 
-        // New unified console message
-        console.log(`Event saved: ${eventName}`);
-
-        const eventData = {
+        const eventDetails = {
           timestamp: new Date().toISOString(),
-          event: eventName,
+          event: eventTitle,
           productName:
-            productCard
+            card
               .querySelector("[data-test='product-title']")
               ?.textContent.trim() || "",
           publisher:
-            productCard
+            card
               .querySelector("[data-test='product-publisher']")
               ?.textContent.trim() || "",
-          price: priceEl?.textContent.trim() || "",
-          originalPrice: hasSalePrice?.textContent.trim() || "",
-          rating: reviewCountEl
+          price: priceNode?.textContent.trim() || "",
+          originalPrice: originalPriceNode?.textContent.trim() || "",
+          rating: reviewCountNode
             ? parseFloat(
-                productCard.querySelector("[data-test='product-rating']")
-                  ?.textContent
+                card.querySelector("[data-test='product-rating']")?.textContent
               ) || null
             : null,
         };
 
-        // Also log full event object
-        console.log(eventData);
+        console.log(eventDetails);
 
-        // Store in localStorage (FIFO: max 100 events)
-        let events = JSON.parse(localStorage.getItem("convEvents") || "[]");
-        events.push(eventData);
-        if (events.length > 100) events = events.slice(events.length - 100);
-        localStorage.setItem("convEvents", JSON.stringify(events));
+        let storedEvents = JSON.parse(
+          localStorage.getItem("convEvents") || "[]"
+        );
+        storedEvents.push(eventDetails);
+        if (storedEvents.length > 100) storedEvents = storedEvents.slice(-100);
+        localStorage.setItem("convEvents", JSON.stringify(storedEvents));
       });
     });
-  }
+  };
 
-  function addPriceComparisonLabels() {
-    const globalAvg = getGlobalAveragePrice();
-    if (!globalAvg) return;
+  const priceDiffLabels = () => {
+    const avgPrice = calcAveragePrice();
+    if (!avgPrice) return;
 
-    const allPriceEls = document.querySelectorAll(
-      '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]'
-    );
+    document
+      .querySelectorAll(
+        '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]'
+      )
+      .forEach((priceNode) => {
+        if (priceNode.dataset.checkedPrice) return;
 
-    allPriceEls.forEach((priceEl) => {
-      if (priceEl.dataset.priceCompared) return;
+        const val = parseFloat(priceNode.textContent.replace(/[^0-9.]/g, ""));
+        if (isNaN(val)) return;
 
-      const priceValue = parseFloat(
-        priceEl.textContent.replace(/[^0-9.]/g, "")
-      );
-      if (isNaN(priceValue)) return;
+        const percentDiff = ((val - avgPrice) / avgPrice) * 100;
+        let infoLabel = "";
 
-      const diffPercent = ((priceValue - globalAvg) / globalAvg) * 100;
+        if (percentDiff < 0) {
+          infoLabel = `<div class="price-label below">${Math.abs(
+            percentDiff
+          ).toFixed(2)}% below average price</div>`;
+        } else if (percentDiff > 0) {
+          infoLabel = `<div class="price-label above">${Math.abs(
+            percentDiff
+          ).toFixed(2)}% above average price</div>`;
+        }
 
-      let label = "";
-      if (diffPercent < 0) {
-        label = `<div class="price-label below">${Math.abs(diffPercent).toFixed(
-          2
-        )}% below average price</div>`;
-      } else if (diffPercent > 0) {
-        label = `<div class="price-label above">${Math.abs(diffPercent).toFixed(
-          2
-        )}% above average price</div>`;
-      }
+        if (infoLabel) {
+          priceNode.insertAdjacentHTML("afterend", infoLabel);
+          priceNode.dataset.checkedPrice = "true";
+        }
+      });
+  };
 
-      if (label) {
-        priceEl.insertAdjacentHTML("afterend", label);
-        priceEl.dataset.priceCompared = "true";
-      }
-    });
-  }
+  const updateAll = () => {
+    insertTags();
+    priceDiffLabels();
+  };
 
-  function runAll() {
-    addTagsToImages();
-    addPriceComparisonLabels();
-  }
+  updateAll();
 
-  runAll();
-
-  new MutationObserver(runAll).observe(listEl, {
+  new MutationObserver(updateAll).observe(resultsList, {
     childList: true,
     subtree: true,
   });
