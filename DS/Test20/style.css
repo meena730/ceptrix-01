@@ -1,0 +1,116 @@
+.gmd-001 .custom-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  color: var(--www-manfield-com-cod-gray, var(--color-grey-9, #181818));
+
+  font-family: var(--font-family-Font-1, Lato);
+  font-size: 15.625px;
+  font-style: normal;
+  font-weight: var(--font-weight-700, 700);
+  line-height: var(--line-height-24, 24px); /* 153.6% */
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+.gmd-001 .add-to-cart__price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gmd-001 .size-guide-panel {
+  position: fixed;
+  top: 0;
+  right: -550px;
+  width: 100%;
+  max-width: 550px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 9999;
+  padding: 60px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.gmd-001 .size-guide-panel.open {
+  right: 0; 
+}
+
+.gmd-001 .panel-header {
+  text-align: left; 
+  align-self: flex-start; 
+  color: var(--www-manfield-com-cod-gray, var(--color-grey-9, #181818));
+  font-family: var(--font-family-Font-1, Lato);
+  font-size: 23.625px;
+  font-style: normal;
+  font-weight: var(--font-weight-700, 700);
+  line-height: var(--line-height-36, 36px);
+  margin-bottom: 20px;
+  margin-left: 45px;
+}
+
+.gmd-001 .size-guide-panel table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 337px;
+  margin: 0 auto; 
+}
+
+.gmd-001 .size-guide-panel th,
+.gmd-001 .size-guide-panel td {
+  border: 1px solid #ddd;
+  height: 36px;
+  width: 76px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.gmd-001 .size-guide-panel th {
+  background: black;
+  color: white;
+  vertical-align: middle;
+}
+
+.gmd-001 .size-guide-panel td {
+  padding: 8px 4px;
+}
+
+@media (max-width: 768px) {
+  .gmd-001 .size-guide-panel {
+    top: auto;
+    bottom: -100%;
+    right: 0;
+    height: auto;
+    max-height: 80%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .gmd-001 .size-guide-panel.open {
+    bottom: 0;
+  }
+}
+
+/* Close button */
+.gmd-001 .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
