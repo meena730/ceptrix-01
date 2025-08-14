@@ -13,23 +13,22 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
   document.body.classList.add("gmd-001");
 
   const calcAveragePrice = () => {
-  const priceNodes = document.querySelectorAll(
-    '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]'
-  );
+    const priceNodes = document.querySelectorAll(
+      '.hydrated [data-test="search-results-list"] [data-test="search-results-price"]'
+    );
 
-  const prices = [...priceNodes]
-    .map((el) => parseFloat(el.textContent.replace(/[^0-9.]/g, "")))
-    .filter((val) => !isNaN(val));
+    const prices = [...priceNodes]
+      .map((el) => parseFloat(el.textContent.replace(/[^0-9.]/g, "")))
+      .filter((val) => !isNaN(val));
 
-  if (!prices.length) return null;
+    if (!prices.length) return null;
 
-  const avg = prices.reduce((total, p) => total + p, 0) / prices.length;
-  const avgRounded = parseFloat(avg.toFixed(2)); // ✅ 2 decimal places only
+    const avg = prices.reduce((total, p) => total + p, 0) / prices.length;
+    const avgRounded = parseFloat(avg.toFixed(2));
 
-  console.log("Average Price (2 decimals):", avgRounded);
-  return avgRounded;
-};
-
+    console.log("Average Price (2 decimals):", avgRounded);
+    return avgRounded;
+  };
 
   const insertTags = () => {
     const avgPrice = calcAveragePrice();
@@ -63,7 +62,13 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
         priceNode?.textContent.replace(/[^0-9.]/g, "") || "NaN"
       );
 
-      // SALE tag
+      if (reviewCount === 0) {
+        tagHolder.insertAdjacentHTML(
+          "beforeend",
+          `<div class="Tag Tag-new">NEW</div>`
+        );
+      }
+
       if (originalPriceNode) {
         tagHolder.insertAdjacentHTML(
           "beforeend",
@@ -71,7 +76,6 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
         );
       }
 
-      // VALUE PICK tag
       if (!isNaN(priceValue) && priceValue < avgPrice) {
         tagHolder.insertAdjacentHTML(
           "beforeend",
@@ -79,7 +83,6 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
         );
       }
 
-      // PREMIUM tag
       if (!isNaN(priceValue) && priceValue > avgPrice && reviewCount > 300) {
         tagHolder.insertAdjacentHTML(
           "beforeend",
@@ -87,7 +90,6 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
         );
       }
 
-      // POPULAR tag
       if (reviewCount > 100) {
         tagHolder.insertAdjacentHTML(
           "beforeend",
@@ -95,7 +97,6 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
         );
       }
 
-      // Adjust SALE position if POPULAR is present
       const saleEl = tagHolder.querySelector(".Tag-sale");
       const popularEl = tagHolder.querySelector(".Tag-popular");
       if (saleEl && popularEl) {
@@ -121,6 +122,8 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
                 return "CONV Premium";
               case "POPULAR":
                 return "CONV Popular Product";
+              case "NEW":
+                return "CONV New Product";
               default:
                 return null;
             }

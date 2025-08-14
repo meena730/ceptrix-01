@@ -26,6 +26,13 @@
   right: 4px;
   background-color: rgb(237, 157, 9);
 }
+.Tag-new {
+  top: 4px;
+  right: 10px;
+  background-color: rgb(11, 11, 113);
+  /* padding: 2px 6px;
+  border-radius: 4px; */
+}
 
 .Tag-popular {
   top: 4px;
