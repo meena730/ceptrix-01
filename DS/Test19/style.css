@@ -47,6 +47,11 @@
   background-color: rgb(148, 5, 148);
 }
 
+.Tag-new{
+  top: 4px ;
+  right: 12px;
+  position: inherit;
+}
 .price-label {
   font-weight: bold;
   padding: 3px 6px;
