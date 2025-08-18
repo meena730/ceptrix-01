@@ -57,33 +57,33 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
         priceEl?.textContent.replace(/[^0-9.]/g, "") || "NaN"
       );
 
-      const hasNewReleaseTag = !!card.querySelector(
-        '[data-test="product-card-tag-New-Release"]'
-      );
-      if (hasNewReleaseTag) {
-        tagHolder.insertAdjacentHTML(
-          "beforeend",
-          `<div class="Tag Tag-new">NEW</div>`
-        );
-      }
+ const hasNewReleaseTag = !!card.querySelector(
+   '[data-test="product-card-tag-New-Release"]'
+ );
+ if (hasNewReleaseTag) {
+   tagHolder.insertAdjacentHTML(
+     "beforeend",
+     `<div class="Tag Tag-new">NEW</div>`
+   );
+ }
 
-      // SALE logic
-      if (originalPriceEl) {
-        tagHolder.insertAdjacentHTML(
-          "beforeend",
-          `<div class="Tag Tag-sale">SALE</div>`
-        );
-      }
+ // SALE l
+ if (originalPriceEl) {
+   tagHolder.insertAdjacentHTML(
+     "beforeend",
+     `<div class="Tag Tag-sale">SALE</div>`
+   );
+ }
 
-      if (hasNewReleaseTag && originalPriceEl) {
-        const saleTag = tagHolder.querySelector(".Tag-sale");
-        if (saleTag) {
-          saleTag.style.top = "40px";
-          saleTag.style.right = "7px";
-          saleTag.style.textAlign = "center";
-          saleTag.style.width = "76px";
-        }
-      }
+ if (hasNewReleaseTag && originalPriceEl) {
+   const saleTag = tagHolder.querySelector(".Tag-sale");
+   if (saleTag) {
+     saleTag.style.top = "40px"; 
+     saleTag.style.right = "7px";
+     saleTag.style.textAlign = "center";
+     saleTag.style.width = "76px";
+   }
+ }
 
       if (!isNaN(priceValue) && priceValue < avgPrice) {
         tagHolder.insertAdjacentHTML(
@@ -115,58 +115,61 @@ waitForElement('[data-test="search-results-list"]', (resultsList) => {
         });
       }
 
-      card.addEventListener("click", () => {
-        const activeTags = Array.from(tagHolder.querySelectorAll(".Tag"))
-          .map((tag) => tag.textContent.trim())
-          .map((label) => {
-            switch (label) {
-              case "VALUE PICK":
-                return "CONV Value Pick";
-              case "SALE":
-                return "CONV Sale Product";
-              case "PREMIUM":
-                return "CONV Premium";
-              case "POPULAR":
-                return "CONV Popular Product";
-              case "NEW":
-                return "CONV New Product";
-              default:
-                return null;
-            }
-          })
-          .filter(Boolean);
+   card.addEventListener("click", () => {
+     const activeTags = Array.from(tagHolder.querySelectorAll(".Tag"))
+       .map((tag) => tag.textContent.trim())
+       .map((label) => {
+         switch (label) {
+           case "VALUE PICK":
+             return "CONV Value Pick";
+           case "SALE":
+             return "CONV Sale Product";
+           case "PREMIUM":
+             return "CONV Premium";
+           case "POPULAR":
+             return "CONV Popular Product";
+           case "NEW":
+             return "CONV New Product";
+           default:
+             return null;
+         }
+       })
+       .filter(Boolean);
 
-        if (!activeTags.length) return;
+     if (!activeTags.length) return;
 
-        const eventTitle = `[CONV] ${activeTags.join(" + ")} Clicked`;
-        //  consol
-        console.log(`Event ${eventTitle}`);
+     const eventTitle = `[CONV] ${activeTags.join(" + ")} Clicked`;
 
-        const eventDetails = {
-          timestamp: new Date().toISOString(),
-          event: eventTitle,
-          productName:
-            card
-              .querySelector("[data-test='product-title']")
-              ?.textContent.trim() || "",
-          publisher:
-            card
-              .querySelector("[data-test='product-publisher']")
-              ?.textContent.trim() || "",
-          price: priceEl?.textContent.trim() || "",
-          originalPrice: originalPriceEl?.textContent.trim() || "",
-          rating: reviewCountEl
-            ? parseFloat(
-                card.querySelector("[data-test='product-rating']")?.textContent
-              ) || null
-            : null,
-        };
+     const eventDetails = {
+       timestamp: new Date().toISOString(),
+       event: eventTitle,
+       productName:
+         card
+           .querySelector("[data-test='product-title']")
+           ?.textContent.trim() || "",
+       publisher:
+         card
+           .querySelector("[data-test='product-publisher']")
+           ?.textContent.trim() || "",
+       price: priceEl?.textContent.trim() || "",
+       originalPrice: originalPriceEl?.textContent.trim() || "",
+       rating: reviewCountEl
+         ? parseFloat(
+             card.querySelector("[data-test='product-rating']")?.textContent
+           ) || null
+         : null,
+     };
 
-        let stored = JSON.parse(localStorage.getItem("convEvents") || "[]");
-        stored.push(eventDetails);
-        if (stored.length > 100) stored = stored.slice(-100);
-        localStorage.setItem("convEvents", JSON.stringify(stored));
-      });
+    
+     console.log("CONV Event:", eventDetails);
+
+     let stored = JSON.parse(localStorage.getItem("convEvents") || "[]");
+     stored.push(eventDetails);
+     if (stored.length > 100) stored = stored.slice(-100);
+     localStorage.setItem("convEvents", JSON.stringify(stored));
+   });
+
+
     });
   }
 
