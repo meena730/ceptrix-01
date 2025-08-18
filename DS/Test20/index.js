@@ -18,6 +18,8 @@ function insertHeading(target) {
 
   heading.addEventListener("click", () => {
     document.querySelector(".size-guide-panel").classList.add("open");
+    document.querySelector(".overlay").classList.add("active"); // show overlay
+    document.body.classList.add("no-scroll");
   });
 
   target.insertAdjacentElement("beforeend", heading);
@@ -26,16 +28,18 @@ function insertHeading(target) {
 function createSizePanel() {
   if (document.querySelector(".size-guide-panel")) return;
 
+  // overlay create karo
+  const overlay = document.createElement("div");
+  overlay.className = "overlay";
+  document.body.appendChild(overlay);
+
   const panel = document.createElement("div");
   panel.className = "size-guide-panel";
   panel.innerHTML = `
-        <button class="close-btn"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+    <button class="close-btn"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
   <path d="M20.9995 1.61186L19.9033 0.5L10.5073 9.89597L1.11137 0.5L-0.000488281 1.61186L9.39548 11.0078L-0.000488281 20.4038L1.11137 21.5L10.5073 12.104L19.9033 21.5L20.9995 20.4038L11.6035 11.0078L20.9995 1.61186Z" fill="#181818"/>
 </svg></button>
-
-    <div class="panel-header">
-      <span>Maattabel</span>
-    </div>
+    <div class="panel-header"><span>Maattabel</span></div>
     <table>
       <thead>
         <tr>
@@ -58,13 +62,17 @@ function createSizePanel() {
 
   document.body.appendChild(panel);
 
-  // Close button event
-  panel.querySelector(".close-btn").addEventListener("click", () => {
+  // close events
+  function closePanel() {
     panel.classList.remove("open");
-  });
+    overlay.classList.remove("active");
+    document.body.classList.remove("no-scroll");
+  }
+
+  panel.querySelector(".close-btn").addEventListener("click", closePanel);
+  overlay.addEventListener("click", closePanel);
 }
 
-// Initial load
 waitForElement(
   "#main .pdp__container.container .add-to-cart__price",
   (target) => {
