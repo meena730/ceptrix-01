@@ -1,14 +1,23 @@
-.gmd-001 [class*="form_wrapper"] [class*="date_container"] [class*="date"].active {
+.gmd-001
+  [class*="form_wrapper"]
+  [class*="date_container"]
+  [class*="date"].active {
   background: #ff6200 !important;
   border: none !important;
   color: #fff !important;
 }
 
-.gmd-001 [class*="form_wrapper"] [class*="flex_container"] [class*="slot_container"] {
+.gmd-001
+  [class*="form_wrapper"]
+  [class*="flex_container"]
+  [class*="slot_container"] {
   display: none;
 }
 
-.gmd-001 [class*="form_wrapper"] [class*="flex_container"] [class*="slot_container"].active {
+.gmd-001
+  [class*="form_wrapper"]
+  [class*="flex_container"]
+  [class*="slot_container"].active {
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
@@ -17,7 +26,11 @@
   gap: 17px;
 }
 
-.gmd-001 [class*="form_wrapper"] [class*="flex_container"] [class*="slot_container"] [class*="slot_wrapper"] {
+.gmd-001
+  [class*="form_wrapper"]
+  [class*="flex_container"]
+  [class*="slot_container"]
+  [class*="slot_wrapper"] {
   display: flex;
   justify-content: center;
   height: 45px !important;
@@ -48,7 +61,12 @@
   color: #101d5e !important;
 }
 
-.gmd-001 [class*="form_wrapper"] [class*="flex_container"] [class*="slot_container"] [class*="slot_wrapper"] [class*="slot"] {
+.gmd-001
+  [class*="form_wrapper"]
+  [class*="flex_container"]
+  [class*="slot_container"]
+  [class*="slot_wrapper"]
+  [class*="slot"] {
   font-family: Rubik;
   font-size: 14px !important;
   font-style: normal;
@@ -104,17 +122,28 @@
 .gmd-001 [id*="datetime"] [class*="date_container"] {
   width: 100%;
   max-width: 160px !important;
-  margin: 0px;
+  margin: 0 0 !important;
 }
 
-.gmd-001 [class*="form_wrapper"] [class*="date_container"] [class*="date"].active {
+.gmd-001
+  [class*="form_wrapper"]
+  [class*="date_container"]
+  [class*="date"].active {
   background: #ff6200 !important;
   border: none;
   color: #fff !important;
 }
 
-.gmd-001 [class*="form_wrapper"] [class*="flex_container"] [class*="slot_container"] [class*="slot_wrapper"]:hover,
-.gmd-001 [class*="form_wrapper"] [class*="flex_container"] [class*="slot_container"] [class*="slot_wrapper"].active,
+.gmd-001
+  [class*="form_wrapper"]
+  [class*="flex_container"]
+  [class*="slot_container"]
+  [class*="slot_wrapper"]:hover,
+.gmd-001
+  [class*="form_wrapper"]
+  [class*="flex_container"]
+  [class*="slot_container"]
+  [class*="slot_wrapper"].active,
 [id*="datetime"] [class*="slot_wrapper"].selected {
   background-color: #ff6200 !important;
   color: white !important;
@@ -148,7 +177,11 @@
     gap: 16px;
   }
 
-  .gmd-001 [class*="form_wrapper"] [class*="flex_container"] [class*="slot_container"] [class*="slot_wrapper"] {
+  .gmd-001
+    [class*="form_wrapper"]
+    [class*="flex_container"]
+    [class*="slot_container"]
+    [class*="slot_wrapper"] {
     width: 100%;
     padding: 14px;
     font-size: 14px;
