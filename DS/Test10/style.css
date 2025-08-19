@@ -53,10 +53,10 @@
 } */
 
 .cpl-container {
-  max-width: 1130px;
+  max-width: 1120px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 0px;
+  padding: 38px 15px;
 }
 .cpl-hero-section {
   background: url(https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/543_eywd7b.png);
@@ -64,7 +64,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding-bottom: 93.8px;
+  padding-bottom: 64px;
 }
 /* .cpl-hero-section {
   /* background-color: #00875a; */
@@ -76,12 +76,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 38.2px 4px 42px;
+  /* padding: 38.2px 4px 42px; */
   margin: 0 auto;
-  margin-bottom: 25px;
+  /* margin-bottom: 105px; */
 }
 .cpl-hero-content {
-  padding: 40px 3.9px;
+  padding: 32px 0;
   display: flex;
 }
 .hero-left {
@@ -104,7 +104,6 @@
   font-weight: bold;
   cursor: pointer;
 }
-
 .hero-bottom-heading {
   color: var(--Neutrals-White, #fff);
   /* font-family: "Expensify New Kansas"; */
@@ -129,14 +128,18 @@
   font-weight: 500;
   line-height: 56px;
   letter-spacing: 0px;
-  margin-bottom: 19px;
+  margin-bottom: 21px;
 }
+.img-wrapper {
+  padding: 0 4px;
+}
+
 .cpl-rating {
   display: flex;
   align-items: center;
   gap: 12px;
   /* margin-top: -7px; */
-  margin-bottom: 22.9px;
+  margin-bottom: 23px;
 }
 .rating-stars {
   height: 24px;
@@ -151,17 +154,22 @@
   line-height: 24px; /* 150% */
 }
 .feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 19.5px;
+  /* list-style: none; */
+  /* padding: 0; */
+  /* margin: 0; */
+  margin-bottom: 20px;
 }
-
 .feature-list li {
-  margin-bottom: 0;
-  /* line-height: 90px; */
+  /* margin-bottom: 0; */
+  background: url(https://res.cloudinary.com/diwhc4afs/image/upload/v1753100859/Frame_40574_ifppy7.png);
+  background-repeat: no-repeat;
+  line-height: 26px;
+  color: #fff;
+  /* align-items: center; */
   font-size: 16px;
-  letter-spacing: 1.1px;
+  padding: 0px 27px;
+  letter-spacing: 0px;
+  margin-bottom: 9px;
 }
 .feature-item {
   display: flex;
@@ -197,25 +205,19 @@
   transform: translateY(-60.8%);
   right: 53.1px;
 }
-.cpl-option-image {
-  /* margin-bottom: 37px; */
-}
-
-.img-wrapper img {
-  /* width: 100%; */
-}
 
 /*2nd section  */
 .cpl-feature-section {
   background: var(--Neutrals-Light-Beige, #faf8f5);
-  padding: 82px 0;
+  padding: 86px 0;
 }
 
 #features-container {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(3, 1fr);
-  gap: 11px 18px;
-  margin-bottom: 25px;
+  gap: 14px 17px;
+  flex-wrap: wrap;
+  /* margin-bottom: 0; */
 }
 .features {
   color: var(--Neutrals-Primary-Text, #002e22);
@@ -225,23 +227,23 @@
   font-style: normal;
   font-weight: 500;
   line-height: 40px;
-  padding-bottom: 27.4px;
+  margin-bottom: 0;
   letter-spacing: 0.3px;
 }
 .feature-card {
   display: flex;
-  max-width: 321px;
+  max-width: 316px;
   width: 100%;
   flex-direction: column;
   gap: 10px;
   background-color: #fff;
   border: 1px solid #e4e4e7;
   border-radius: 12px;
-  padding: 33px 22px;
+  padding: 31px 22px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   height: 100%;
-  max-height: 153px;
-  margin-bottom: 10px;
+  max-height: 156px;
+  margin-bottom: 6px;
 }
 .feature-card p {
   color: var(--Neutrals-Primary-Text, #002e22);
@@ -272,7 +274,7 @@
 
 .show-more-container {
   text-align: center;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 #toggle-btn {
@@ -284,7 +286,7 @@
   font-weight: 400;
   line-height: 26px;
   text-transform: capitalize;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .feature-card h3 {
@@ -311,43 +313,42 @@
 }
 
 .trial-heading {
-    color: var(--Neutrals-Primary-Text, #002e22);
-    text-align: center;
-    /* font-family: "Expensify New Kansas"; */
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 40px;
-    margin-bottom: 24px;
-    letter-spacing: -0.2px;
+  color: var(--Neutrals-Primary-Text, #002e22);
+  text-align: center;
+  /* font-family: "Expensify New Kansas"; */
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  margin-bottom: 24px;
+  letter-spacing: -0.2px;
 }
 .trial-tabs {
-    display: flex
-;
-    justify-content: center;
-    /* max-width: 1117px; */
-    gap: 12px;
-    align-items: center;
-    margin-bottom: 37px;
-    flex-wrap: wrap;
-    /* padding: 0 195px; */
+  display: flex;
+  justify-content: center;
+  /* max-width: 1117px; */
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 37px;
+  flex-wrap: wrap;
+  /* padding: 0 195px; */
 }
 
 .tab {
-    /* color: var(--Neutrals-Primary-Text, #002e22); */
-    /* font-family: "Expensify New Kansas"; */
-    font-size: 20px;
-    text-align: center;
-    font-style: normal;
-    border: 1px solid #EBE6DF;
-    font-weight: 500;
-    line-height: 24px;
-    padding: 12px 22px;
-    letter-spacing: 0.5px;
-    max-width: 223px;
-    width: 100%;
-    text-decoration: none;
-    border-radius: 97px;
+  color: var(--Neutrals-Primary-Text, #002e22);
+  /* font-family: "Expensify New Kansas"; */
+  font-size: 20px;
+  text-align: center;
+  font-style: normal;
+  border: 1px solid #ebe6df;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 12px 22px;
+  letter-spacing: 0.5px;
+  max-width: 223px;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 97px;
 }
 
 .tab.active {
@@ -356,11 +357,12 @@
 }
 
 .trial-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15.7px;
-  /* margin: 41px 0; */
-  margin-bottom: 42.2px;
+    display: flex
+;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15.7px;
+    /* margin: 41px 0; */
+    margin-bottom: 42.2px;
 }
 
 .card {
@@ -387,13 +389,13 @@
 }
 
 .card p {
-  color: var(--Neutrals-Primary-Text, #002e22);
-  font-family: "Expensify Neue";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0px;
+    color: var(--Neutrals-Primary-Text, #002e22);
+    font-family: "Expensify Neue";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.1px;
 }
 .trial-img {
   width: 59px;
@@ -859,4 +861,44 @@
     margin: 40px 0;
     /* margin-bottom: 30px; */
   }
+}
+
+@media (max-width: 1390px) {
+  .cpl-hero-content {
+    /* padding: 32px 0; */
+    display: flex;
+    gap: 17px;
+    align-items: center;
+  }
+  .cpl-hero-right-img {
+    position: unset;
+    align-items: center;
+    width: 330px;
+    top: 50.1%;
+    /* left: 0; */
+    transform: translateY(-10.8%);
+    right: 53.1px;
+  }
+  #features-container {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 17px;
+    flex-wrap: wrap;
+    /* margin-bottom: 0; */
+    justify-content: center;
+  }
+  .cpl-navbar {
+    max-width: 971px;
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 38.2px 4px 42px; */
+    margin: 0 auto;
+    /* margin-bottom: 105px; */
+}
+.img-wrapper {
+    padding: 0 4px;
+    max-width: 980px;
+}
 }
