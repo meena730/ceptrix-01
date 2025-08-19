@@ -10,7 +10,7 @@
   font-size: 15.625px;
   font-style: normal;
   font-weight: var(--font-weight-700, 700);
-  line-height: var(--line-height-24, 24px); /* 153.6% */
+  line-height: var(--line-height-24, 24px); /* 153.6%*/
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-skip-ink: auto;
@@ -25,6 +25,7 @@
 }
 
 .gmd-001 .size-guide-panel {
+  display: none;
   position: fixed;
   top: 0;
   right: -550px;
@@ -37,12 +38,11 @@
   z-index: 9999;
   padding: 60px;
   overflow-y: auto;
-
-  display: flex;
   flex-direction: column;
 }
 
 .gmd-001 .size-guide-panel.open {
+  display: flex; /* 👈 show on click */
   right: 0;
 }
 
@@ -90,8 +90,8 @@
     top: auto;
     bottom: -100%;
     right: 0;
-    width: 100% !important;     
-    max-width: 100% !important; 
+    width: 100% !important;
+    max-width: 100% !important;
     height: 100%;
     max-height: 100%;
     border-top-left-radius: 0;
@@ -104,7 +104,6 @@
     bottom: 0;
   }
 }
-
 
 /* Close button */
 .gmd-001 .close-btn {

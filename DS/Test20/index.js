@@ -18,15 +18,15 @@ function insertHeading(target) {
 
   heading.addEventListener("click", () => {
     document.querySelector(".size-guide-panel").classList.add("open");
-    document.querySelector(".overlay").classList.add("active"); // show overlay
+    document.querySelector(".overlay").classList.add("active");
     document.body.classList.add("no-scroll");
   });
 
   target.insertAdjacentElement("beforeend", heading);
 }
 
-function createSizePanel() {
-  if (document.querySelector(".size-guide-panel")) return;
+function createSizePanel(target) {
+  if (target.querySelector(".size-guide-panel")) return;
 
   // overlay create karo
   const overlay = document.createElement("div");
@@ -36,9 +36,7 @@ function createSizePanel() {
   const panel = document.createElement("div");
   panel.className = "size-guide-panel";
   panel.innerHTML = `
-    <button class="close-btn"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
-  <path d="M20.9995 1.61186L19.9033 0.5L10.5073 9.89597L1.11137 0.5L-0.000488281 1.61186L9.39548 11.0078L-0.000488281 20.4038L1.11137 21.5L10.5073 12.104L19.9033 21.5L20.9995 20.4038L11.6035 11.0078L20.9995 1.61186Z" fill="#181818"/>
-</svg></button>
+    <button class="close-btn">X</button>
     <div class="panel-header"><span>Maattabel</span></div>
     <table>
       <thead>
@@ -60,9 +58,8 @@ function createSizePanel() {
     </table>
   `;
 
-  document.body.appendChild(panel);
+  target.appendChild(panel);
 
-  // close events
   function closePanel() {
     panel.classList.remove("open");
     overlay.classList.remove("active");
@@ -71,6 +68,12 @@ function createSizePanel() {
 
   panel.querySelector(".close-btn").addEventListener("click", closePanel);
   overlay.addEventListener("click", closePanel);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && panel.classList.contains("open")) {
+      closePanel();
+    }
+  });
 }
 
 waitForElement(
@@ -78,11 +81,10 @@ waitForElement(
   (target) => {
     document.body.classList.add("gmd-001");
     insertHeading(target);
-    createSizePanel();
+    createSizePanel(target);
   }
 );
 
-// MutationObserver
 const observer = new MutationObserver(() => {
   const target = document.querySelector(
     "#main .pdp__container.container .add-to-cart__price"
@@ -90,7 +92,7 @@ const observer = new MutationObserver(() => {
   if (target) {
     document.body.classList.add("gmd-001");
     insertHeading(target);
-    createSizePanel();
+    createSizePanel(target);
   }
 });
 observer.observe(document.body, { childList: true, subtree: true });
