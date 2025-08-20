@@ -395,7 +395,6 @@
   }
   #features-container {
     display: flex;
-    grid-template-columns: repeat(3, 1fr);
     gap: 14px 12px;
     flex-wrap: wrap;
     /* margin-bottom: 0; */
