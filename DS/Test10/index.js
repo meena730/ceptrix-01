@@ -69,7 +69,7 @@ waitForElement(".content", (productSelector) => {
                 <picture>
   <source media="(min-width: 1025px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png">
   <source media="(min-width: 601px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753685541/2023_8_49_07_CEST_msepuc.png">
-  <source media="(max-width: 600px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753343843/2023_8_49_07_CEST_lzevbp.png">
+  <source media="(max-width: 550px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753343843/2023_8_49_07_CEST_lzevbp.png">
   <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png" alt="Option Selection UI">
 </picture>
 
@@ -80,15 +80,16 @@ waitForElement(".content", (productSelector) => {
               <picture>
   <!-- Large screens first (min-width) to smallest last -->
   <source media="(min-width: 1025px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png">
-  <source media="(min-width: 768px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753687566/Frame_5612_3_gs9lwi.png">
-  <source media="(max-width: 767px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753343870/Frame_5612_2_uw2fyz.png">
+  <source media="(min-width: 601px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753687566/Frame_5612_3_gs9lwi.png">
+  <source media="(max-width: 550px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753343870/Frame_5612_2_uw2fyz.png">
   <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png" alt="Expense Dashboard">
 </picture>
 
             </div>
             
             </div>
-    <h2 class="hero-bottom-heading">
+            <div class="bottom-part">
+            <h2 class="hero-bottom-heading">
                 Join 12 million+ users who trust Expensify
               </h2>
     <div class="img-wrapper">
@@ -98,7 +99,8 @@ waitForElement(".content", (productSelector) => {
   <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091031/Frame_40581_aoheqj.png" alt="" class="img-wrapper-img">
 </picture>
 
-          </div>
+          </div></div>
+    
           </div>
           </div>
         </div>
