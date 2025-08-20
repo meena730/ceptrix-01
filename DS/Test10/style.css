@@ -898,4 +898,13 @@
     margin: 0 auto;
     /* margin-bottom: 105px; */
   }
+  #features-container {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 17px;
+    flex-wrap: wrap;
+    /* margin-bottom: 0; */
+    justify-content: center;
+  }
+
 }
