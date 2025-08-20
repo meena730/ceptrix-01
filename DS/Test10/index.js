@@ -45,7 +45,7 @@ waitForElement(".content", (productSelector) => {
               <div class="cpl-rating">
                 <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100891/hero_logo-g2_1_xocslh.png" alt="rating-logo" class="rating-logo">
                 <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753101414/stars-4_5.svg_d8iea3.png" alt="4.5 star rating" class="rating-stars">
-                <span>4.5 (4,889 reviews)</span>
+                <span><strong> 4.5 </strong> (4,889 reviews)</span>
               </div>
 
              <ul class="feature-list">
