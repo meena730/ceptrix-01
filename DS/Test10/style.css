@@ -656,8 +656,9 @@
   }
   #features-container {
     display: flex;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px 14px;
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 12px 12px;
+    margin-top: unset;
     margin-bottom: 0px;
     padding: 14px 11px !important;
   }
