@@ -501,7 +501,7 @@
 
   #features-container {
     display: flex;
-    padding: 0 23px;
+    padding: 0 19px;
     /* margin-bottom: 0; */
   }
   /* .cpl-navbar {
@@ -655,13 +655,14 @@
     letter-spacing: 0.3px;
   }
   #features-container {
-    display: flex;
-    /* grid-template-columns: repeat(2, 1fr); */
-    gap: 12px 12px;
-    margin-top: unset;
-    margin-bottom: 0px;
-    padding: 14px 11px !important;
-  }
+        display: flex
+;
+        /* grid-template-columns: repeat(2, 1fr); */
+        gap: 12px 14px;
+        margin-top: unset;
+        margin-bottom: 0px;
+        padding: 14px 11px !important;
+    }
   .feature-card {
     max-width: 289px;
     width: 100%;
@@ -678,7 +679,7 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     gap: 12px;
   }
   .feature-card p {
@@ -719,7 +720,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 40px;
-    margin-bottom: 18px;
+    margin-bottom: 21px;
     letter-spacing: -0.2px;
   }
   .card p {
