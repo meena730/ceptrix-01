@@ -22,89 +22,147 @@ waitForElement(".content", (productSelector) => {
   productSelector.insertAdjacentHTML(
     "afterbegin",
     `
-    <div class="cpl-section">
+     <div class="cpl-section">
       <!-- hero-section -->
       <div class="cpl-hero-section">
-        <div class="cpl-container">
-          <nav class="cpl-navbar">
-            <img
+        <nav class="cpl-navbar">
+          <div class="cpl-container">
+          
+            <div class="nav-content">
+          <img
               class="cpl-nav-logo"
               src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753092902/Component_8_rt7poe.png"
               alt="Expensify Logo"
             />
             <button class="cpl-signin-btn">Sign In</button>
-            <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753688957/Frame_40685_njvsks.png" class="hamburger"/>
-          </nav>
-        </div>
-        <div class="cpl-container">
-          <div class="cpl-hero-content">
+            <img
+              src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753688957/Frame_40685_njvsks.png"
+              class="hamburger"
+            /></div>
+          </div>
+        </nav>
+
+        <div class="cpl-hero-content">
+          <div class="cpl-container">
             <div class="hero-left">
               <h1 class="cpl-heading">
                 The expense management app that does it all.
               </h1>
               <div class="cpl-rating">
-                <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100891/hero_logo-g2_1_xocslh.png" alt="rating-logo" class="rating-logo">
-                <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753101414/stars-4_5.svg_d8iea3.png" alt="4.5 star rating" class="rating-stars">
+                <img
+                  src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753100891/hero_logo-g2_1_xocslh.png"
+                  alt="rating-logo"
+                  class="rating-logo"
+                />
+                <img
+                  src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753101414/stars-4_5.svg_d8iea3.png"
+                  alt="4.5 star rating"
+                  class="rating-stars"
+                />
                 <span><strong> 4.5 </strong> (4,889 reviews)</span>
               </div>
 
-             <ul class="feature-list">
-  <li>
-    <strong>All inclusive.</strong> Manage expenses, track receipts, reimburse employees, create expense reports, and send invoices.
-  </li>
-  <li>
-   
-    
-    <strong>Corporate card.</strong> Cash back on all purchases. Fraud protection.
-  </li>
-  <li>
-   
-      <strong>40+ integrations.</strong> ADP, Quickbooks, Gusto, Sage, Workday, and Oracle...
-    
-  </li>
-</ul>
-
+              <ul class="feature-list">
+                <li>
+                  <strong>All inclusive.</strong> Manage expenses, track
+                  receipts, reimburse employees, create expense reports, and
+                  send invoices.
+                </li>
+                <li>
+                  <strong>Corporate card.</strong> Cash back on all purchases.
+                  Fraud protection.
+                </li>
+                <li>
+                  <strong>40+ integrations.</strong> ADP, Quickbooks, Gusto,
+                  Sage, Workday, and Oracle...
+                </li>
+              </ul>
 
               <div class="cpl-option-image">
                 <picture>
-  <source media="(min-width: 1025px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png">
-  <source media="(min-width: 601px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753685541/2023_8_49_07_CEST_msepuc.png">
-  <source media="(max-width: 550px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753343843/2023_8_49_07_CEST_lzevbp.png">
-  <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png" alt="Option Selection UI">
-</picture>
-
+                  <source
+                    media="(min-width: 1025px)"
+                    srcset="
+                      https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png
+                    "
+                  />
+                  <source
+                    media="(min-width: 601px)"
+                    srcset="
+                      https://res.cloudinary.com/diwhc4afs/image/upload/v1753685541/2023_8_49_07_CEST_msepuc.png
+                    "
+                  />
+                  <source
+                    media="(max-width: 550px)"
+                    srcset="
+                      https://res.cloudinary.com/diwhc4afs/image/upload/v1753343843/2023_8_49_07_CEST_lzevbp.png
+                    "
+                  />
+                  <img
+                    src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753095195/2023_8_49_07_CEST_mak3mj.png"
+                    alt="Option Selection UI"
+                  />
+                </picture>
               </div>
-             
             </div>
             <div class="cpl-hero-right-img">
               <picture>
-  <!-- Large screens first (min-width) to smallest last -->
-  <source media="(min-width: 1025px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png">
-  <source media="(min-width: 601px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753687566/Frame_5612_3_gs9lwi.png">
-  <source media="(max-width: 550px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753343870/Frame_5612_2_uw2fyz.png">
-  <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png" alt="Expense Dashboard">
-</picture>
+                <!-- Large screens first (min-width) to smallest last -->
+                <source
+                  media="(min-width: 1025px)"
+                  srcset="
+                    https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png
+                  "
+                />
+                <source
+                  media="(min-width: 601px)"
+                  srcset="
+                    https://res.cloudinary.com/diwhc4afs/image/upload/v1753687566/Frame_5612_3_gs9lwi.png
+                  "
+                />
+                <source
+                  media="(max-width: 550px)"
+                  srcset="
+                    https://res.cloudinary.com/diwhc4afs/image/upload/v1753343870/Frame_5612_2_uw2fyz.png
+                  "
+                />
+                <img
+                  src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091032/Hero_Image_umnkx3.png"
+                  alt="Expense Dashboard"
+                />
+              </picture>
+            </div>
 
-            </div>
-            
-            </div>
             <div class="bottom-part">
-            <h2 class="hero-bottom-heading">
+              <h2 class="hero-bottom-heading">
                 Join 12 million+ users who trust Expensify
               </h2>
-    <div class="img-wrapper">
-           <picture>
-  <source media="(max-width: 675px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753347839/Frame_40582_2_chvbya.png">
-  <source media="(max-width: 1023px)" srcset="https://res.cloudinary.com/diwhc4afs/image/upload/v1753347840/Frame_40582_1_ljnili.png">
-  <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091031/Frame_40581_aoheqj.png" alt="" class="img-wrapper-img">
-</picture>
-
-          </div></div>
-    
-          </div>
+              <div class="img-wrapper">
+                <picture>
+                  <source
+                    media="(max-width: 675px)"
+                    srcset="
+                      https://res.cloudinary.com/diwhc4afs/image/upload/v1753347839/Frame_40582_2_chvbya.png
+                    "
+                  />
+                  <source
+                    media="(max-width: 1023px)"
+                    srcset="
+                      https://res.cloudinary.com/diwhc4afs/image/upload/v1753347840/Frame_40582_1_ljnili.png
+                    "
+                  />
+                  <img
+                    src="https://res.cloudinary.com/diwhc4afs/image/upload/v1753091031/Frame_40581_aoheqj.png"
+                    alt=""
+                    class="img-wrapper-img"
+                  />
+                </picture>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
       <!-- feature-section -->
       <div class="cpl-feature-section">
         <h2 class="features">Features</h2>
@@ -155,6 +213,7 @@ waitForElement(".content", (productSelector) => {
         </div>
       </div>
     </div>
+    
     `
   );
 
