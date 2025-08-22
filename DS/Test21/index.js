@@ -15,62 +15,70 @@ if (document.body.classList.contains("product-bundlepage")) {
   waitForElement(
     ".main-container .bundle-list  .product-price-add-to-cart button[type='button']",
     (buttons) => {
-     const modal = document.getElementById("modal_addToCart");
-     const minicart = document.querySelector(".minicart-container"); // single element
+      const modal = document.getElementById("modal_addToCart");
+      const minicart = document.querySelector(".minicart-container"); // single element
 
-     const observer = new MutationObserver((mutationsList) => {
-       mutationsList.forEach((mutation) => {
-         const target = mutation.target;
+      const observer = new MutationObserver((mutationsList) => {
+        mutationsList.forEach((mutation) => {
+          const target = mutation.target;
 
-         if (modal && (target === modal || modal.contains(target))) {
-           if (modal.classList.contains("show")) {
-             modal.style.display = "none";
-             modal.classList.remove("show");
-             document.body.classList.remove("modal-open");
+          if (modal && (target === modal || modal.contains(target))) {
+            if (modal.classList.contains("show")) {
+              modal.style.display = "none";
+              modal.classList.remove("show");
+              document.body.classList.remove("modal-open");
 
-             const backdrop = document.querySelector(".modal-backdrop");
-             if (backdrop) backdrop.remove();
-           }
-         }
+              const backdrop = document.querySelector(".modal-backdrop");
+              if (backdrop) backdrop.remove();
+            }
+          }
 
-         if (minicart && (minicart === target || minicart.contains(target))) {
-           console.log("Minicart updated!");
-         }
-       });
-     });
-
-     if (modal) {
-       observer.observe(modal, {
-         attributes: true,
-         childList: true,
-         subtree: true,
-       });
-     }
-
-     if (minicart) {
-       observer.observe(minicart, {
-         attributes: true,
-         childList: true,
-         subtree: true,
-       });
-     }
-
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          if (!button.classList.contains("gmd-checked")) {
-            button.classList.remove("bg-success", "text-white");
-
-            button.innerHTML = "";
-
-            const checkIcon = document.createElement("span");
-            checkIcon.className = "gmd-check-icon";
-            checkIcon.textContent = "✔";
-            button.appendChild(checkIcon);
-
-            button.classList.add("gmd-checked");
+          if (minicart && (minicart === target || minicart.contains(target))) {
+            console.log("Minicart updated!");
           }
         });
       });
+
+      if (modal) {
+        observer.observe(modal, {
+          attributes: true,
+          childList: true,
+          subtree: true,
+        });
+      }
+
+      if (minicart) {
+        observer.observe(minicart, {
+          attributes: true,
+          childList: true,
+          subtree: true,
+        });
+      }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!button.classList.contains("gmd-checked")) {
+        const originalContent = button.innerHTML;
+
+        button.classList.remove("bg-success", "text-white");
+
+        button.innerHTML = "";
+
+        const checkIcon = document.createElement("span");
+        checkIcon.className = "gmd-check-icon";
+        checkIcon.textContent = "✔";
+        button.appendChild(checkIcon);
+
+        button.classList.add("gmd-checked");
+
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+          button.classList.remove("gmd-checked");
+          button.classList.add("bg-success", "text-white");
+        }, 2500); 
+      }
+    });
+  });
 
       document.querySelectorAll(".bundle-list").forEach((bundle) => {
         bundle.id = "gmd-bundle";
