@@ -1,0 +1,87 @@
+.gmd-001 #gmd-bundle .col-xl-3 {
+  flex: 0 0 33%;
+  max-width: 33%;
+}
+
+.gmd-001 #chat-popup {
+  display: none !important;
+}
+/* .gmd-001 .gmd-sticky-desk {
+  position: sticky;
+  top: 0;
+  background: white; 
+  z-index: 10000;
+  padding: 10px 0; 
+  border-bottom: 1px solid #ddd; 
+} */
+
+
+.gmd-check-icon {
+  font-size: 24px;
+  color: #28a745;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1;
+}
+
+.gmd-checked {
+  background-color: #e6f9ee !important;
+  border-color: #28a745 !important;
+  /* color: #28a745 !important; */
+  padding: 0.375rem 1.25rem;
+}
+
+.gmd-001 .see-more-btn-wrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+.gmd-001 .product-price-add-to-cart .btn:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+.gmd-001 .gmd-see-more-link {
+  color: #0071d4;
+  text-decoration: underline;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: normal;
+  padding: 0;
+  display: inline-block;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 767px) {
+  .gmd-001 #gmd-bundle .col-xl-3 {
+    flex: unset !important;
+    max-width: unset !important;
+  }
+
+ .gmd-001 #gmd-primary-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  text-align: center;
+  padding-right: unset;
+  padding-left: unset;
+}
+
+.gmd-001 #gmd-primary-button .btn {
+  width: 100%;
+  border-radius: 0; /* Optional: make button square */
+}
+
+  .gmd-001 .btn {
+    padding: 0.375rem 0.95rem;
+  }
+
+  .gmd-001 .page-title {
+    margin-bottom: 40px;
+  }
+}
