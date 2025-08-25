@@ -6,14 +6,14 @@
 .gmd-001 #chat-popup {
   display: none !important;
 }
-/* .gmd-001 .gmd-sticky-desk {
+.gmd-001 .gmd-sticky-desk {
   position: sticky;
   top: 0;
   background: white; 
   z-index: 10000;
   padding: 10px 0; 
   border-bottom: 1px solid #ddd; 
-} */
+}
 
 
 .gmd-check-icon {
@@ -35,10 +35,6 @@
   text-align: center;
   margin-top: 10px;
 }
-.gmd-001 .product-price-add-to-cart .btn:focus {
-  box-shadow: none !important;
-  outline: none !important;
-}
 
 
 .gmd-001 .gmd-see-more-link {
@@ -53,7 +49,7 @@
   display: inline-block;
 }
 
-/* Mobile Responsive Styles */
+/* Mobile */
 @media (max-width: 767px) {
   .gmd-001 #gmd-bundle .col-xl-3 {
     flex: unset !important;
@@ -68,13 +64,13 @@
   z-index: 9999;
   width: 100%;
   text-align: center;
-  padding-right: unset;
-  padding-left: unset;
+  /* padding-right: unset; */
+  /* padding-left: unset; */
 }
 
 .gmd-001 #gmd-primary-button .btn {
   width: 100%;
-  border-radius: 0; /* Optional: make button square */
+  border-radius: 60px; 
 }
 
   .gmd-001 .btn {

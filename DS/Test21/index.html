@@ -1,59 +1,4 @@
-function waitForElement(selector, callback, interval = 50, timeout = 10000) {
-  const check = setInterval(() => {
-    const els = document.querySelectorAll(selector);
-    if (els.length > 0) {
-      clearInterval(check);
-      callback(els);
-    }
-  }, interval);
-  setTimeout(() => clearInterval(check), timeout);
-}
-
-if (document.body.classList.contains("product-bundlepage")) {
-  document.body.classList.add("gmd-001");
-
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body.modal-open {
-      overflow: auto !important;
-      padding-right: 0 !important;
-    }
-
-    .modal,
-    .modal-backdrop,
-    .modal.show,
-    .modal-backdrop.show {
-      display: block !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-    }
-  `;
-  document.head.appendChild(style);
-  document.head.appendChild(style);
-
-  waitForElement(
-    ".main-container .bundle-list .product-price-add-to-cart button[type='button']",
-    (buttons) => {
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          waitForElement(
-            ".modal .close-modal.d-block",
-            (closeButtons) => {
-              const closeBtn = closeButtons[0];
-              if (closeBtn) {
-                setTimeout(() => {
-                  closeBtn.click(); 
-                }, 100);
-              }
-            },
-            100,
-            10000
-          );
-        });
-      });
-
-      // 3 PRO . in onw row
+ // 3 products in row 
       document.querySelectorAll(".bundle-list").forEach((bundle) => {
         bundle.id = "gmd-bundle";
 
@@ -85,13 +30,14 @@ if (document.body.classList.contains("product-bundlepage")) {
         });
       });
 
-      // MOBI. sticky bar
+      // Mobile
       document.querySelectorAll("a.btn.btn-primary").forEach((el) => {
         const text = el.textContent.trim();
         if (text === "Bekijk mijn winkelwagen") {
           const parent = el.parentElement;
           if (parent && !parent.id) {
             parent.id = "gmd-primary-button";
+
             if (window.innerWidth <= 767) {
               document.body.appendChild(parent);
             }
@@ -99,7 +45,7 @@ if (document.body.classList.contains("product-bundlepage")) {
         }
       });
 
-      // DESK sticky bar
+      // Desktop
       const matchedElements = Array.from(
         document.querySelectorAll(".main-container .page-title")
       ).filter((el) => el.textContent.trim() === "Maak je aankoop compleet");
@@ -111,15 +57,14 @@ if (document.body.classList.contains("product-bundlepage")) {
         primaryButton.parentElement.classList.add("gmd-sticky-desk");
       }
 
-      // Heading
+      // heading
       document
-        .querySelectorAll(".bundle-list .bundle-counter")
+        .querySelector(".bundle-list .bundle-counter")
         .forEach((el) => {
           if (el.parentElement) {
             el.parentElement.classList.add("gmd-bundle-head");
           }
         });
-
       document.querySelectorAll(".gmd-bundle-head h3").forEach((h3) => {
         let text = h3.innerHTML;
 
@@ -135,7 +80,7 @@ if (document.body.classList.contains("product-bundlepage")) {
         h3.classList.add("gmd-h3");
       });
 
-      // other option xode
+      // other option
       document
         .querySelectorAll(".product-info-minimal")
         .forEach((container) => {
@@ -144,16 +89,16 @@ if (document.body.classList.contains("product-bundlepage")) {
 
           if (btn && stock) {
             const text = btn.textContent.trim();
+
             if (text === "Andere optie") {
               btn.innerHTML = `
-              Kies andere optie 
-              <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1756112959/material-symbols_change-circle-outline-rounded_kqyn8q.png" 
-                  alt="icon" style="width: 18px; height: 18px; vertical-align: middle; margin-left: 5px;">
-            `;
+        Kies andere optie 
+        <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1756112959/material-symbols_change-circle-outline-rounded_kqyn8q.png" 
+             alt="icon" 
+           >
+      `;
             }
+
             stock.insertAdjacentElement("afterend", btn);
           }
         });
-    }
-  );
-}
