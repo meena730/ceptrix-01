@@ -13,50 +13,53 @@ if (document.body.classList.contains("product-bundlepage")) {
   document.body.classList.add("gmd-001");
 
   function handleButtons(buttons) {
-    buttons.forEach((button) => {
-      if (button.dataset.gmdBound) return; 
-      button.dataset.gmdBound = "true";
+   buttons.forEach((button) => {
+  if (button.dataset.gmdBound) return;
+  button.dataset.gmdBound = "true";
 
-      button.addEventListener("click", () => {
-        waitForElement(
-          ".modal .close-modal.d-block",
-          (closeButtons) => {
-            const closeBtn = closeButtons[0];
-            if (closeBtn) {
-              setTimeout(() => {
-                closeBtn.click();
-              }, 100);
-            }
-          },
-          100,
-          10000
-        );
+  button.addEventListener("click", () => {
+    setTimeout(() => {
+      waitForElement(
+        ".modal .close-modal.d-block",
+        (closeButtons) => {
+          const closeBtn = closeButtons[0];
+          if (closeBtn) {
+            setTimeout(() => {
+              closeBtn.click();
+            }, 100);
+          }
+        },
+        100,
+        10000
+      );
 
-        if (!button.classList.contains("gmd-checked")) {
-          const originalContent = button.innerHTML;
+      if (!button.classList.contains("gmd-checked")) {
+        const originalContent = button.innerHTML;
 
-          button.classList.remove("bg-success", "text-white");
-          button.innerHTML = "";
+        button.classList.remove("bg-success", "text-white");
+        button.innerHTML = "";
 
-          const checkIcon = document.createElement("span");
-          checkIcon.className = "gmd-check-icon";
-          checkIcon.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 18 13" fill="none">
-              <path d="M6.54998 13.0001L0.849976 7.3001L2.27498 5.8751L6.54998 10.1501L15.725 0.975098L17.15 2.4001L6.54998 13.0001Z" fill="#28A745"/>
-            </svg>
-          `;
-          button.appendChild(checkIcon);
+        const checkIcon = document.createElement("span");
+        checkIcon.className = "gmd-check-icon";
+        checkIcon.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 18 13" fill="none">
+            <path d="M6.54998 13.0001L0.849976 7.3001L2.27498 5.8751L6.54998 10.1501L15.725 0.975098L17.15 2.4001L6.54998 13.0001Z" fill="#28A745"/>
+          </svg>
+        `;
+        button.appendChild(checkIcon);
 
-          button.classList.add("gmd-checked");
+        button.classList.add("gmd-checked");
 
-          setTimeout(() => {
-            button.innerHTML = originalContent;
-            button.classList.remove("gmd-checked");
-            button.classList.add("bg-success", "text-white");
-          }, 2500);
-        }
-      });
-    });
+        setTimeout(() => {
+          button.innerHTML = originalContent;
+          button.classList.remove("gmd-checked");
+          button.classList.add("bg-success", "text-white");
+        }, 2500);
+      }
+    }, 150); 
+  });
+});
+
   }
 
   //  function 
