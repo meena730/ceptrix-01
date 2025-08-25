@@ -12,78 +12,94 @@ function waitForElement(selector, callback, interval = 50, timeout = 10000) {
 if (document.body.classList.contains("product-bundlepage")) {
   document.body.classList.add("gmd-001");
 
-  const style = document.createElement("style");
-  style.innerHTML = `
-    body.modal-open {
-      overflow: auto !important;
-      padding-right: 0 !important;
-    }
+  function handleButtons(buttons) {
+    buttons.forEach((button) => {
+      if (button.dataset.gmdBound) return; 
+      button.dataset.gmdBound = "true";
 
-    .modal,
-    .modal-backdrop,
-    .modal.show,
-    .modal-backdrop.show {
-      display: block !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-    }
-  `;
-  document.head.appendChild(style);
-  document.head.appendChild(style);
+      button.addEventListener("click", () => {
+        waitForElement(
+          ".modal .close-modal.d-block",
+          (closeButtons) => {
+            const closeBtn = closeButtons[0];
+            if (closeBtn) {
+              setTimeout(() => {
+                closeBtn.click();
+              }, 100);
+            }
+          },
+          100,
+          10000
+        );
+
+        if (!button.classList.contains("gmd-checked")) {
+          const originalContent = button.innerHTML;
+
+          button.classList.remove("bg-success", "text-white");
+          button.innerHTML = "";
+
+          const checkIcon = document.createElement("span");
+          checkIcon.className = "gmd-check-icon";
+          checkIcon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 18 13" fill="none">
+              <path d="M6.54998 13.0001L0.849976 7.3001L2.27498 5.8751L6.54998 10.1501L15.725 0.975098L17.15 2.4001L6.54998 13.0001Z" fill="#28A745"/>
+            </svg>
+          `;
+          button.appendChild(checkIcon);
+
+          button.classList.add("gmd-checked");
+
+          setTimeout(() => {
+            button.innerHTML = originalContent;
+            button.classList.remove("gmd-checked");
+            button.classList.add("bg-success", "text-white");
+          }, 2500);
+        }
+      });
+    });
+  }
+
+  //  function 
+  function handleBundleRows() {
+    document.querySelectorAll(".bundle-list").forEach((bundle) => {
+      bundle.id = "gmd-bundle";
+
+      const rows = bundle.querySelectorAll(".row");
+      rows.forEach((row) => {
+        const items = row.querySelectorAll(".col-sm-6");
+        if (items.length > 3 && !row.dataset.gmdHandled) {
+          row.dataset.gmdHandled = "true";
+
+          items.forEach((item, idx) => {
+            if (idx >= 3) item.style.display = "none";
+          });
+
+          const btnWrapper = document.createElement("div");
+          btnWrapper.className = "see-more-btn-wrapper";
+
+          const seeMoreBtn = document.createElement("a");
+          seeMoreBtn.textContent = "Toon meer producten";
+          seeMoreBtn.href = "#";
+          seeMoreBtn.className = "gmd-see-more-link";
+
+          seeMoreBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            items.forEach((item) => (item.style.display = ""));
+            btnWrapper.remove();
+          });
+
+          btnWrapper.appendChild(seeMoreBtn);
+          bundle.appendChild(btnWrapper);
+        }
+      });
+    });
+  }
 
   waitForElement(
     ".main-container .bundle-list .product-price-add-to-cart button[type='button']",
     (buttons) => {
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          waitForElement(
-            ".modal .close-modal.d-block",
-            (closeButtons) => {
-              const closeBtn = closeButtons[0];
-              if (closeBtn) {
-                setTimeout(() => {
-                  closeBtn.click(); 
-                }, 100);
-              }
-            },
-            100,
-            10000
-          );
-        });
-      });
-
-      // 3 PRO . in onw row
-      document.querySelectorAll(".bundle-list").forEach((bundle) => {
-        bundle.id = "gmd-bundle";
-
-        const rows = bundle.querySelectorAll(".row");
-        rows.forEach((row) => {
-          const items = row.querySelectorAll(".col-sm-6");
-          if (items.length > 3) {
-            items.forEach((item, idx) => {
-              if (idx >= 3) item.style.display = "none";
-            });
-
-            const btnWrapper = document.createElement("div");
-            btnWrapper.className = "see-more-btn-wrapper";
-
-            const seeMoreBtn = document.createElement("a");
-            seeMoreBtn.textContent = "Toon meer producten";
-            seeMoreBtn.href = "#";
-            seeMoreBtn.className = "gmd-see-more-link";
-
-            seeMoreBtn.addEventListener("click", (e) => {
-              e.preventDefault();
-              items.forEach((item) => (item.style.display = ""));
-              btnWrapper.remove();
-            });
-
-            btnWrapper.appendChild(seeMoreBtn);
-            bundle.appendChild(btnWrapper);
-          }
-        });
-      });
+      handleButtons(buttons);
+      handleBundleRows();
 
       // MOBI. sticky bar
       document.querySelectorAll("a.btn.btn-primary").forEach((el) => {
@@ -99,7 +115,7 @@ if (document.body.classList.contains("product-bundlepage")) {
         }
       });
 
-      // DESK sticky bar
+      // DESK sticky bar & custom class
       const matchedElements = Array.from(
         document.querySelectorAll(".main-container .page-title")
       ).filter((el) => el.textContent.trim() === "Maak je aankoop compleet");
@@ -108,7 +124,28 @@ if (document.body.classList.contains("product-bundlepage")) {
 
       const primaryButton = document.getElementById("gmd-primary-button");
       if (primaryButton && primaryButton.parentElement) {
-        primaryButton.parentElement.classList.add("gmd-sticky-desk");
+        const stickyParent = primaryButton.parentElement;
+
+        stickyParent.classList.add("gmd-sticky-desk");
+
+        const secondChild = stickyParent.children[1];
+        if (secondChild) {
+          secondChild.classList.add("gmd-sticky-inner");
+        }
+
+        const priceWrapper = stickyParent.querySelector(
+          ".product-price-wrapper"
+        );
+        if (priceWrapper && priceWrapper.parentElement) {
+          const priceParent = priceWrapper.parentElement;
+
+          priceParent.classList.add("gmd-sticky-block");
+
+          const stickyInner = stickyParent.querySelector(".gmd-sticky-inner");
+          if (stickyInner) {
+            stickyInner.appendChild(priceParent);
+          }
+        }
       }
 
       // Heading
@@ -135,7 +172,7 @@ if (document.body.classList.contains("product-bundlepage")) {
         h3.classList.add("gmd-h3");
       });
 
-      // other option xode
+      // other option code
       document
         .querySelectorAll(".product-info-minimal")
         .forEach((container) => {
@@ -154,6 +191,27 @@ if (document.body.classList.contains("product-bundlepage")) {
             stock.insertAdjacentElement("afterend", btn);
           }
         });
+
+      // add class gmd-item
+      document.querySelectorAll("#gmd-bundle .row").forEach((row) => {
+        row.querySelectorAll(".col-xl-3").forEach((col) => {
+          col.classList.add("gmd-bundle-item");
+        });
+      });
     }
   );
+
+  // Mutation 
+  const observer = new MutationObserver(() => {
+    const buttons = document.querySelectorAll(
+      ".main-container .bundle-list .product-price-add-to-cart button[type='button']"
+    );
+    handleButtons(buttons);
+    handleBundleRows();
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
 }

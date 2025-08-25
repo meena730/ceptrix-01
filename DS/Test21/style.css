@@ -1,6 +1,28 @@
-.gmd-001 #gmd-bundle .col-xl-3 {
+.gmd-001 .gmd-sticky-desk .stock-status {
+  display: none;
+}
+.gmd-001 .gmd-sticky-inner p {
+  display: none;
+}
+.gmd-sticky-inner h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+}
+
+#gmd-primary-button {
+  left: 18%;
+}
+
+/* .gmd-001 #gmd-bundle .col-xl-3 {
   flex: 0 0 33%;
   max-width: 33%;
+} */
+.gmd-001 #gmd-bundle .gmd-bundle-item {
+  flex: 0 0 33% !important;
+  max-width: 33% !important;
 }
 
 .gmd-001 #chat-popup {
@@ -9,13 +31,25 @@
 .gmd-001 .gmd-sticky-desk {
   position: sticky;
   top: 0;
-  background: white; 
-  z-index: 10000;
-  padding: 10px 0; 
-  border-bottom: 1px solid #ddd; 
+  background: white;
+  z-index: 945;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+body.modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
 }
 
-
+.gmd-001 .modal,
+.gmd-001 .modal-backdrop,
+.gmd-001 .modal.show,
+.gmd-001 .modal-backdrop.show {
+  display: block !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
 .gmd-check-icon {
   font-size: 24px;
   color: #28a745;
@@ -36,7 +70,6 @@
   margin-top: 10px;
 }
 
-
 .gmd-001 .gmd-see-more-link {
   color: #0071d4;
   text-decoration: underline;
@@ -56,22 +89,20 @@
     max-width: unset !important;
   }
 
- .gmd-001 #gmd-primary-button {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  width: 100%;
-  text-align: center;
-  /* padding-right: unset; */
-  /* padding-left: unset; */
-}
+  .gmd-001 #gmd-primary-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    width: 100%;
+    text-align: center;
+  }
 
-.gmd-001 #gmd-primary-button .btn {
-  width: 100%;
-  border-radius: 60px; 
-}
+  .gmd-001 #gmd-primary-button .btn {
+    width: 100%;
+    border-radius: 60px;
+  }
 
   .gmd-001 .btn {
     padding: 0.375rem 0.95rem;
