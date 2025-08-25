@@ -185,7 +185,7 @@ if (document.body.classList.contains("product-bundlepage")) {
               btn.innerHTML = `
               Kies andere optie 
               <img src="https://res.cloudinary.com/diwhc4afs/image/upload/v1756112959/material-symbols_change-circle-outline-rounded_kqyn8q.png" 
-                  alt="icon" style="width: 18px; height: 18px; vertical-align: middle; margin-left: 5px;">
+                  alt="icon" >
             `;
             }
             stock.insertAdjacentElement("afterend", btn);
