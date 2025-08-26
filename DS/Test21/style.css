@@ -1,9 +1,8 @@
-.gmd-001 .gmd-sticky-desk .stock-status {
+.gmd-001 .gmd-sticky-desk.scrolled .stock-status,
+.gmd-001 .gmd-sticky-desk.scrolled .gmd-sticky-inner p {
   display: none;
 }
-.gmd-001 .gmd-sticky-inner p {
-  display: none;
-}
+
 .gmd-001 #modal_addToCart .modal-dialog {
   display: none;
 }
@@ -11,17 +10,22 @@
 .gmd-sticky-inner h2 {
   white-space: nowrap;
   overflow: hidden;
-  /* text-overflow: ellipsis; */
+  text-overflow: ellipsis;
   max-width: 100%;
   display: block;
 }
 
-#gmd-primary-button {
-  left: 18%;
+.gmd-scrolled #gmd-primary-button {
+  /* left: 12%; */
+}
+
+.gmd-001 .product-name-minimal .stock-status {
+  margin-bottom: 8px;
 }
 .gmd-001 .open-bundle-modal {
   display: flex;
   gap: 4px;
+  margin-bottom: 16px;
   align-items: center;
 }
 .gmd-001 .open-bundle-modal img {
@@ -32,6 +36,8 @@
 .gmd-001 .gmd-check-icon {
   display: inline-block;
   opacity: 0;
+  height: 24px;
+  width: 24px;
   transform: scale(0.5) rotate(-20deg);
 }
 
@@ -69,6 +75,8 @@
   z-index: 945;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
 body.modal-open {
@@ -113,7 +121,10 @@ display: none;
 .gmd-001 .img-fluid {
   max-width: 100%;
   height: auto;
-  margin-top: -31px;
+  margin-top: -40px;
+}
+.gmd-001 .gmd-sticky-block .regular-price {
+  margin-top: 12px;
 }
 
 .gmd-001 .gmd-see-more-link {
@@ -126,6 +137,13 @@ display: none;
   font-weight: normal;
   padding: 0;
   display: inline-block;
+}
+.gmd-001 .product-price-add-to-cart {
+  padding-top: 16px;
+  margin-top: auto !important;
+  bottom: 0px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
 }
 
 /* Mobile */
@@ -140,17 +158,19 @@ display: none;
 
   .gmd-001 #gmd-primary-button {
     position: fixed;
-    bottom: 2px;
+    bottom: 0;
     left: 0;
     right: 0;
     z-index: 9999;
     width: 100%;
+    padding-top: 2px;
     text-align: center;
+    background-color: white;
   }
-
   .gmd-001 #gmd-primary-button .btn {
     width: 100%;
     border-radius: 60px;
+    background-color: #00a24d;
   }
 
   .gmd-001 .btn {

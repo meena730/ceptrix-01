@@ -130,7 +130,6 @@ if (document.body.classList.contains("product-bundlepage")) {
       const primaryButton = document.getElementById("gmd-primary-button");
       if (primaryButton && primaryButton.parentElement) {
         const stickyParent = primaryButton.parentElement;
-
         stickyParent.classList.add("gmd-sticky-desk");
 
         const secondChild = stickyParent.children[1];
@@ -141,16 +140,42 @@ if (document.body.classList.contains("product-bundlepage")) {
         const priceWrapper = stickyParent.querySelector(
           ".product-price-wrapper"
         );
-        if (priceWrapper && priceWrapper.parentElement) {
-          const priceParent = priceWrapper.parentElement;
+        const originalParent = priceWrapper?.parentElement || null;
+        const originalNextSibling = priceWrapper?.nextElementSibling || null;
 
-          priceParent.classList.add("gmd-sticky-block");
-
-          const stickyInner = stickyParent.querySelector(".gmd-sticky-inner");
-          if (stickyInner) {
-            stickyInner.appendChild(priceParent);
-          }
+        if (originalParent) {
+          priceWrapper.classList.add("gmd-sticky-block");
         }
+
+        const trigger = document.querySelector(".gmdstickydesk-head");
+
+        window.addEventListener("scroll", () => {
+          if (!trigger || !priceWrapper) return;
+
+          const rect = trigger.getBoundingClientRect();
+          const stickyInner = stickyParent.querySelector(".gmd-sticky-inner");
+
+          if (rect.bottom < 0) {
+            // onn DOWN
+            stickyParent.classList.add("scrolled");
+            document.body.classList.add("gmd-scrolled");
+
+            if (stickyInner && !stickyInner.contains(priceWrapper)) {
+              stickyInner.appendChild(priceWrapper);
+            }
+          } else {
+            stickyParent.classList.remove("scrolled");
+            document.body.classList.remove("gmd-scrolled");
+
+            if (originalParent && !originalParent.contains(priceWrapper)) {
+              if (originalNextSibling) {
+                originalParent.insertBefore(priceWrapper, originalNextSibling);
+              } else {
+                originalParent.appendChild(priceWrapper);
+              }
+            }
+          }
+        });
       }
 
       // Heading
