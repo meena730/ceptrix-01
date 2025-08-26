@@ -4,10 +4,14 @@
 .gmd-001 .gmd-sticky-inner p {
   display: none;
 }
+.gmd-001 #modal_addToCart .modal-dialog {
+  display: none;
+}
+
 .gmd-sticky-inner h2 {
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
   max-width: 100%;
   display: block;
 }
@@ -15,14 +19,44 @@
 #gmd-primary-button {
   left: 18%;
 }
+.gmd-001 .open-bundle-modal {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.gmd-001 .open-bundle-modal img {
+  margin-top: 2px;
+}
 
-/* .gmd-001 #gmd-bundle .col-xl-3 {
-  flex: 0 0 33%;
-  max-width: 33%;
-} */
+/* Animation */
+.gmd-001 .gmd-check-icon {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.5) rotate(-20deg);
+}
+
+.gmd-001 .gmd-check-icon.animate-in {
+  animation: popIn 0.4s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-20deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
 .gmd-001 #gmd-bundle .gmd-bundle-item {
-  flex: 0 0 33% !important;
-  max-width: 33% !important;
+  flex: 0 0 33.33% !important;
+  max-width: 33.33% !important;
 }
 
 .gmd-001 #chat-popup {
@@ -36,20 +70,27 @@
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
 }
+
 body.modal-open {
   overflow: auto !important;
   padding-right: 0 !important;
 }
 
-.gmd-001 .modal,
-.gmd-001 .modal-backdrop,
-.gmd-001 .modal.show,
-.gmd-001 .modal-backdrop.show {
-  display: block !important;
+.gmd-001.modal-disabled .modal,
+.gmd-001.modal-disabled .modal-backdrop,
+.gmd-001.modal-disabled .modal.show,
+.gmd-001.modal-disabled .modal-backdrop.show {
+  display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
+/* .gmd-001 .modal-body,
+ .gmd-001 .modal-header
+ .gmd-001 .modal-content p-1 p-md-3{
+display: none;
+ } */
+
 .gmd-check-icon {
   font-size: 24px;
   color: #28a745;
@@ -68,6 +109,11 @@ body.modal-open {
 .gmd-001 .see-more-btn-wrapper {
   text-align: center;
   margin-top: 10px;
+}
+.gmd-001 .img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-top: -31px;
 }
 
 .gmd-001 .gmd-see-more-link {
@@ -88,10 +134,13 @@ body.modal-open {
     flex: unset !important;
     max-width: unset !important;
   }
+  .gmd-001 .gmd-sticky-desk {
+    position: unset;
+  }
 
   .gmd-001 #gmd-primary-button {
     position: fixed;
-    bottom: 0;
+    bottom: 3px;
     left: 0;
     right: 0;
     z-index: 9999;
