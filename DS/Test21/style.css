@@ -90,6 +90,9 @@ flex-shrink: 0;
 .gmd-001 .product-card-minimal {
   padding: 16px !important;
 }
+.gmd-001 .product-card-minimal .product-name-minimal{
+  padding: 8px 0;
+}
 
 body.modal-open {
   overflow: auto !important;
