@@ -140,7 +140,7 @@ display: none;
 
   .gmd-001 #gmd-primary-button {
     position: fixed;
-    bottom: 3px;
+    bottom: 2px;
     left: 0;
     right: 0;
     z-index: 9999;
