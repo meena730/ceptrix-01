@@ -36,7 +36,10 @@ if (document.body.classList.contains("product-bundlepage")) {
             10000
           );
 
-          if (!button.classList.contains("gmd-checked")) {
+          if (
+            document.body.classList.contains("modal-open") &&
+            !button.classList.contains("gmd-checked")
+          ) {
             const originalContent = button.innerHTML;
 
             button.classList.remove("bg-success", "text-white");
@@ -45,12 +48,11 @@ if (document.body.classList.contains("product-bundlepage")) {
             const checkIcon = document.createElement("span");
             checkIcon.className = "gmd-check-icon animate-in";
             checkIcon.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 18 13" fill="none">
-      <path d="M6.54998 13.0001L0.849976 7.3001L2.27498 5.8751L6.54998 10.1501L15.725 0.975098L17.15 2.4001L6.54998 13.0001Z" fill="#28A745"/>
-    </svg>
-  `;
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="13" viewBox="0 0 18 13" fill="none">
+              <path d="M6.54998 13.0001L0.849976 7.3001L2.27498 5.8751L6.54998 10.1501L15.725 0.975098L17.15 2.4001L6.54998 13.0001Z" fill="#28A745"/>
+            </svg>
+          `;
             button.appendChild(checkIcon);
-
             button.classList.add("gmd-checked");
 
             setTimeout(() => {
@@ -121,66 +123,66 @@ if (document.body.classList.contains("product-bundlepage")) {
       });
 
       // DESK sticky bar & custom class
-      if (window.innerWidth >= 1024) {
-        const matchedElements = Array.from(
-          document.querySelectorAll(".main-container .page-title")
-        ).filter((el) => el.textContent.trim() === "Maak je aankoop compleet");
+ if (window.innerWidth >= 991) {
+  const matchedElements = Array.from(
+    document.querySelectorAll(".main-container .page-title")
+  ).filter((el) => el.textContent.trim() === "Maak je aankoop compleet");
 
-        matchedElements.forEach((el) => el.classList.add("gmdstickydesk-head"));
+  matchedElements.forEach((el) => el.classList.add("gmdstickydesk-head"));
 
-        const primaryButton = document.getElementById("gmd-primary-button");
-        if (primaryButton && primaryButton.parentElement) {
-          const stickyParent = primaryButton.parentElement;
-          stickyParent.classList.add("gmd-sticky-desk");
+  const primaryButton = document.getElementById("gmd-primary-button");
+  if (primaryButton && primaryButton.parentElement) {
+    const stickyParent = primaryButton.parentElement;
+    stickyParent.classList.add("gmd-sticky-desk");
 
-          const secondChild = stickyParent.children[1];
-          if (secondChild) {
-            secondChild.classList.add("gmd-sticky-inner");
+    const secondChild = stickyParent.children[1];
+    if (secondChild) {
+      secondChild.classList.add("gmd-sticky-inner");
+    }
+
+    const priceWrapper = stickyParent.querySelector(".product-price-wrapper");
+    const originalParent = priceWrapper?.parentElement || null;
+    const originalNextSibling = priceWrapper?.nextElementSibling || null;
+
+    if (originalParent) {
+      priceWrapper.classList.add("gmd-sticky-block");
+    }
+
+    const borderEl = document.createElement("div");
+    borderEl.classList.add("gmd-sticky-border");
+    stickyParent.appendChild(borderEl); 
+
+    const trigger = document.querySelector(".gmdstickydesk-head");
+
+    window.addEventListener("scroll", () => {
+      if (!trigger || !priceWrapper) return;
+
+      const rect = trigger.getBoundingClientRect();
+      const stickyInner = stickyParent.querySelector(".gmd-sticky-inner");
+
+      if (rect.bottom < 0) {
+        stickyParent.classList.add("scrolled");
+        document.body.classList.add("gmd-scrolled");
+
+        if (stickyInner && !stickyInner.contains(priceWrapper)) {
+          stickyInner.appendChild(priceWrapper);
+        }
+      } else {
+        stickyParent.classList.remove("scrolled");
+        document.body.classList.remove("gmd-scrolled");
+
+        if (originalParent && !originalParent.contains(priceWrapper)) {
+          if (originalNextSibling) {
+            originalParent.insertBefore(priceWrapper, originalNextSibling);
+          } else {
+            originalParent.appendChild(priceWrapper);
           }
-
-          const priceWrapper = stickyParent.querySelector(
-            ".product-price-wrapper"
-          );
-          const originalParent = priceWrapper?.parentElement || null;
-          const originalNextSibling = priceWrapper?.nextElementSibling || null;
-
-          if (originalParent) {
-            priceWrapper.classList.add("gmd-sticky-block");
-          }
-
-          const trigger = document.querySelector(".gmdstickydesk-head");
-
-          window.addEventListener("scroll", () => {
-            if (!trigger || !priceWrapper) return;
-
-            const rect = trigger.getBoundingClientRect();
-            const stickyInner = stickyParent.querySelector(".gmd-sticky-inner");
-
-            if (rect.bottom < 0) {
-              stickyParent.classList.add("scrolled");
-              document.body.classList.add("gmd-scrolled");
-
-              if (stickyInner && !stickyInner.contains(priceWrapper)) {
-                stickyInner.appendChild(priceWrapper);
-              }
-            } else {
-              stickyParent.classList.remove("scrolled");
-              document.body.classList.remove("gmd-scrolled");
-
-              if (originalParent && !originalParent.contains(priceWrapper)) {
-                if (originalNextSibling) {
-                  originalParent.insertBefore(
-                    priceWrapper,
-                    originalNextSibling
-                  );
-                } else {
-                  originalParent.appendChild(priceWrapper);
-                }
-              }
-            }
-          });
         }
       }
+    });
+  }
+}
+
 
       // Heading
       document
