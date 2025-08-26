@@ -75,13 +75,11 @@ flex-shrink: 0;
   background: white;
   z-index: 945;
   padding: 10px 0;
-  /* border-bottom: 1px solid #ddd; */
 }
 .gmd-001 .gmd-sticky-border {
     border-bottom: 2px solid #ddd;
-    /* max-width: 1526px; */
-    /* margin-top: -48px; */
-    margin-right: calc(-50vw + 50%);
+ 
+    margin-right: calc(-49vw + 50%);
     width: 100vw;
     margin-left: calc(-49vw + 50%);
     position: sticky;
