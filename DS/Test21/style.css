@@ -7,17 +7,14 @@
   display: none;
 }
 
-.gmd-sticky-inner h2 {
+.gmd-sticky-desk.scrolled .gmd-sticky-inner h2 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
-  display: block;
 }
 
-.gmd-scrolled #gmd-primary-button {
-  /* left: 12%; */
-}
+
 
 .gmd-001 .product-name-minimal .stock-status {
   margin-bottom: 8px;
@@ -71,12 +68,18 @@
 .gmd-001 .gmd-sticky-desk {
   position: sticky;
   top: 0;
+  max-width: 1513px;
+  width: 100vw;
+  margin: 0 auto;
   background: white;
   z-index: 945;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  display: flex;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  margin-left: calc(-49vw + 50%);
 }
 
 body.modal-open {
@@ -174,7 +177,8 @@ display: none;
   }
 
   .gmd-001 .btn {
-    padding: 0.375rem 0.95rem;
+    padding: 7px 13px;
+    font-size: 16px;
   }
 
   .gmd-001 .page-title {

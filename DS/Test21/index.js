@@ -121,61 +121,65 @@ if (document.body.classList.contains("product-bundlepage")) {
       });
 
       // DESK sticky bar & custom class
-      const matchedElements = Array.from(
-        document.querySelectorAll(".main-container .page-title")
-      ).filter((el) => el.textContent.trim() === "Maak je aankoop compleet");
+      if (window.innerWidth >= 1024) {
+        const matchedElements = Array.from(
+          document.querySelectorAll(".main-container .page-title")
+        ).filter((el) => el.textContent.trim() === "Maak je aankoop compleet");
 
-      matchedElements.forEach((el) => el.classList.add("gmdstickydesk-head"));
+        matchedElements.forEach((el) => el.classList.add("gmdstickydesk-head"));
 
-      const primaryButton = document.getElementById("gmd-primary-button");
-      if (primaryButton && primaryButton.parentElement) {
-        const stickyParent = primaryButton.parentElement;
-        stickyParent.classList.add("gmd-sticky-desk");
+        const primaryButton = document.getElementById("gmd-primary-button");
+        if (primaryButton && primaryButton.parentElement) {
+          const stickyParent = primaryButton.parentElement;
+          stickyParent.classList.add("gmd-sticky-desk");
 
-        const secondChild = stickyParent.children[1];
-        if (secondChild) {
-          secondChild.classList.add("gmd-sticky-inner");
-        }
+          const secondChild = stickyParent.children[1];
+          if (secondChild) {
+            secondChild.classList.add("gmd-sticky-inner");
+          }
 
-        const priceWrapper = stickyParent.querySelector(
-          ".product-price-wrapper"
-        );
-        const originalParent = priceWrapper?.parentElement || null;
-        const originalNextSibling = priceWrapper?.nextElementSibling || null;
+          const priceWrapper = stickyParent.querySelector(
+            ".product-price-wrapper"
+          );
+          const originalParent = priceWrapper?.parentElement || null;
+          const originalNextSibling = priceWrapper?.nextElementSibling || null;
 
-        if (originalParent) {
-          priceWrapper.classList.add("gmd-sticky-block");
-        }
+          if (originalParent) {
+            priceWrapper.classList.add("gmd-sticky-block");
+          }
 
-        const trigger = document.querySelector(".gmdstickydesk-head");
+          const trigger = document.querySelector(".gmdstickydesk-head");
 
-        window.addEventListener("scroll", () => {
-          if (!trigger || !priceWrapper) return;
+          window.addEventListener("scroll", () => {
+            if (!trigger || !priceWrapper) return;
 
-          const rect = trigger.getBoundingClientRect();
-          const stickyInner = stickyParent.querySelector(".gmd-sticky-inner");
+            const rect = trigger.getBoundingClientRect();
+            const stickyInner = stickyParent.querySelector(".gmd-sticky-inner");
 
-          if (rect.bottom < 0) {
-            // onn DOWN
-            stickyParent.classList.add("scrolled");
-            document.body.classList.add("gmd-scrolled");
+            if (rect.bottom < 0) {
+              stickyParent.classList.add("scrolled");
+              document.body.classList.add("gmd-scrolled");
 
-            if (stickyInner && !stickyInner.contains(priceWrapper)) {
-              stickyInner.appendChild(priceWrapper);
-            }
-          } else {
-            stickyParent.classList.remove("scrolled");
-            document.body.classList.remove("gmd-scrolled");
+              if (stickyInner && !stickyInner.contains(priceWrapper)) {
+                stickyInner.appendChild(priceWrapper);
+              }
+            } else {
+              stickyParent.classList.remove("scrolled");
+              document.body.classList.remove("gmd-scrolled");
 
-            if (originalParent && !originalParent.contains(priceWrapper)) {
-              if (originalNextSibling) {
-                originalParent.insertBefore(priceWrapper, originalNextSibling);
-              } else {
-                originalParent.appendChild(priceWrapper);
+              if (originalParent && !originalParent.contains(priceWrapper)) {
+                if (originalNextSibling) {
+                  originalParent.insertBefore(
+                    priceWrapper,
+                    originalNextSibling
+                  );
+                } else {
+                  originalParent.appendChild(priceWrapper);
+                }
               }
             }
-          }
-        });
+          });
+        }
       }
 
       // Heading
