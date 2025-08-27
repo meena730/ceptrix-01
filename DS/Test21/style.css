@@ -1,3 +1,7 @@
+body {
+  font-family: "Source Sans Pro";
+}
+
 .gmd-001 .gmd-sticky-desk.scrolled .stock-status,
 .gmd-001 .gmd-sticky-desk.scrolled .gmd-sticky-inner p {
   display: none;
@@ -79,9 +83,9 @@ flex-shrink: 0;
 .gmd-001 .gmd-sticky-border {
     border-bottom: 2px solid #ddd;
  
-    margin-right: calc(-49vw + 50%);
+    margin-right: calc(-50vw + 50%);
     width: 100vw;
-    margin-left: calc(-49vw + 50%);
+    margin-left: calc(-50vw + 50%);
     position: sticky;
     margin-top: 10px;
 }
@@ -133,9 +137,10 @@ body.modal-open {
   margin-top: 10px;
 }
 .gmd-001 .img-fluid {
-  max-width: 100%;
-  height: auto;
-  margin-top: -26px;
+ max-width: 100%;
+    height: 92px;
+    /* margin-top: -26px; */
+    object-fit: fill;
 }
 .gmd-001 .gmd-sticky-block .regular-price {
   margin-top: 12px;
