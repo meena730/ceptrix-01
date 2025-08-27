@@ -89,7 +89,9 @@ flex-shrink: 0;
     position: sticky;
     margin-top: 10px;
 }
-
+.gmd-001 .main-container{
+margin-top:2rem !important;
+}
 
 .gmd-001 .product-card-minimal {
   padding: 16px !important;
