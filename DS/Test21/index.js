@@ -122,14 +122,10 @@ if (document.body.classList.contains("product-bundlepage")) {
 
       // DESK sticky bar & custom class
       if (window.innerWidth >= 991) {
-        const matchedElements = Array.from(
-          document.querySelectorAll(".main-container .page-title")
-        ).filter((el) => el.textContent.trim() === "Maak je aankoop compleet");
-
-        matchedElements.forEach((el) => el.classList.add("gmdstickydesk-head"));
-
         const primaryButton = document.getElementById("gmd-primary-button");
-        if (primaryButton && primaryButton.parentElement) {
+        const mainContainer = document.querySelector(".main-container");
+
+        if (primaryButton && primaryButton.parentElement && mainContainer) {
           const stickyParent = primaryButton.parentElement;
           stickyParent.classList.add("gmd-sticky-desk");
 
@@ -141,10 +137,7 @@ if (document.body.classList.contains("product-bundlepage")) {
           const priceWrapper = stickyParent.querySelector(
             ".product-price-wrapper"
           );
-          const originalParent = priceWrapper?.parentElement || null;
-          const originalNextSibling = priceWrapper?.nextElementSibling || null;
-
-          if (originalParent) {
+          if (priceWrapper) {
             priceWrapper.classList.add("gmd-sticky-block");
           }
 
@@ -152,39 +145,104 @@ if (document.body.classList.contains("product-bundlepage")) {
           borderEl.classList.add("gmd-sticky-border");
           stickyParent.appendChild(borderEl);
 
-          const trigger = document.querySelector(".gmdstickydesk-head");
+          const newSticky = document.createElement("div");
+          newSticky.className = "gmd-custom-sticky-bar";
+          newSticky.id = "gmd-custom-sticky-bar";
+          newSticky.style.display = "none";
+          newSticky.style.transform = "translateY(-100%)";
+          newSticky.style.transition = "transform 0.3s ease";
 
-          window.addEventListener("scroll", () => {
-            if (!trigger || !priceWrapper) return;
+          const col1 = stickyParent.children[0];
+          const col2 = stickyParent.querySelector(".gmd-sticky-inner");
+          const col3 = stickyParent.children[2];
 
-            const rect = trigger.getBoundingClientRect();
-            const stickyInner = stickyParent.querySelector(".gmd-sticky-inner");
+          const col4 = stickyParent.querySelector("#gmd-primary-button");
 
-            if (rect.bottom < 0) {
-              stickyParent.classList.add("scrolled");
-              document.body.classList.add("gmd-scrolled");
+          if (col1 && col2 && col4) {
+            const col2Clone = col2.cloneNode(true);
+            const pTag = col2Clone.querySelector("p");
+            if (pTag) pTag.remove();
 
-              if (stickyInner && !stickyInner.contains(priceWrapper)) {
-                stickyInner.appendChild(priceWrapper);
-              }
-            } else {
-              stickyParent.classList.remove("scrolled");
-              document.body.classList.remove("gmd-scrolled");
+            const col1Clone = col1.cloneNode(true);
+            col1Clone.classList.add("gmd-sticky-img-wrap");
 
-              if (originalParent && !originalParent.contains(priceWrapper)) {
-                if (originalNextSibling) {
-                  originalParent.insertBefore(
-                    priceWrapper,
-                    originalNextSibling
-                  );
-                } else {
-                  originalParent.appendChild(priceWrapper);
-                }
+            col2Clone.classList.add("gmd-sticky-title-wrap");
+
+            const col3Clone = col3 ? col3.cloneNode(true) : null;
+            if (col3Clone) col3Clone.classList.add("gmd-sticky-empty-space");
+
+            const col4Clone = col4.cloneNode(true);
+            col4Clone.classList.add("gmd-sticky-btn-wrap");
+
+            const rowWrapper = document.createElement("div");
+            rowWrapper.className = "row gmd-custom-sticky-row";
+
+            rowWrapper.appendChild(col1Clone);
+            rowWrapper.appendChild(col2Clone);
+            if (col3Clone) rowWrapper.appendChild(col3Clone);
+            rowWrapper.appendChild(col4Clone);
+
+            const customBorder = document.createElement("div");
+            customBorder.className = "gmd-sticky-border";
+
+            newSticky.appendChild(rowWrapper);
+            newSticky.appendChild(customBorder);
+
+            mainContainer.appendChild(newSticky);
+
+            let stickyVisible = false;
+
+            function onScroll() {
+              const buttonRect = primaryButton.getBoundingClientRect();
+
+              if (buttonRect.bottom < 0 && !stickyVisible) {
+                stickyVisible = true;
+                newSticky.style.display = "block";
+                requestAnimationFrame(() => {
+                  newSticky.style.transform = "translateY(0)";
+                });
+              } else if (buttonRect.bottom >= 0 && stickyVisible) {
+                stickyVisible = false;
+                newSticky.style.transform = "translateY(-100%)";
+
+                setTimeout(() => {
+                  if (!stickyVisible) {
+                    newSticky.style.display = "none";
+                  }
+                }, 300);
               }
             }
-          });
+
+            window.addEventListener("scroll", onScroll);
+            onScroll();
+          }
         }
       }
+
+      // animation
+      document
+        .querySelectorAll(
+          ".main-container .bundle-list .product-price-add-to-cart button[type='button']"
+        )
+        .forEach((btn) => {
+          let parent = btn.closest(".gmd-button-parent");
+
+          if (!parent) {
+            const currentParent = btn.parentElement;
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("gmd-button-parent");
+            currentParent.insertBefore(wrapper, btn);
+            wrapper.appendChild(btn);
+            parent = wrapper;
+          }
+
+          btn.addEventListener("click", () => {
+            parent.classList.add("gmd-click-animate");
+            setTimeout(() => {
+              parent.classList.remove("gmd-click-animate");
+            }, 1000);
+          });
+        });
 
       // Heading
       document
